@@ -1,34 +1,39 @@
-name: Deploy site
+name: Deploy VPS
 
 on:
   push:
-    branches: [main, master]
+    branches:
+      - main
+      - master
   workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: true
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Deploy over SSH
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST || vars.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER || vars.VPS_USER }}
+          VPS_PORT: ${{ secrets.VPS_PORT || vars.VPS_PORT }}
+          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH || vars.DEPLOY_PATH }}
+          DEPLOY_REF: origin/${{ github.ref_name }}
+        run: |
+          set -eu
+          : "${VPS_HOST:?Configure VPS_HOST in repository secrets or variables}"
+          : "${VPS_SSH_KEY:?Configure VPS_SSH_KEY in repository secrets}"
 
-      - name: Upload site
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
+          USER="${VPS_USER:-root}"
+          PORT="${VPS_PORT:-22}"
+          APP_DIR="${DEPLOY_PATH:-/var/www/faruk}"
 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          mkdir -p ~/.ssh
+          printf '%s\n' "$VPS_SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+
+          ssh -i ~/.ssh/deploy_key \
+            -p "$PORT" \
+            -o StrictHostKeyChecking=accept-new \
+            "$USER@$VPS_HOST" \
+            "APP_DIR='$APP_DIR' DEPLOY_REF='$DEPLOY_REF' sh '$APP_DIR/scripts/deploy-vps.sh'"
