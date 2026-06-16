@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 set -eu
 
-APP_DIR="${APP_DIR:-/var/www/faruk}"
+APP_DIR="${APP_DIR:-/opt/faruk}"
 DEPLOY_REF="${DEPLOY_REF:-origin/main}"
 
 cd "$APP_DIR"

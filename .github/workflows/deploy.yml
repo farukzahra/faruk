@@ -26,7 +26,7 @@ jobs:
 
           USER="${VPS_USER:-root}"
           PORT="${VPS_PORT:-22}"
-          APP_DIR="${DEPLOY_PATH:-/var/www/faruk}"
+          APP_DIR="${DEPLOY_PATH:-/opt/faruk}"
 
           mkdir -p ~/.ssh
           printf '%s\n' "$VPS_SSH_KEY" > ~/.ssh/deploy_key
