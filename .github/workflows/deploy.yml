@@ -19,13 +19,21 @@ jobs:
           VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
           DEPLOY_PATH: ${{ secrets.DEPLOY_PATH || vars.DEPLOY_PATH }}
           DEPLOY_REF: origin/${{ github.ref_name }}
+          GMAIL_USER: ${{ secrets.GMAIL_USER || 'farukz@gmail.com' }}
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
+          PORT: ${{ vars.PORT || '3000' }}
         run: |
           set -eu
           : "${VPS_HOST:?Configure VPS_HOST in repository secrets or variables}"
           : "${VPS_SSH_KEY:?Configure VPS_SSH_KEY in repository secrets}"
+          : "${GOOGLE_CLIENT_ID:?Configure GOOGLE_CLIENT_ID in repository secrets}"
+          : "${GOOGLE_CLIENT_SECRET:?Configure GOOGLE_CLIENT_SECRET in repository secrets}"
+          : "${GOOGLE_REFRESH_TOKEN:?Configure GOOGLE_REFRESH_TOKEN in repository secrets}"
 
           USER="${VPS_USER:-root}"
-          PORT="${VPS_PORT:-22}"
+          PORT_SSH="${VPS_PORT:-22}"
           APP_DIR="${DEPLOY_PATH:-/opt/faruk}"
 
           mkdir -p ~/.ssh
@@ -33,7 +41,7 @@ jobs:
           chmod 600 ~/.ssh/deploy_key
 
           ssh -i ~/.ssh/deploy_key \
-            -p "$PORT" \
+            -p "$PORT_SSH" \
             -o StrictHostKeyChecking=accept-new \
             "$USER@$VPS_HOST" \
-            "APP_DIR='$APP_DIR' DEPLOY_REF='$DEPLOY_REF' sh '$APP_DIR/scripts/deploy-vps.sh'"
+            "APP_DIR='$APP_DIR' DEPLOY_REF='$DEPLOY_REF' GMAIL_USER='$GMAIL_USER' GOOGLE_CLIENT_ID='$GOOGLE_CLIENT_ID' GOOGLE_CLIENT_SECRET='$GOOGLE_CLIENT_SECRET' GOOGLE_REFRESH_TOKEN='$GOOGLE_REFRESH_TOKEN' PORT='$PORT' sh '$APP_DIR/scripts/deploy-vps.sh'"

@@ -20,7 +20,6 @@
         <a href="mailto:farukz@gmail.com"><i class="fa-solid fa-envelope"></i> farukz@gmail.com</a>
         <span><i class="fa-solid fa-location-dot"></i> Curitiba, PR, Brazil</span>
         <a href="https://linkedin.com/in/farukz" target="_blank" rel="noreferrer"><i class="fa-brands fa-linkedin"></i> linkedin.com/in/farukz</a>
-        <a class="download-pdf" href="assets/Faruk Zahra - CV - Resume.pdf" download="Faruk Zahra - CV - Resume.pdf"><i class="fa-solid fa-file-pdf"></i> Download PDF</a>
       </div>
     </header>
 
@@ -45,6 +44,11 @@
     <aside class="sidebar resume-sidebar">
       <div class="profile-photo">
         <img src="assets/profile.jpg" alt="Faruk Zahra">
+      </div>
+
+      <div class="resume-actions">
+        <a class="download-pdf" href="assets/Faruk Zahra - CV - Resume.pdf" download="Faruk Zahra - CV - Resume.pdf" title="Download PDF" aria-label="Download PDF"><i class="fa-solid fa-file-pdf"></i></a>
+        <button type="button" class="send-resume" id="send-resume-btn" title="Enviar Currículo" aria-label="Enviar Currículo"><i class="fa-solid fa-paper-plane"></i></button>
       </div>
 
       <section class="sidebar-section sidebar-section--skills">
@@ -182,5 +186,33 @@
       </div>
     </section>
   </div>
+
+  <dialog class="send-dialog" id="send-dialog">
+    <form method="dialog" class="send-dialog__form" id="send-form">
+      <h2><i class="fa-solid fa-paper-plane"></i> Enviar Currículo</h2>
+      <p class="send-dialog__hint">
+        Informe o e-mail do destinatário. O currículo será enviado de <strong>farukz@gmail.com</strong> com PDF anexo.
+      </p>
+      <label class="send-dialog__label" for="recipient-email">E-mail do destinatário</label>
+      <input
+        type="email"
+        id="recipient-email"
+        name="recipient-email"
+        class="send-dialog__input"
+        placeholder="recruiter@company.com"
+        required
+        autocomplete="email"
+      >
+      <p class="send-dialog__status" id="send-status" hidden></p>
+      <div class="send-dialog__actions">
+        <button type="button" class="send-dialog__cancel" id="send-cancel">Cancelar</button>
+        <button type="submit" class="send-dialog__submit" id="send-submit">
+          <i class="fa-solid fa-paper-plane"></i> Enviar
+        </button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
 </body>
 </html>

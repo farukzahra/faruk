@@ -8,13 +8,62 @@ Não invente padrões novos. Reutilize classes, variáveis e blocos já definido
 
 ---
 
+## Instruções do usuário (atualizar sempre)
+
+**Sempre que o usuário der uma ordem nova**, registrar nesta seção antes de encerrar a tarefa.
+
+| Ordem | O que fazer |
+|---|---|
+| **Enviar Currículo** | Ícone avião → dialog → API `/api/send-resume` via **Gmail API**. Remetente: `farukz@gmail.com`. Local: `.env` + `npm run google:auth`. Produção: secrets no GitHub. |
+| **"Commita" / pedido de commit** | Commitar **tudo** que estiver pendente + **push** para `origin/main` (dispara deploy). Mensagem em Conventional Commits, **em inglês** |
+| **Deploy** | Push em `main` → GitHub Actions → VPS `/opt/faruk` → https://faruk.dev.br |
+
+---
+
 ## Arquivos
 
 | Arquivo | Função |
 |---|---|
 | `index.html` | Estrutura do currículo (ordem do DOM = ordem mobile) |
 | `styles.css` | Único stylesheet — todo padrão visual está aqui |
+| `app.js` | Dialog + POST `/api/send-resume` |
+| `lib/gmail.js` | Gmail API (OAuth refresh token) |
+| `server.js` | Express estático + API de e-mail |
+| `scripts/google-auth.js` | Autorização OAuth local (`npm run google:auth`) |
+| `scripts/deploy-vps.sh` | Deploy VPS + `.env` + restart Node |
+| `package.json` | Dependências Node (`npm start`) |
+| `.env` | Credenciais locais (não commitar) |
 | `assets/` | Foto, PDF, imagens |
+
+---
+
+## Gmail API
+
+### Google Cloud (uma vez)
+
+1. Enable **Gmail API**
+2. OAuth client: **Web application**
+3. Redirect URI: `http://localhost:3333/oauth2callback`
+4. OAuth consent screen → **Test users** → `farukz@gmail.com`
+
+### Local
+
+```bash
+cp .env.example .env   # preencher CLIENT_ID e SECRET
+npm run google:auth    # gera GOOGLE_REFRESH_TOKEN no .env
+npm start
+```
+
+### GitHub Secrets (produção)
+
+| Secret | Valor |
+|---|---|
+| `GOOGLE_CLIENT_ID` | Client ID do Google Cloud |
+| `GOOGLE_CLIENT_SECRET` | Client Secret |
+| `GOOGLE_REFRESH_TOKEN` | Token do `npm run google:auth` |
+| `GMAIL_USER` | `farukz@gmail.com` (opcional) |
+
+Deploy escreve `.env` na VPS e reinicia Node (pm2 ou nohup).
 
 ---
 

@@ -120,14 +120,23 @@ def main() -> int:
     deploy_path = prompt("DEPLOY_PATH", default="/var/www/faruk")
     vps_ssh_key = prompt("VPS_SSH_KEY", secret=True)
 
+    google_client_id = prompt("GOOGLE_CLIENT_ID")
+    google_client_secret = prompt("GOOGLE_CLIENT_SECRET", secret=True)
+    google_refresh_token = prompt("GOOGLE_REFRESH_TOKEN", secret=True)
+    gmail_user = prompt("GMAIL_USER", default="farukz@gmail.com")
+
     required = {
         "VPS_HOST": vps_host,
         "VPS_SSH_KEY": vps_ssh_key,
+        "GOOGLE_CLIENT_ID": google_client_id,
+        "GOOGLE_CLIENT_SECRET": google_client_secret,
+        "GOOGLE_REFRESH_TOKEN": google_refresh_token,
     }
     optional = {
         "VPS_USER": vps_user,
         "VPS_PORT": vps_port,
         "DEPLOY_PATH": deploy_path,
+        "GMAIL_USER": gmail_user,
     }
 
     for name, value in required.items():
