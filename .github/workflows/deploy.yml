@@ -64,4 +64,4 @@ jobs:
             -p "$PORT_SSH" \
             -o StrictHostKeyChecking=accept-new \
             "$USER@$VPS_HOST" \
-            "APP_DIR='$APP_DIR' DEPLOY_REF='$DEPLOY_REF' GMAIL_USER='$GMAIL_USER' GOOGLE_CLIENT_ID='$GOOGLE_CLIENT_ID' GOOGLE_CLIENT_SECRET='$GOOGLE_CLIENT_SECRET' GOOGLE_REFRESH_TOKEN='$GOOGLE_REFRESH_TOKEN' PORT='$PORT' sh '$APP_DIR/scripts/deploy-vps.sh'"
+            "cd '$APP_DIR' && git fetch --all --prune && git reset --hard '$DEPLOY_REF' && APP_DIR='$APP_DIR' DEPLOY_REF='$DEPLOY_REF' GMAIL_USER='$GMAIL_USER' GOOGLE_CLIENT_ID='$GOOGLE_CLIENT_ID' GOOGLE_CLIENT_SECRET='$GOOGLE_CLIENT_SECRET' GOOGLE_REFRESH_TOKEN='$GOOGLE_REFRESH_TOKEN' PORT='$PORT' sh scripts/deploy-vps.sh"

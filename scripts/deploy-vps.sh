@@ -7,8 +7,21 @@ PORT="${PORT:-3000}"
 
 cd "$APP_DIR"
 
-git fetch --all --prune
-git reset --hard "$DEPLOY_REF"
+ensure_node() {
+  if command -v npm >/dev/null 2>&1; then
+    return 0
+  fi
+
+  echo "Installing npm on VPS..."
+  export DEBIAN_FRONTEND=noninteractive
+  apt-get update
+  apt-get install -y npm
+
+  if ! command -v npm >/dev/null 2>&1; then
+    echo "npm still not found after apt-get install" >&2
+    exit 127
+  fi
+}
 
 cat > .env <<EOF
 GMAIL_USER=${GMAIL_USER:-farukz@gmail.com}
@@ -18,10 +31,7 @@ GOOGLE_REFRESH_TOKEN=${GOOGLE_REFRESH_TOKEN}
 PORT=${PORT}
 EOF
 
-if ! command -v npm >/dev/null 2>&1; then
-  apt-get update
-  DEBIAN_FRONTEND=noninteractive apt-get install -y npm
-fi
+ensure_node
 
 npm ci --omit=dev
 npm ci --prefix frontend
