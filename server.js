@@ -7,8 +7,9 @@ const { getEmailConfigError, isEmailConfigured, sendResumeEmail } = require("./l
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-
-const PDF_PATH = path.join(__dirname, "assets", "Faruk Zahra - CV - Resume.pdf");
+const DIST_DIR = path.join(__dirname, "frontend", "dist");
+const PDF_PUBLIC = path.join(__dirname, "frontend", "public", "assets", "Faruk Zahra - CV - Resume.pdf");
+const PDF_DIST = path.join(DIST_DIR, "assets", "Faruk Zahra - CV - Resume.pdf");
 const PDF_FILENAME = "Faruk Zahra - CV - Resume.pdf";
 
 const DEFAULT_SUBJECT = "Application for an Open Position";
@@ -25,8 +26,13 @@ Thank you for your time and consideration.
 Best regards,
 Faruk Zahra`;
 
+function resolvePdfPath() {
+  if (fs.existsSync(PDF_DIST)) return PDF_DIST;
+  if (fs.existsSync(PDF_PUBLIC)) return PDF_PUBLIC;
+  return null;
+}
+
 app.use(express.json());
-app.use(express.static(__dirname));
 
 app.post("/api/send-resume", async (req, res) => {
   const { to } = req.body || {};
@@ -35,7 +41,8 @@ app.post("/api/send-resume", async (req, res) => {
     return res.status(400).json({ error: "Invalid recipient email address." });
   }
 
-  if (!fs.existsSync(PDF_PATH)) {
+  const pdfPath = resolvePdfPath();
+  if (!pdfPath) {
     return res.status(500).json({ error: "Resume PDF not found on server." });
   }
 
@@ -48,7 +55,7 @@ app.post("/api/send-resume", async (req, res) => {
       to,
       subject: DEFAULT_SUBJECT,
       body: DEFAULT_BODY,
-      pdfPath: PDF_PATH,
+      pdfPath,
       attachmentFilename: PDF_FILENAME,
     });
 
@@ -62,6 +69,16 @@ app.post("/api/send-resume", async (req, res) => {
     res.status(500).json({ error: "Failed to send email. Check server logs." });
   }
 });
+
+if (fs.existsSync(DIST_DIR)) {
+  app.use(express.static(DIST_DIR));
+  app.get("*", (req, res, next) => {
+    if (req.path.startsWith("/api")) return next();
+    res.sendFile(path.join(DIST_DIR, "index.html"));
+  });
+} else {
+  console.warn("frontend/dist not found — run: npm run build");
+}
 
 app.listen(PORT, () => {
   console.log(`Resume site running at http://localhost:${PORT}`);

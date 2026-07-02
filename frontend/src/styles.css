@@ -258,122 +258,6 @@ body {
   }
 }
 
-/* ── Send resume dialog ── */
-
-.send-dialog {
-  width: min(calc(360px * var(--scale)), 92vw);
-  max-width: 92vw;
-  padding: 0;
-  border: calc(1px * var(--scale)) solid var(--border);
-  border-radius: calc(8px * var(--scale));
-  box-shadow: 0 calc(8px * var(--scale)) calc(32px * var(--scale)) rgba(0, 0, 0, 0.18);
-}
-
-.send-dialog::backdrop {
-  background: rgba(26, 61, 99, 0.45);
-}
-
-.send-dialog__form {
-  padding: calc(24px * var(--scale));
-}
-
-.send-dialog__form h2 {
-  margin: 0 0 calc(12px * var(--scale));
-  font-size: calc(14px * var(--scale));
-  color: var(--navy-dark);
-}
-
-.send-dialog__form h2 i {
-  margin-right: calc(6px * var(--scale));
-  color: var(--navy-light);
-}
-
-.send-dialog__hint {
-  margin: 0 0 calc(16px * var(--scale));
-  font-size: calc(10.5px * var(--scale));
-  color: var(--text-muted);
-  line-height: 1.5;
-}
-
-.send-dialog__label {
-  display: block;
-  margin-bottom: calc(6px * var(--scale));
-  font-size: calc(10px * var(--scale));
-  font-weight: 600;
-  color: var(--text-dark);
-}
-
-.send-dialog__input {
-  width: 100%;
-  padding: calc(10px * var(--scale)) calc(12px * var(--scale));
-  margin-bottom: calc(12px * var(--scale));
-  border: calc(1px * var(--scale)) solid var(--border);
-  border-radius: calc(4px * var(--scale));
-  font: inherit;
-  font-size: calc(10.5px * var(--scale));
-}
-
-.send-dialog__input:focus {
-  outline: none;
-  border-color: var(--navy-light);
-  box-shadow: 0 0 0 calc(2px * var(--scale)) rgba(61, 122, 184, 0.25);
-}
-
-.send-dialog__status {
-  margin: 0 0 calc(12px * var(--scale));
-  font-size: calc(10px * var(--scale));
-  font-weight: 600;
-}
-
-.send-dialog__status--success {
-  color: #1a7a3a;
-}
-
-.send-dialog__status--error {
-  color: #b42318;
-}
-
-.send-dialog__actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: calc(10px * var(--scale));
-}
-
-.send-dialog__cancel,
-.send-dialog__submit {
-  padding: calc(8px * var(--scale)) calc(16px * var(--scale));
-  border-radius: calc(4px * var(--scale));
-  font: inherit;
-  font-size: calc(10.5px * var(--scale));
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.send-dialog__cancel {
-  border: calc(1px * var(--scale)) solid var(--border);
-  background: #fff;
-  color: var(--text-muted);
-}
-
-.send-dialog__cancel:hover {
-  background: #f5f7fa;
-}
-
-.send-dialog__submit {
-  border: none;
-  background: var(--navy-light);
-  color: #fff;
-}
-
-.send-dialog__submit:hover:not(:disabled) {
-  background: var(--navy-dark);
-}
-
-.send-dialog__submit:disabled {
-  opacity: 0.7;
-  cursor: wait;
-}
-
 /* ── Sections (shared) ── */
 
 .main-section,
@@ -675,6 +559,14 @@ body {
   margin: 0;
   font-size: calc(10px * var(--scale));
   color: var(--text-muted);
+}
+
+.v-application {
+  background: #e8edf2 !important;
+}
+
+.v-application__wrap {
+  min-height: 100vh;
 }
 
 /* ── Print ── */

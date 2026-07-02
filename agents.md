@@ -4,7 +4,9 @@ Guia para agentes/IA que editam este projeto. **Leia antes de alterar CSS ou lay
 
 ## Regra principal
 
-Não invente padrões novos. Reutilize classes, variáveis e blocos já definidos em `styles.css`. Se precisar de algo diferente, estenda o padrão existente e documente aqui.
+Não invente padrões novos. Reutilize classes, variáveis e blocos já definidos em `frontend/src/styles.css`. Se precisar de algo diferente, estenda o padrão existente e documente aqui.
+
+Stack completa: **`docs/ARQUITETURA.md`** (Vue 3 + Vuetify + Express).
 
 ---
 
@@ -16,7 +18,7 @@ Não invente padrões novos. Reutilize classes, variáveis e blocos já definido
 |---|---|
 | **Enviar Currículo** | Ícone avião → dialog → API `/api/send-resume` via **Gmail API**. Remetente: `farukz@gmail.com`. Local: `.env` + `npm run google:auth`. Produção: secrets no GitHub. |
 | **"Commita" / pedido de commit** | Commitar **tudo** que estiver pendente + **push** para `origin/main` (dispara deploy). Mensagem em Conventional Commits, **em inglês** |
-| **Deploy** | Push em `main` → GitHub Actions → VPS `/opt/faruk` → https://faruk.dev.br |
+| **Migrar para Vue 3** | Seguir `docs/ARQUITETURA.md` — Vue 3 + Vuetify + Express; Caddy `reverse_proxy` :3000 |
 
 ---
 
@@ -24,16 +26,18 @@ Não invente padrões novos. Reutilize classes, variáveis e blocos já definido
 
 | Arquivo | Função |
 |---|---|
-| `index.html` | Estrutura do currículo (ordem do DOM = ordem mobile) |
-| `styles.css` | Único stylesheet — todo padrão visual está aqui |
-| `app.js` | Dialog + POST `/api/send-resume` |
+| `frontend/src/views/ResumeView.vue` | Estrutura do currículo (ordem do DOM = ordem mobile) |
+| `frontend/src/styles.css` | Único stylesheet — todo padrão visual está aqui |
+| `frontend/src/components/SendResumeDialog.vue` | Dialog Vuetify + POST `/api/send-resume` |
+| `frontend/src/lib/api.ts` | Cliente axios |
+| `frontend/src/plugins/vuetify.ts` | Tema Vuetify `faruk` |
 | `lib/gmail.js` | Gmail API (OAuth refresh token) |
-| `server.js` | Express estático + API de e-mail |
+| `server.js` | Express: serve `frontend/dist` + API |
 | `scripts/google-auth.js` | Autorização OAuth local (`npm run google:auth`) |
-| `scripts/deploy-vps.sh` | Deploy VPS + `.env` + restart Node |
-| `package.json` | Dependências Node (`npm start`) |
+| `scripts/deploy-vps.sh` | Deploy VPS + build + Caddy + PM2 |
+| `package.json` | Scripts raiz (`npm run dev`, `npm start`) |
 | `.env` | Credenciais locais (não commitar) |
-| `assets/` | Foto, PDF, imagens |
+| `frontend/public/assets/` | Foto, PDF, imagens |
 
 ---
 
@@ -51,7 +55,8 @@ Não invente padrões novos. Reutilize classes, variáveis e blocos já definido
 ```bash
 cp .env.example .env   # preencher CLIENT_ID e SECRET
 npm run google:auth    # gera GOOGLE_REFRESH_TOKEN no .env
-npm start
+npm run build          # frontend/dist
+npm start              # ou npm run dev (Vite :5173 + API :3000)
 ```
 
 ### GitHub Secrets (produção)
@@ -63,7 +68,7 @@ npm start
 | `GOOGLE_REFRESH_TOKEN` | Token do `npm run google:auth` |
 | `GMAIL_USER` | `farukz@gmail.com` (opcional) |
 
-Deploy escreve `.env` na VPS e reinicia Node (pm2 ou nohup).
+Deploy escreve `.env`, roda `npm run build`, reinicia PM2 e configura Caddy `reverse_proxy` → `:3000`.
 
 ---
 
@@ -196,7 +201,7 @@ Apenas reset de fundo/sombra em `@media print`. **Sem** `page-break-before/after
 
 ## Checklist antes de commitar CSS
 
-- [ ] Li `styles.css` e este `agents.md`  
+- [ ] Li `frontend/src/styles.css` e este `agents.md`  
 - [ ] Reutilizei variáveis e classes existentes  
 - [ ] Separadores = `border-bottom` padrão de seção  
 - [ ] Breakpoint 821px respeitado  

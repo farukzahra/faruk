@@ -8,8 +8,28 @@ on:
   workflow_dispatch:
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            frontend/package-lock.json
+
+      - name: Install and build frontend
+        run: |
+          npm ci
+          npm ci --prefix frontend
+          npm run build --prefix frontend
+
   deploy:
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - name: Deploy over SSH
         env:
