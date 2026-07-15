@@ -522,6 +522,22 @@ body {
   margin-bottom: 0;
 }
 
+.timeline-content ul {
+  margin: 0;
+  padding-left: calc(16px * var(--scale));
+}
+
+.timeline-content li {
+  margin: 0 0 calc(5px * var(--scale));
+  font-size: calc(10.5px * var(--scale));
+  color: var(--text-muted);
+  overflow-wrap: anywhere;
+}
+
+.timeline-content li:last-child {
+  margin-bottom: 0;
+}
+
 /* ── Previous Roles ── */
 
 .roles-grid {
@@ -569,15 +585,131 @@ body {
   min-height: 100vh;
 }
 
-/* ── Print ── */
+/* ── Print (desktop layout @ scale 1 — used by Playwright PDF) ── */
 
 @media print {
+  :root {
+    --scale: 1;
+    --sidebar-width: 240px;
+    --photo-size: 120px;
+    --page-pad-x: 20px;
+    --page-pad-y: 24px;
+  }
+
   body {
-    background: #fff;
+    background: #fff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .v-application {
+    background: #fff !important;
+  }
+
+  .resume-actions,
+  .v-overlay-container {
+    display: none !important;
   }
 
   .resume {
-    box-shadow: none;
+    display: grid;
+    width: 100%;
     max-width: none;
+    min-height: auto;
+    margin: 0;
+    box-shadow: none;
+    padding: 0;
+    grid-template-columns: var(--sidebar-width) 1fr;
+    grid-template-areas:
+      "sidebar header"
+      "sidebar summary"
+      "sidebar experience"
+      "sidebar education"
+      "sidebar roles";
+  }
+
+  .resume-header { grid-area: header; }
+  .resume-summary { grid-area: summary; }
+  .resume-sidebar { grid-area: sidebar; }
+  .resume-experience { grid-area: experience; }
+  .resume-education { grid-area: education; }
+  .resume-roles { grid-area: roles; }
+
+  .header {
+    padding:
+      calc(var(--page-pad-y) * var(--scale))
+      calc(var(--page-pad-x) * var(--scale))
+      calc(18px * var(--scale));
+  }
+
+  .main-section {
+    padding:
+      0
+      calc(var(--page-pad-x) * var(--scale))
+      calc(18px * var(--scale));
+  }
+
+  .main-section:last-child {
+    padding-bottom: calc(24px * var(--scale));
+  }
+
+  .section-body p {
+    text-align: justify;
+  }
+
+  .sidebar {
+    background: var(--navy-dark) !important;
+    color: #fff !important;
+    padding:
+      calc(28px * var(--scale))
+      calc(22px * var(--scale))
+      calc(32px * var(--scale));
+  }
+
+  .sidebar-section {
+    border-bottom-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .sidebar .sidebar-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .sidebar .sidebar-section > h2,
+  .sidebar .section-icon {
+    color: #fff !important;
+  }
+
+  .sidebar .section-icon {
+    border-color: #fff !important;
+  }
+
+  .sidebar .sidebar-section li {
+    color: #fff !important;
+  }
+
+  .profile-photo {
+    display: block !important;
+  }
+
+  .sidebar-section--skills ul {
+    display: block;
+    padding-left: calc(16px * var(--scale));
+    list-style: disc;
+  }
+
+  .sidebar-section--skills li {
+    margin-bottom: calc(4px * var(--scale));
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    border: none;
+    color: #fff !important;
+    font-size: calc(10.5px * var(--scale));
+  }
+
+  .roles-grid {
+    grid-template-columns: repeat(4, 1fr);
   }
 }

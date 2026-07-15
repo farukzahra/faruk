@@ -8,16 +8,29 @@ const sendOpen = ref(false);
 const skills = [
   "Java",
   "Spring Boot",
-  "Microservices",
+  "Spring Cloud",
   "REST APIs",
-  "Vue.js / TypeScript",
+  "Microservices",
+  "Google Cloud Platform",
+  "AWS",
+  "Azure",
+  "Vue.js",
+  "TypeScript",
   "Node.js",
-  "PostgreSQL / DB2",
-  "JUnit / Mockito",
+  "PostgreSQL",
   "Docker",
-  "Git / Bitbucket",
+  "Git",
+  "JUnit",
+  "Mockito",
   "Liquibase",
   "Elasticsearch",
+  "CI/CD",
+  "Cursor",
+  "Claude",
+  "Codex",
+  "GitHub Copilot",
+  "Software Architecture",
+  "System Design",
 ];
 
 const languages = [
@@ -46,8 +59,8 @@ const previousRoles = [
   <div class="resume">
     <header class="header resume-header">
       <h1>Faruk Zahra</h1>
-      <p class="title">Senior Software Engineer</p>
-      <p class="keywords">Java &bull; Spring Boot &bull; Vue.js &bull; Remote</p>
+      <p class="title">Senior Fullstack Engineer</p>
+      <p class="keywords">Java | Spring | JavaScript | TypeScript | AI Agents</p>
       <div class="contact">
         <a href="mailto:farukz@gmail.com">
           <i class="fa-solid fa-envelope" /> farukz@gmail.com
@@ -65,16 +78,22 @@ const previousRoles = [
       </h2>
       <div class="section-body">
         <p>
-          Software Engineer with more than 20 years of experience designing and building
-          scalable applications using Java, Spring Boot, REST APIs, and microservices.
+          Senior Software Engineer with 20+ years of experience designing, building, and
+          maintaining enterprise applications using Java, Spring Boot, REST APIs, and
+          cloud-native architectures.
         </p>
         <p>
-          Hands-on experience with Vue.js, Node.js, TypeScript, and relational databases,
-          working across software architecture, system integration, and full-cycle development.
+          Experienced across backend and full-stack development with Vue.js, TypeScript,
+          Node.js, relational databases, and distributed systems.
         </p>
         <p>
-          Passionate about clean code, maintainable architecture, and delivering
-          high-quality solutions from API design and data modeling through deployment.
+          Strong background in software architecture, API design, system integration,
+          performance optimization, and delivering scalable solutions throughout the entire
+          software development lifecycle.
+        </p>
+        <p>
+          Experienced using AI coding agents to accelerate implementation, refactoring, and
+          day-to-day software delivery.
         </p>
       </div>
     </section>
@@ -146,14 +165,46 @@ const previousRoles = [
               <span class="dates">(May 2021 – Present)</span>
             </h3>
             <p class="location">Remote</p>
-            <p>
-              <strong>Backend:</strong> Java, Spring Cloud, Google Cloud Platform, JHipster,
-              Keycloak, Liquibase, PostgreSQL, Elasticsearch, JUnit, Mockito.
-            </p>
-            <p>
-              <strong>Frontend:</strong> Vue 3, TypeScript, Pinia, Vitest, Playwright, Axios,
-              Vue Router.
-            </p>
+            <ul>
+              <li>
+                Built and maintained a multi-tenant Orders microservice (Java 17, Spring Boot)
+                for a retail e-commerce platform — order lifecycle, payments, fulfillment, and
+                store operations.
+              </li>
+              <li>
+                Designed contract-first REST APIs with OpenAPI 3, generating Spring interfaces
+                and TypeScript clients for consuming services.
+              </li>
+              <li>
+                Implemented event-driven integrations with Google Cloud Pub/Sub (order
+                ingestion, payment updates, POS export results, supplier fulfillment, outbound
+                email).
+              </li>
+              <li>
+                Modeled multi-tenant PostgreSQL schemas and Liquibase migrations (orders,
+                transactions, shipments, soft deletes).
+              </li>
+              <li>
+                Delivered Elasticsearch-backed order search with indexing, search templates,
+                filters, and aggregations.
+              </li>
+              <li>
+                Ran and integrated services on Google Cloud Platform — GKE, Pub/Sub, Cloud SQL,
+                Cloud Storage, and IAM — with OpenFeign between microservices and OAuth2 via the
+                shared security base.
+              </li>
+              <li>
+                Built Vue 3 frontend features with TypeScript, Pinia, Vue Router, Axios, and
+                Vite (Composition API with script setup).
+              </li>
+              <li>
+                Wrote automated tests across the stack — JUnit 5, Mockito, and MockMvc on the
+                backend; Vitest and Playwright on the Vue frontend.
+              </li>
+              <li>
+                Participated in Agile ceremonies, code reviews, and production support.
+              </li>
+            </ul>
           </div>
         </article>
 
@@ -165,12 +216,20 @@ const previousRoles = [
               <span class="dates">(Feb 2008 – Apr 2021)</span>
             </h3>
             <p class="location">Pinhais, PR</p>
-            <p>
-              Led technical decisions, software architecture, client analysis, and implementation
-              across long-term enterprise projects.
-            </p>
-            <p><strong>Legacy Projects:</strong> JEE, JSF, JPA, DB2, SVN.</p>
-            <p><strong>New Projects:</strong> Spring Boot, Vue.js, Flutter, Git, PostgreSQL.</p>
+            <ul>
+              <li>Led software architecture decisions for enterprise applications.</li>
+              <li>
+                Gathered customer requirements and translated them into technical solutions.
+              </li>
+              <li>Designed backend systems using Java and Spring Boot.</li>
+              <li>Modernized legacy Java EE applications.</li>
+              <li>
+                Delivered cloud-hosted solutions on AWS (EC2, S3, RDS, Lambda, IAM) and Azure
+                (App Service, Blob Storage, Azure SQL, Functions, Entra ID).
+              </li>
+              <li>Mentored developers and reviewed code quality.</li>
+              <li>Delivered solutions using Vue.js, Flutter, PostgreSQL, and Git.</li>
+            </ul>
           </div>
         </article>
 

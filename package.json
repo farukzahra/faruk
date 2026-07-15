@@ -9,7 +9,9 @@
     "build": "npm run build --prefix frontend",
     "start": "node server.js",
     "google:auth": "node scripts/google-auth.js",
-    "github:secrets": "python scripts/setup-google-secrets.py"
+    "github:secrets": "python scripts/setup-google-secrets.py",
+    "sync:gmail": "powershell -ExecutionPolicy Bypass -File scripts/sync-gmail-to-production.ps1",
+    "pdf": "node scripts/generate-resume-pdf.mjs"
   },
   "dependencies": {
     "dotenv": "^16.4.7",
@@ -17,6 +19,7 @@
     "googleapis": "^144.0.0"
   },
   "devDependencies": {
-    "concurrently": "^9.1.0"
+    "concurrently": "^9.1.0",
+    "playwright": "^1.52.0"
   }
 }
