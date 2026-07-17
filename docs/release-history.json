@@ -7,7 +7,8 @@
       "date": "2026-07-17",
       "title": "Cópia oculta nos envios de currículo",
       "summary": "Todo e-mail enviado pelo site inclui BCC automático para farukz@gmail.com.",
-      "type": "feat"
+      "type": "feat",
+      "commit": "5dad10e"
     },
     {
       "version": "1.6.0",
@@ -17,14 +18,14 @@
       "type": "feat",
       "commit": "8ff62d0"
     },
+    {
+      "version": "1.5.0",
       "date": "2026-07-17",
       "title": "Diálogo de envio de currículo ampliado",
       "summary": "Formulário com idioma, assunto e opção de salário; corpo do e-mail gerado no servidor.",
       "type": "feat",
       "commit": "a131e52"
     },
-    {
-      "version": "1.4.0",
       "date": "2026-07-15",
       "title": "Conteúdo ATS do currículo e pipeline de PDF",
       "summary": "Texto otimizado para ATS, geração de PDF via Playwright e assets atualizados.",
