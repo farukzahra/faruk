@@ -37,6 +37,13 @@ npm ci --omit=dev
 npm ci --prefix frontend
 npm run build --prefix frontend
 
+PDF_PUBLIC="frontend/public/assets/Faruk Zahra - CV - Resume.pdf"
+PDF_DIST="frontend/dist/assets/Faruk Zahra - CV - Resume.pdf"
+if [ -f "$PDF_PUBLIC" ]; then
+  mkdir -p "$(dirname "$PDF_DIST")"
+  cp -f "$PDF_PUBLIC" "$PDF_DIST"
+fi
+
 if command -v pm2 >/dev/null 2>&1; then
   pm2 restart faruk --update-env 2>/dev/null || pm2 start server.js --name faruk
   pm2 save 2>/dev/null || true

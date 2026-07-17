@@ -45,7 +45,8 @@ Lock externo: `skills-lock.json`. Restaurar após clone: `npx skills experimenta
 
 | Ordem | O que fazer |
 |---|---|
-| **Enviar Currículo** | Ícone avião → dialog → API `/api/send-resume` via **Gmail API**. Remetente: `farukz@gmail.com`. Local: `.env` + `npm run google:auth`. Produção: secrets no GitHub. Renovar token: `npm run google:auth` → `npm run sync:gmail` (GitHub + VPS). |
+| **Enviar Currículo** | Ícone avião → dialog (destinatário, assunto editável, idioma EN/PT, pretensão salarial opcional) → API `/api/send-resume` via **Gmail API**. Corpo do e-mail montado no servidor conforme idioma. Remetente: `farukz@gmail.com`. Local: `.env` + `npm run google:auth`. Produção: secrets no GitHub. Renovar token: `npm run google:auth` → `npm run sync:gmail` (GitHub + VPS). Deploy copia PDF de `public/assets` para `dist/assets` após build. |
+| **Ao terminar task** | Subir ambiente local (`npm run dev`) se não estiver no ar e informar URL **http://localhost:5173/** (Vite + proxy `/api` → :3000). |
 | **"Commita" / pedido de commit** | Commitar **tudo** que estiver pendente + **push** para `origin/main` (dispara deploy). Mensagem em Conventional Commits, **em inglês**. Preferir `/commit-push`. |
 | **Migrar para Vue 3** | Seguir `docs/ARQUITETURA.md` — Vue 3 + Vuetify + Express; Caddy `reverse_proxy` :3000 |
 | **Logs / debug VPS** | SSH via chave compartilhada (ver seção **VPS — acesso e logs** abaixo). Log da app: `/var/log/faruk.log`. Erro Gmail comum: `Send error: invalid_grant` → renovar `GOOGLE_REFRESH_TOKEN`. |
