@@ -1,7 +1,14 @@
 {
-  "currentVersion": "1.6.1",
-  "updatedAt": "2026-07-17T21:55:00.000Z",
+  "currentVersion": "1.6.2",
+  "updatedAt": "2026-07-17T22:00:00.000Z",
   "entries": [
+    {
+      "version": "1.6.2",
+      "date": "2026-07-17",
+      "title": "Deploy VPS mais confiável",
+      "summary": "Script de deploy limpa node_modules antes do npm ci e reinicia o Node sem conflito de porta.",
+      "type": "fix"
+    },
     {
       "version": "1.6.1",
       "date": "2026-07-17",

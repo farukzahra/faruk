@@ -33,6 +33,8 @@ EOF
 
 ensure_node
 
+rm -rf node_modules frontend/node_modules
+
 npm ci --omit=dev
 npm ci --prefix frontend
 npm run build --prefix frontend
@@ -49,6 +51,8 @@ if command -v pm2 >/dev/null 2>&1; then
   pm2 save 2>/dev/null || true
 else
   pkill -f "node $APP_DIR/server.js" 2>/dev/null || true
+  pkill -f "node server.js" 2>/dev/null || true
+  sleep 1
   nohup node server.js >> /var/log/faruk.log 2>&1 &
 fi
 

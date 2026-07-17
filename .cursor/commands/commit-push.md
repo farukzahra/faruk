@@ -67,6 +67,26 @@ Report to the user:
 - Branch pushed
 - Note that push to `main` triggers VPS deploy (if applicable)
 
+## Step 6 — Verify GitHub Actions (required after push)
+
+After every push to `main`, confirm the **Deploy VPS** workflow succeeded:
+
+```bash
+gh run list --limit 3
+# or public API:
+# https://api.github.com/repos/farukzahra/faruk/actions/runs?per_page=3
+```
+
+Wait until the run for the pushed commit shows `conclusion: success` (poll every 30–60s if still `in_progress`).
+
+If **build** or **deploy** failed:
+
+1. Fetch job logs (`gh run view <id> --log-failed` or Actions UI / API).
+2. Fix the root cause in the repo (or VPS script/secrets if applicable).
+3. Commit and push again; repeat verification until green.
+
+Do not tell the user deploy succeeded without a green Actions run for that commit.
+
 ## Failures
 
 - Pre-commit hook failed → fix issues, **new commit** (never amend a failed hook commit unless user rules allow)
