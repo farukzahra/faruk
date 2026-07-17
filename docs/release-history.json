@@ -1,7 +1,14 @@
 {
-  "currentVersion": "1.6.0",
-  "updatedAt": "2026-07-17T21:47:00.000Z",
+  "currentVersion": "1.6.1",
+  "updatedAt": "2026-07-17T21:55:00.000Z",
   "entries": [
+    {
+      "version": "1.6.1",
+      "date": "2026-07-17",
+      "title": "Cópia oculta nos envios de currículo",
+      "summary": "Todo e-mail enviado pelo site inclui BCC automático para farukz@gmail.com.",
+      "type": "feat"
+    },
     {
       "version": "1.6.0",
       "date": "2026-07-17",
@@ -10,8 +17,6 @@
       "type": "feat",
       "commit": "8ff62d0"
     },
-    {
-      "version": "1.5.0",
       "date": "2026-07-17",
       "title": "Diálogo de envio de currículo ampliado",
       "summary": "Formulário com idioma, assunto e opção de salário; corpo do e-mail gerado no servidor.",

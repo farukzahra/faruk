@@ -45,7 +45,7 @@ Lock externo: `skills-lock.json`. Restaurar após clone: `npx skills experimenta
 
 | Ordem | O que fazer |
 |---|---|
-| **Enviar Currículo** | Ícone avião → dialog (destinatário, assunto editável, idioma EN/PT, pretensão salarial opcional) → API `/api/send-resume` via **Gmail API**. Corpo do e-mail montado no servidor conforme idioma. Remetente: `farukz@gmail.com`. Local: `.env` + `npm run google:auth`. Produção: secrets no GitHub. Renovar token: `npm run google:auth` → `npm run sync:gmail` (GitHub + VPS). Deploy copia PDF de `public/assets` para `dist/assets` após build. |
+| **Enviar Currículo** | Ícone avião → dialog (destinatário, assunto editável, idioma EN/PT, pretensão salarial opcional) → API `/api/send-resume` via **Gmail API**. Corpo do e-mail montado no servidor conforme idioma. Remetente: `farukz@gmail.com`. **BCC** automático para o mesmo endereço (`GMAIL_USER`). Local: `.env` + `npm run google:auth`. Produção: secrets no GitHub. Renovar token: `npm run google:auth` → `npm run sync:gmail` (GitHub + VPS). Deploy copia PDF de `public/assets` para `dist/assets` após build. |
 | **Rodapé / Sobre** | Rodapé global (`AppFooter.vue`) fora do `.resume`; oculto em `@media print` (não entra no PDF). Link **Sobre** → `/about` com tabelas da skill `semantic-version` + histórico de `docs/release-history.json` via `GET /api/release-history`. Bump de versão só em `/commit-push`. |
 | **Ao terminar task** | Subir ambiente local (`npm run dev`) se não estiver no ar e informar URL **http://localhost:5173/** (Vite + proxy `/api` → :3000). |
 | **"Commita" / pedido de commit** | Commitar **tudo** que estiver pendente + **push** para `origin/main` (dispara deploy). Mensagem em Conventional Commits, **em inglês**. Preferir `/commit-push`. |
