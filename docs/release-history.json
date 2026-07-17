@@ -1,0 +1,78 @@
+{
+  "currentVersion": "1.6.0",
+  "updatedAt": "2026-07-17T21:47:00.000Z",
+  "entries": [
+    {
+      "version": "1.6.0",
+      "date": "2026-07-17",
+      "title": "Rodapé e página Sobre",
+      "summary": "Rodapé global com link para /about; tabelas de versionamento semântico e histórico de releases via API.",
+      "type": "feat",
+      "commit": "eaa42b5"
+    },
+    {
+      "version": "1.5.0",
+      "date": "2026-07-17",
+      "title": "Diálogo de envio de currículo ampliado",
+      "summary": "Formulário com idioma, assunto e opção de salário; corpo do e-mail gerado no servidor.",
+      "type": "feat",
+      "commit": "a131e52"
+    },
+    {
+      "version": "1.4.0",
+      "date": "2026-07-15",
+      "title": "Conteúdo ATS do currículo e pipeline de PDF",
+      "summary": "Texto otimizado para ATS, geração de PDF via Playwright e assets atualizados.",
+      "type": "feat",
+      "commit": "097b5f4"
+    },
+    {
+      "version": "1.3.2",
+      "date": "2026-07-10",
+      "title": "Favicon navy com F",
+      "summary": "Ícone SVG na aba do navegador alinhado à identidade visual do site.",
+      "type": "feat",
+      "commit": "902624d"
+    },
+    {
+      "version": "1.3.1",
+      "date": "2026-07-09",
+      "title": "Deploy VPS com git pull",
+      "summary": "Script de deploy executa git pull antes do build para evitar código desatualizado.",
+      "type": "fix",
+      "commit": "5a5c824"
+    },
+    {
+      "version": "1.3.0",
+      "date": "2026-07-08",
+      "title": "Migração para Vue 3 e Vuetify",
+      "summary": "Frontend reescrito em Vue 3 + Vuetify; Express serve dist e API na mesma porta.",
+      "type": "feat",
+      "commit": "c7a2872"
+    },
+    {
+      "version": "1.2.0",
+      "date": "2026-07-07",
+      "title": "Envio de currículo por Gmail API",
+      "summary": "POST /api/send-resume anexa o PDF e envia e-mail via OAuth do Gmail.",
+      "type": "feat",
+      "commit": "b562d01"
+    },
+    {
+      "version": "1.1.0",
+      "date": "2026-07-06",
+      "title": "Layout mobile e padrões CSS",
+      "summary": "Coluna única no mobile, sidebar azul no desktop e documentação em AGENTS.md.",
+      "type": "feat",
+      "commit": "b6dba71"
+    },
+    {
+      "version": "1.0.0",
+      "date": "2026-07-05",
+      "title": "Site de currículo estático",
+      "summary": "Página de currículo com deploy automatizado para GitHub Pages.",
+      "type": "feat",
+      "commit": "f12b709"
+    }
+  ]
+}

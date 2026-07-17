@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import AppSnackbar from "@/components/AppSnackbar.vue";
-import ResumeView from "@/views/ResumeView.vue";
+import AppFooter from "@/components/AppFooter.vue";
 </script>
 
 <template>
   <v-app>
-    <ResumeView />
+    <router-view />
+    <AppFooter />
     <AppSnackbar />
   </v-app>
 </template>

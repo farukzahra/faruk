@@ -59,6 +59,22 @@ function validateSendPayload(body) {
 
 app.use(express.json());
 
+const RELEASE_HISTORY_PATH = path.join(__dirname, "docs", "release-history.json");
+
+app.get("/api/release-history", (req, res) => {
+  if (!fs.existsSync(RELEASE_HISTORY_PATH)) {
+    return res.status(404).json({ error: "Release history not found." });
+  }
+
+  try {
+    const raw = fs.readFileSync(RELEASE_HISTORY_PATH, "utf8");
+    res.json(JSON.parse(raw));
+  } catch (err) {
+    console.error("Release history error:", err.message);
+    res.status(500).json({ error: "Failed to read release history." });
+  }
+});
+
 app.post("/api/send-resume", async (req, res) => {
   const validated = validateSendPayload(req.body);
   if (validated.error) {
