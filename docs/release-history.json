@@ -26,6 +26,8 @@
       "type": "feat",
       "commit": "a131e52"
     },
+    {
+      "version": "1.4.0",
       "date": "2026-07-15",
       "title": "Conteúdo ATS do currículo e pipeline de PDF",
       "summary": "Texto otimizado para ATS, geração de PDF via Playwright e assets atualizados.",
