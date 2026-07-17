@@ -8,7 +8,7 @@
       "title": "Rodapé e página Sobre",
       "summary": "Rodapé global com link para /about; tabelas de versionamento semântico e histórico de releases via API.",
       "type": "feat",
-      "commit": "eaa42b5"
+      "commit": "8ff62d0"
     },
     {
       "version": "1.5.0",
