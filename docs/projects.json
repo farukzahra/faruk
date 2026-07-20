@@ -1,0 +1,23 @@
+{
+  "updatedAt": "2026-07-20T12:47:00.000Z",
+  "projects": [
+    {
+      "id": "faruk-resume",
+      "name": "Faruk Resume Site",
+      "description": "Personal resume site built with Vue 3, Vuetify, and Express. PDF export, Gmail API resume delivery, and semantic versioning.",
+      "url": "https://www.faruk.dev.br"
+    },
+    {
+      "id": "financeiro",
+      "name": "Financeiro",
+      "description": "Personal finance web app to import Nubank CSV statements, auto-categorize transactions with custom rules, review entries, and track monthly budgets. Built with Fastify, Vue 3, and PostgreSQL.",
+      "url": "https://financeiro.faruk.dev.br"
+    },
+    {
+      "id": "job-hunter",
+      "name": "Job Hunter",
+      "description": "Searches MyGreenhouse for remote full-time jobs and filters geo-restricted listings so Brazil-based candidates see only eligible roles. Vue 3 frontend, Fastify/Node.js backend, TypeScript throughout.",
+      "url": "https://job.faruk.dev.br"
+    }
+  ]
+}

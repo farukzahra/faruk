@@ -47,6 +47,7 @@ Lock externo: `skills-lock.json`. Restaurar após clone: `npx skills experimenta
 |---|---|
 | **Enviar Currículo** | Ícone avião → dialog (destinatário, assunto editável, idioma EN/PT, pretensão salarial opcional) → API `/api/send-resume` via **Gmail API**. Corpo do e-mail montado no servidor conforme idioma. Remetente: `farukz@gmail.com`. **BCC** automático para o mesmo endereço (`GMAIL_USER`). Local: `.env` + `npm run google:auth`. Produção: secrets no GitHub. Renovar token: `npm run google:auth` → `npm run sync:gmail` (GitHub + VPS). Deploy copia PDF de `public/assets` para `dist/assets` após build. |
 | **Rodapé / Sobre** | Rodapé global (`AppFooter.vue`) fora do `.resume`; oculto em `@media print` (não entra no PDF). Link **Sobre** → `/about` com tabelas da skill `semantic-version` + histórico de `docs/release-history.json` via `GET /api/release-history`. Bump de versão só em `/commit-push`. |
+| **My Projects** | Link no header (após LinkedIn) e rodapé → `/projects`. Cards de `docs/projects.json` via `GET /api/projects`. Para cadastrar projeto de outro repo: colar prompt de `docs/projects-card-prompt.md` no agente daquele projeto e adicionar o JSON retornado em `docs/projects.json`. |
 | **Ao terminar task** | Subir ambiente local (`npm run dev`) se não estiver no ar e informar URL **http://localhost:5173/** (Vite + proxy `/api` → :3000). |
 | **"Commita" / pedido de commit** | Commitar **tudo** que estiver pendente + **push** para `origin/main` (dispara deploy). Mensagem em Conventional Commits, **em inglês**. Preferir `/commit-push`. **Após push:** verificar GitHub Actions (`Deploy VPS`); se falhar, ler logs, corrigir e push de novo até passar. |
 | **Migrar para Vue 3** | Seguir `docs/ARQUITETURA.md` — Vue 3 + Vuetify + Express; Caddy `reverse_proxy` :3000 |
@@ -68,7 +69,10 @@ Lock externo: `skills-lock.json`. Restaurar após clone: `npx skills experimenta
 | `frontend/src/components/SendResumeDialog.vue` | Dialog Vuetify + POST `/api/send-resume` |
 | `frontend/src/components/AppFooter.vue` | Rodapé do site (link Sobre; oculto no print/PDF) |
 | `frontend/src/views/AboutView.vue` | Página `/about` — versionamento e histórico de releases |
-| `frontend/src/router/index.ts` | Vue Router (`/` currículo, `/about`) |
+| `frontend/src/views/ProjectsView.vue` | Página `/projects` — cards dos projetos |
+| `frontend/src/router/index.ts` | Vue Router (`/` currículo, `/about`, `/projects`) |
+| `docs/projects.json` | Catálogo de projetos (fonte da página My Projects) |
+| `docs/projects-card-prompt.md` | Prompt pronto para agentes de outros repos fornecerem dados do card |
 | `docs/release-history.json` | Histórico semântico de releases (fonte da página Sobre) |
 | `.agents/skills/semantic-version/` | Skill de bump de versão (copiada do faruk_base) |
 | `frontend/src/lib/api.ts` | Cliente axios |

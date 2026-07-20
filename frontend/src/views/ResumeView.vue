@@ -69,6 +69,9 @@ const previousRoles = [
         <a href="https://linkedin.com/in/farukz" target="_blank" rel="noreferrer">
           <i class="fa-brands fa-linkedin" /> linkedin.com/in/farukz
         </a>
+        <router-link to="/projects">
+          <i class="fa-solid fa-diagram-project" /> My Projects
+        </router-link>
       </div>
     </header>
 

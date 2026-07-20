@@ -770,6 +770,112 @@ body {
   color: var(--text-muted);
 }
 
+/* ── Projects page ── */
+
+.projects-page {
+  width: 100%;
+  max-width: calc(820px * var(--scale));
+  min-height: calc(100vh - calc(60px * var(--scale)));
+  margin: 0 auto;
+  background: #fff;
+  box-shadow: 0 calc(4px * var(--scale)) calc(24px * var(--scale)) rgba(0, 0, 0, 0.12);
+  padding:
+    calc(var(--page-pad-y) * var(--scale))
+    calc(var(--page-pad-x) * var(--scale))
+    calc(32px * var(--scale));
+}
+
+.projects-page__header {
+  margin-bottom: calc(22px * var(--scale));
+  padding-bottom: calc(18px * var(--scale));
+  border-bottom: calc(1px * var(--scale)) solid var(--border);
+}
+
+.projects-page__header h1 {
+  display: flex;
+  align-items: center;
+  gap: calc(8px * var(--scale));
+  margin: 0 0 calc(8px * var(--scale));
+  font-size: calc(22px * var(--scale));
+  font-weight: 700;
+  color: var(--navy-dark);
+}
+
+.projects-page__lead {
+  margin: 0;
+  max-width: calc(640px * var(--scale));
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: calc(16px * var(--scale));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 821px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: calc(10px * var(--scale));
+  padding: calc(16px * var(--scale));
+  border: calc(1px * var(--scale)) solid var(--border);
+  border-radius: calc(6px * var(--scale));
+  background: #fff;
+}
+
+.project-card__title {
+  margin: 0;
+  font-size: calc(14px * var(--scale));
+  font-weight: 700;
+  color: var(--navy-dark);
+}
+
+.project-card__description {
+  flex: 1;
+  margin: 0;
+  font-size: calc(10.5px * var(--scale));
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.project-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(6px * var(--scale));
+  width: fit-content;
+  font-size: calc(10.5px * var(--scale));
+  font-weight: 600;
+  color: var(--navy-light);
+  text-decoration: none;
+}
+
+.project-card__link:hover {
+  text-decoration: underline;
+}
+
+.projects-error {
+  margin: 0;
+  color: #b42318;
+}
+
+.projects-empty {
+  color: var(--text-muted);
+}
+
+.projects-empty p {
+  margin: 0;
+}
+
 /* ── Print (desktop layout @ scale 1 — used by Playwright PDF) ── */
 
 @media print {

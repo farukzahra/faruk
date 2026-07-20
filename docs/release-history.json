@@ -1,7 +1,14 @@
 {
-  "currentVersion": "1.6.2",
-  "updatedAt": "2026-07-17T22:00:00.000Z",
+  "currentVersion": "1.7.0",
+  "updatedAt": "2026-07-20T12:50:00.000Z",
   "entries": [
+    {
+      "version": "1.7.0",
+      "date": "2026-07-20",
+      "title": "Página My Projects",
+      "summary": "Nova rota /projects com cards dos projetos (Financeiro, Job Hunter e site pessoal), link no header e rodapé, API GET /api/projects e prompt para cadastrar projetos de outros repos.",
+      "type": "feat"
+    },
     {
       "version": "1.6.2",
       "date": "2026-07-17",
