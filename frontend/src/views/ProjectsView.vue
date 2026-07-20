@@ -1,9 +1,26 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import { fetchProjects, type Project } from "@/lib/projects";
-
 const projects = ref<Project[]>([]);
 const loadError = ref("");
+
+const stackLabels: Record<string, string> = {
+  "faruk-resume": "VUE 3 · EXPRESS",
+  financeiro: "FASTIFY · POSTGRESQL",
+  "job-hunter": "VUE 3 · TYPESCRIPT",
+};
+
+function projectHost(url: string): string {
+  try {
+    return new URL(url).hostname.replace(/^www\./, "");
+  } catch {
+    return url;
+  }
+}
+
+function stackLabel(project: Project): string {
+  return stackLabels[project.id] ?? "LIVE · DEPLOYED";
+}
 
 onMounted(async () => {
   try {
@@ -14,40 +31,28 @@ onMounted(async () => {
   }
 });
 </script>
-
 <template>
-  <main class="projects-page">
-    <header class="projects-page__header">
-      <h1>
-        <span class="section-icon"><i class="fa-solid fa-diagram-project" /></span>
-        My Projects
-      </h1>
-      <p class="projects-page__lead">
-        Selected personal and professional projects. Each card links to the live site or main
-        repository entry point.
-      </p>
-    </header>
+  <main class="projects-page projects-page--lumen">
+    <section class="projects-lumen-list" aria-label="Project list">
+      <p v-if="loadError" class="projects-lumen-error">{{ loadError }}</p>
 
-    <p v-if="loadError" class="projects-error">{{ loadError }}</p>
+      <p v-else-if="projects.length === 0" class="projects-lumen-empty">No projects listed yet.</p>
 
-    <div v-else-if="projects.length === 0" class="projects-empty">
-      <p>No projects listed yet.</p>
-    </div>
-
-    <ul v-else class="projects-grid" aria-label="Project list">
-      <li v-for="project in projects" :key="project.id" class="project-card">
-        <h2 class="project-card__title">{{ project.name }}</h2>
-        <p class="project-card__description">{{ project.description }}</p>
-        <a
-          class="project-card__link"
-          :href="project.url"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Visit project
-          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true" />
-        </a>
-      </li>
-    </ul>
+      <ul v-else class="projects-lumen-grid">
+        <li v-for="project in projects" :key="project.id" class="projects-lumen-card">
+          <p class="projects-lumen-card__eyebrow">{{ stackLabel(project) }}</p>
+          <h2 class="projects-lumen-card__title">{{ project.name }}</h2>
+          <p class="projects-lumen-card__description">{{ project.description }}</p>
+          <a
+            class="projects-lumen-card__link"
+            :href="project.url"
+            target="_blank"
+            rel="noreferrer"
+          >
+            visit · {{ projectHost(project.url) }}
+          </a>
+        </li>
+      </ul>
+    </section>
   </main>
 </template>

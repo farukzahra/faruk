@@ -20,7 +20,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <main class="about-page">
+  <main class="about-page about-page--lumen">
     <header class="about-page__header">
       <h1>Sobre este site</h1>
       <p>

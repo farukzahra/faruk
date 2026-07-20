@@ -115,16 +115,17 @@ async function main() {
 
     await page.goto(baseUrl + "/", { waitUntil: "networkidle" });
     await page.waitForSelector(".resume");
+    await page.evaluate(() => document.fonts.ready);
     await page.emulateMedia({ media: "print" });
-    // Fonts / images settle
-    await page.waitForTimeout(500);
+    // Layout / webfonts settle
+    await page.waitForTimeout(800);
 
     await page.pdf({
       path: OUT,
       printBackground: true,
       preferCSSPageSize: false,
       format: "Letter",
-      margin: { top: "0.35in", right: "0.35in", bottom: "0.35in", left: "0.35in" },
+      margin: { top: "0", right: "0", bottom: "0", left: "0" },
     });
 
     // Keep dist copy in sync for Express send-resume after build

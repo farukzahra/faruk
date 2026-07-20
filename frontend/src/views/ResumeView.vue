@@ -56,7 +56,7 @@ const previousRoles = [
 </script>
 
 <template>
-  <div class="resume">
+  <div class="resume resume--lumen">
     <header class="header resume-header">
       <h1>Faruk Zahra</h1>
       <p class="title">Senior Fullstack Engineer</p>

@@ -577,6 +577,293 @@ body {
   color: var(--text-muted);
 }
 
+/* ── Resume · Lumen Night Foundry (layout unchanged, surface only) ── */
+
+body.lumen-theme-active {
+  --lumen-paper: oklch(13% 0.014 265);
+  --lumen-panel: oklch(17% 0.016 265);
+  --lumen-ink: oklch(96% 0.006 262);
+  --lumen-ink-2: oklch(72% 0.008 262);
+  --lumen-accent: oklch(76% 0.17 50);
+  --lumen-rule: oklch(96% 0.006 262 / 0.12);
+  --lumen-rule-blueprint: oklch(96% 0.006 262 / 0.04);
+  --lumen-font-display: "Instrument Serif", Georgia, serif;
+  --lumen-font-body: "Geist", "Open Sans", system-ui, sans-serif;
+  --lumen-font-label: "JetBrains Mono", ui-monospace, monospace;
+
+  background:
+    linear-gradient(var(--lumen-rule-blueprint) 1px, transparent 1px) 0 0 / 48px 48px,
+    linear-gradient(90deg, var(--lumen-rule-blueprint) 1px, transparent 1px) 0 0 / 48px 48px,
+    var(--lumen-paper);
+  color: var(--lumen-ink-2);
+}
+
+body.lumen-theme-active .v-application {
+  background: transparent !important;
+}
+
+.resume.resume--lumen {
+  background:
+    radial-gradient(80% 40% at 100% 0%, oklch(76% 0.17 50 / 0.05) 0%, transparent 55%),
+    oklch(15% 0.014 265);
+  box-shadow: 0 calc(4px * var(--scale)) calc(32px * var(--scale)) oklch(0% 0 0 / 0.45);
+  color: var(--lumen-ink-2);
+  font-family: var(--lumen-font-body);
+}
+
+.resume.resume--lumen .header,
+.resume.resume--lumen .main-section,
+.resume.resume--lumen .sidebar-section,
+.resume.resume--lumen .resume-actions {
+  border-bottom-color: var(--lumen-rule);
+}
+
+.resume.resume--lumen .header h1 {
+  font-family: var(--lumen-font-display);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--lumen-ink);
+}
+
+.resume.resume--lumen .header .title {
+  font-family: var(--lumen-font-label);
+  font-size: calc(10px * var(--scale));
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lumen-accent);
+}
+
+.resume.resume--lumen .header .keywords {
+  font-family: var(--lumen-font-label);
+  font-size: calc(9px * var(--scale));
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--lumen-ink);
+  opacity: 0.55;
+}
+
+.resume.resume--lumen .contact {
+  color: var(--lumen-ink-2);
+}
+
+.resume.resume--lumen .contact a {
+  color: var(--lumen-ink-2);
+}
+
+.resume.resume--lumen .contact a:hover {
+  color: var(--lumen-accent);
+}
+
+.resume.resume--lumen .contact i {
+  color: var(--lumen-accent);
+}
+
+.resume.resume--lumen .main-section > h2,
+.resume.resume--lumen .sidebar-section > h2 {
+  font-family: var(--lumen-font-label);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lumen-accent);
+}
+
+.resume.resume--lumen .section-icon {
+  border-color: var(--lumen-accent);
+  color: var(--lumen-accent);
+}
+
+.resume.resume--lumen .section-body p,
+.resume.resume--lumen .timeline-content p,
+.resume.resume--lumen .timeline-content li {
+  color: var(--lumen-ink-2);
+}
+
+.resume.resume--lumen .timeline-content h3 {
+  font-family: var(--lumen-font-display);
+  font-weight: 400;
+  font-size: calc(12px * var(--scale));
+  color: var(--lumen-ink);
+}
+
+.resume.resume--lumen .timeline-content h3 .dates,
+.resume.resume--lumen .timeline-content .location,
+.resume.resume--lumen .roles-grid .company {
+  color: var(--lumen-accent);
+}
+
+.resume.resume--lumen .timeline-content h3 .dates {
+  font-family: var(--lumen-font-label);
+  font-size: calc(9px * var(--scale));
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 821px) {
+  .resume.resume--lumen .timeline-content h3 .dates {
+    color: var(--lumen-accent);
+  }
+}
+
+.resume.resume--lumen .timeline::before {
+  background: var(--lumen-accent);
+  opacity: 0.45;
+}
+
+.resume.resume--lumen .timeline-marker {
+  background: var(--lumen-accent);
+  border-color: oklch(15% 0.014 265);
+  box-shadow: 0 0 0 calc(1px * var(--scale)) var(--lumen-accent);
+}
+
+.resume.resume--lumen .roles-grid h3 {
+  font-family: var(--lumen-font-display);
+  font-weight: 400;
+  color: var(--lumen-ink);
+}
+
+.resume.resume--lumen .roles-grid .dates {
+  color: var(--lumen-ink-2);
+}
+
+.resume.resume--lumen .sidebar {
+  background: oklch(15% 0.014 265);
+  color: var(--lumen-ink-2);
+}
+
+@media (min-width: 821px) {
+  .resume.resume--lumen .sidebar {
+    background:
+      radial-gradient(120% 80% at 50% 0%, oklch(76% 0.17 50 / 0.08) 0%, transparent 55%),
+      var(--lumen-panel);
+    color: var(--lumen-ink-2);
+  }
+
+  .resume.resume--lumen .sidebar .sidebar-section > h2 {
+    color: var(--lumen-accent);
+  }
+
+  .resume.resume--lumen .sidebar .sidebar-section > h2 .section-icon {
+    border-color: var(--lumen-accent);
+    color: var(--lumen-accent);
+  }
+
+  .resume.resume--lumen .sidebar .sidebar-section li {
+    color: var(--lumen-ink-2);
+  }
+
+  .resume.resume--lumen .sidebar-section {
+    border-bottom-color: var(--lumen-rule);
+  }
+}
+
+@media (max-width: 820px) {
+  .resume.resume--lumen .sidebar-section li {
+    color: var(--lumen-ink-2);
+  }
+
+  .resume.resume--lumen .sidebar-section--skills li {
+    background: oklch(76% 0.17 50 / 0.08);
+    border-color: oklch(76% 0.17 50 / 0.22);
+    color: var(--lumen-ink);
+  }
+}
+
+.resume.resume--lumen .profile-photo {
+  border-color: oklch(76% 0.17 50 / 0.35);
+}
+
+.resume.resume--lumen .resume-actions .download-pdf {
+  color: var(--lumen-accent);
+  background: oklch(76% 0.17 50 / 0.08);
+  border-color: oklch(76% 0.17 50 / 0.28);
+}
+
+.resume.resume--lumen .resume-actions .download-pdf:hover {
+  background: oklch(76% 0.17 50 / 0.16);
+  color: var(--lumen-ink);
+}
+
+.resume.resume--lumen .resume-actions .send-resume {
+  border-color: var(--lumen-accent);
+  background: var(--lumen-accent);
+  color: oklch(15% 0.014 265);
+}
+
+.resume.resume--lumen .resume-actions .send-resume:hover {
+  background: oklch(80% 0.17 50);
+  border-color: oklch(80% 0.17 50);
+  color: oklch(15% 0.014 265);
+}
+
+@media (min-width: 821px) {
+  .resume.resume--lumen .resume-actions {
+    border-bottom-color: var(--lumen-rule);
+  }
+
+  .resume.resume--lumen .resume-actions .download-pdf {
+    color: var(--lumen-accent);
+    background: oklch(76% 0.17 50 / 0.08);
+    border-color: oklch(76% 0.17 50 / 0.28);
+  }
+
+  .resume.resume--lumen .resume-actions .download-pdf:hover {
+    background: oklch(76% 0.17 50 / 0.16);
+    color: var(--lumen-ink);
+  }
+
+  .resume.resume--lumen .resume-actions .send-resume {
+    background: var(--lumen-accent);
+    border-color: var(--lumen-accent);
+    color: oklch(15% 0.014 265);
+  }
+
+  .resume.resume--lumen .resume-actions .send-resume:hover {
+    background: oklch(80% 0.17 50);
+    border-color: oklch(80% 0.17 50);
+  }
+}
+
+.app-top-nav {
+  position: sticky;
+  top: calc(12px * var(--scale));
+  z-index: 100;
+  display: flex;
+  width: fit-content;
+  max-width: calc(100% - calc(var(--page-pad-x) * var(--scale) * 2));
+  margin: calc(12px * var(--scale)) auto calc(16px * var(--scale));
+  padding: calc(6px * var(--scale)) calc(4px * var(--scale));
+  border: 1px solid var(--lumen-rule);
+  border-radius: 999px;
+  background: oklch(17% 0.016 265 / 0.92);
+  box-shadow: 0 calc(12px * var(--scale)) calc(40px * var(--scale)) oklch(0% 0 0 / 0.35);
+  gap: calc(4px * var(--scale));
+}
+
+.app-top-nav a {
+  padding: calc(6px * var(--scale)) calc(14px * var(--scale));
+  border-radius: 999px;
+  color: var(--lumen-ink);
+  font-family: var(--lumen-font-body);
+  font-size: calc(11px * var(--scale));
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.app-top-nav a:hover {
+  background: oklch(96% 0.006 262 / 0.06);
+  color: var(--lumen-accent);
+}
+
+.app-top-nav a.router-link-active,
+.app-top-nav a[aria-current="page"] {
+  background: oklch(76% 0.17 50 / 0.12);
+  color: var(--lumen-accent);
+}
+
 .v-application {
   background: #e8edf2 !important;
 }
@@ -770,115 +1057,273 @@ body {
   color: var(--text-muted);
 }
 
+/* ── About page · Lumen ── */
+
+.about-page--lumen {
+  max-width: calc(960px * var(--scale));
+  min-height: auto;
+  background:
+    radial-gradient(80% 40% at 0% 0%, oklch(76% 0.17 50 / 0.04) 0%, transparent 55%),
+    oklch(15% 0.014 265);
+  box-shadow: 0 calc(4px * var(--scale)) calc(32px * var(--scale)) oklch(0% 0 0 / 0.45);
+  color: var(--lumen-ink-2);
+  font-family: var(--lumen-font-body);
+}
+
+.about-page--lumen .about-page__header {
+  border-bottom-color: var(--lumen-rule);
+}
+
+.about-page--lumen .about-page__header h1 {
+  font-family: var(--lumen-font-display);
+  font-weight: 400;
+  font-size: calc(28px * var(--scale));
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--lumen-ink);
+}
+
+.about-page--lumen .about-page__header p,
+.about-page--lumen .about-page__lead {
+  color: var(--lumen-ink-2);
+}
+
+.about-page--lumen .about-page code {
+  background: oklch(76% 0.17 50 / 0.1);
+  color: var(--lumen-accent);
+}
+
+.about-page--lumen .about-section {
+  border-bottom-color: var(--lumen-rule);
+}
+
+.about-page--lumen .about-section > h2 {
+  font-family: var(--lumen-font-label);
+  font-size: calc(11px * var(--scale));
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lumen-accent);
+}
+
+.about-page--lumen .about-section > h2 .section-icon {
+  border-color: var(--lumen-accent);
+  color: var(--lumen-accent);
+}
+
+.about-page--lumen .about-table th,
+.about-page--lumen .about-table td {
+  border-bottom-color: var(--lumen-rule);
+  color: var(--lumen-ink-2);
+}
+
+.about-page--lumen .about-table th {
+  font-family: var(--lumen-font-label);
+  font-size: calc(9px * var(--scale));
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--lumen-accent);
+  background: oklch(17% 0.016 265 / 0.8);
+}
+
+.about-page--lumen .about-table td strong {
+  color: var(--lumen-ink);
+}
+
+.about-page--lumen .about-table code {
+  background: oklch(76% 0.17 50 / 0.1);
+  color: var(--lumen-accent);
+}
+
+.about-page--lumen .about-badge {
+  background: oklch(76% 0.17 50 / 0.12);
+  color: var(--lumen-accent);
+}
+
+.about-page--lumen .about-badge--type {
+  background: oklch(68% 0.16 18 / 0.15);
+  color: oklch(68% 0.16 18);
+}
+
+.about-page--lumen .about-error {
+  color: oklch(68% 0.16 18);
+}
+
+.about-page--lumen .about-muted {
+  color: var(--lumen-ink-2);
+  opacity: 0.7;
+}
+
 /* ── Projects page ── */
 
-.projects-page {
+/* ── Projects page · Lumen Night Foundry (cards only) ── */
+
+.projects-page--lumen {
+  --lumen-space-sm: calc(8px * var(--scale));
+  --lumen-space-md: calc(16px * var(--scale));
+  --lumen-space-lg: calc(24px * var(--scale));
+
   width: 100%;
-  max-width: calc(820px * var(--scale));
-  min-height: calc(100vh - calc(60px * var(--scale)));
-  margin: 0 auto;
-  background: #fff;
-  box-shadow: 0 calc(4px * var(--scale)) calc(24px * var(--scale)) rgba(0, 0, 0, 0.12);
+  max-width: none;
+  min-height: 100vh;
+  margin: 0;
   padding:
     calc(var(--page-pad-y) * var(--scale))
     calc(var(--page-pad-x) * var(--scale))
-    calc(32px * var(--scale));
+    calc(48px * var(--scale));
+  background:
+    linear-gradient(var(--lumen-rule-blueprint) 1px, transparent 1px) 0 0 / 48px 48px,
+    linear-gradient(90deg, var(--lumen-rule-blueprint) 1px, transparent 1px) 0 0 / 48px 48px,
+    var(--lumen-paper);
+  box-shadow: none;
+  color: var(--lumen-ink-2);
+  font-family: var(--lumen-font-body);
+  font-variant-numeric: tabular-nums;
+  overflow-x: clip;
 }
 
-.projects-page__header {
-  margin-bottom: calc(22px * var(--scale));
-  padding-bottom: calc(18px * var(--scale));
-  border-bottom: calc(1px * var(--scale)) solid var(--border);
+.projects-lumen-card__eyebrow {
+  margin: 0 0 var(--lumen-space-sm);
+  font-family: var(--lumen-font-label);
+  font-size: calc(10px * var(--scale));
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lumen-ink);
+  opacity: 0.55;
 }
 
-.projects-page__header h1 {
-  display: flex;
-  align-items: center;
-  gap: calc(8px * var(--scale));
-  margin: 0 0 calc(8px * var(--scale));
-  font-size: calc(22px * var(--scale));
-  font-weight: 700;
-  color: var(--navy-dark);
+.projects-lumen-list {
+  max-width: calc(960px * var(--scale));
+  margin: 0 auto;
 }
 
-.projects-page__lead {
-  margin: 0;
-  max-width: calc(640px * var(--scale));
-  line-height: 1.6;
-  color: var(--text-muted);
-}
-
-.projects-grid {
+.projects-lumen-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: calc(16px * var(--scale));
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--lumen-space-md);
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 @media (min-width: 821px) {
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .projects-lumen-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .projects-lumen-grid .projects-lumen-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: calc(50% - calc(var(--lumen-space-md) / 2));
   }
 }
 
-.project-card {
+.projects-lumen-card {
   display: flex;
   flex-direction: column;
-  gap: calc(10px * var(--scale));
-  padding: calc(16px * var(--scale));
-  border: calc(1px * var(--scale)) solid var(--border);
-  border-radius: calc(6px * var(--scale));
-  background: #fff;
+  gap: var(--lumen-space-sm);
+  min-width: 0;
+  padding: var(--lumen-space-lg);
+  border: 1px solid var(--lumen-rule);
+  border-radius: calc(8px * var(--scale));
+  background:
+    radial-gradient(120% 80% at 50% 0%, oklch(76% 0.17 50 / 0.06) 0%, transparent 55%),
+    oklch(17% 0.016 265 / 0.65);
+  transition:
+    transform 200ms ease-out,
+    border-color 200ms ease-out,
+    background 200ms ease-out;
 }
 
-.project-card__title {
+.projects-lumen-card:hover {
+  transform: translateY(calc(-4px * var(--scale)));
+  border-color: oklch(76% 0.17 50 / 0.35);
+  background:
+    radial-gradient(120% 80% at 50% 0%, oklch(76% 0.17 50 / 0.12) 0%, transparent 55%),
+    oklch(17% 0.016 265 / 0.8);
+}
+
+.projects-lumen-card__title {
   margin: 0;
-  font-size: calc(14px * var(--scale));
-  font-weight: 700;
-  color: var(--navy-dark);
+  font-family: var(--lumen-font-display);
+  font-size: calc(18px * var(--scale));
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.15;
+  color: var(--lumen-ink);
+  overflow-wrap: anywhere;
+  min-width: 0;
 }
 
-.project-card__description {
+.projects-lumen-card__description {
   flex: 1;
   margin: 0;
-  font-size: calc(10.5px * var(--scale));
-  line-height: 1.55;
-  color: var(--text-muted);
+  font-size: calc(11px * var(--scale));
+  line-height: 1.6;
+  color: var(--lumen-ink-2);
 }
 
-.project-card__link {
+.projects-lumen-card__link {
   display: inline-flex;
   align-items: center;
-  gap: calc(6px * var(--scale));
   width: fit-content;
-  font-size: calc(10.5px * var(--scale));
-  font-weight: 600;
-  color: var(--navy-light);
+  max-width: 100%;
+  padding-top: calc(4px * var(--scale));
+  font-family: var(--lumen-font-label);
+  font-size: calc(10px * var(--scale));
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   text-decoration: none;
+  color: var(--lumen-accent);
+  white-space: nowrap;
 }
 
-.project-card__link:hover {
+.projects-lumen-card__link:hover {
+  color: var(--lumen-ink);
   text-decoration: underline;
 }
 
-.projects-error {
+.projects-lumen-error {
   margin: 0;
-  color: #b42318;
+  color: oklch(68% 0.16 18);
 }
 
-.projects-empty {
-  color: var(--text-muted);
+.projects-lumen-empty {
+  margin: 0;
+  color: var(--lumen-ink-2);
 }
 
-.projects-empty p {
-  margin: 0;
+.site-footer--lumen {
+  max-width: none;
+  color: oklch(72% 0.008 262);
+  background: oklch(13% 0.014 265);
+}
+
+.site-footer--lumen .site-footer__inner {
+  max-width: calc(960px * var(--scale));
+  margin: 0 auto;
+  border-top-color: oklch(96% 0.006 262 / 0.12);
+}
+
+.site-footer--lumen .site-footer__copy a,
+.site-footer--lumen .site-footer__nav a {
+  color: oklch(76% 0.17 50);
+}
+
+.site-footer--lumen .site-footer__copy a:hover,
+.site-footer--lumen .site-footer__nav a:hover {
+  color: oklch(96% 0.006 262);
 }
 
 /* ── Print (desktop layout @ scale 1 — used by Playwright PDF) ── */
 
 @media print {
+  @page {
+    size: letter;
+    margin: 0;
+    background: oklch(13% 0.014 265);
+  }
+
   :root {
     --scale: 1;
     --sidebar-width: 240px;
@@ -887,20 +1332,112 @@ body {
     --page-pad-y: 24px;
   }
 
-  body {
-    background: #fff !important;
+  html,
+  body,
+  body.lumen-theme-active,
+  body.lumen-theme-active .v-application,
+  body.lumen-theme-active .v-application__wrap {
+    background: oklch(13% 0.014 265) !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
 
-  .v-application {
-    background: #fff !important;
-  }
-
   .resume-actions,
+  .app-top-nav,
   .site-footer,
   .v-overlay-container {
     display: none !important;
+  }
+
+  body.lumen-theme-active {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .resume.resume--lumen {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    background:
+      linear-gradient(oklch(96% 0.006 262 / 0.04) 1px, transparent 1px) 0 0 / 48px 48px,
+      linear-gradient(90deg, oklch(96% 0.006 262 / 0.04) 1px, transparent 1px) 0 0 / 48px 48px,
+      radial-gradient(80% 40% at 100% 0%, oklch(76% 0.17 50 / 0.05) 0%, transparent 55%),
+      oklch(13% 0.014 265) !important;
+    box-shadow: none;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .resume.resume--lumen .sidebar {
+    background:
+      radial-gradient(120% 80% at 50% 0%, oklch(76% 0.17 50 / 0.08) 0%, transparent 55%),
+      oklch(17% 0.016 265) !important;
+    color: oklch(72% 0.008 262) !important;
+  }
+
+  .resume.resume--lumen .sidebar .sidebar-section > h2,
+  .resume.resume--lumen .sidebar .sidebar-section > h2 .section-icon {
+    color: oklch(76% 0.17 50) !important;
+    border-color: oklch(76% 0.17 50) !important;
+  }
+
+  .resume.resume--lumen .sidebar .sidebar-section li {
+    color: oklch(72% 0.008 262) !important;
+  }
+
+  .resume.resume--lumen .sidebar-section {
+    border-bottom-color: oklch(96% 0.006 262 / 0.12) !important;
+  }
+
+  .resume.resume--lumen .header,
+  .resume.resume--lumen .main-section,
+  .resume.resume--lumen .sidebar-section,
+  .resume.resume--lumen .resume-actions {
+    border-bottom-color: oklch(96% 0.006 262 / 0.12) !important;
+  }
+
+  .resume.resume--lumen .header h1 {
+    color: oklch(96% 0.006 262) !important;
+  }
+
+  .resume.resume--lumen .main-section > h2,
+  .resume.resume--lumen .sidebar-section > h2 {
+    color: oklch(76% 0.17 50) !important;
+  }
+
+  .resume.resume--lumen .section-icon {
+    border-color: oklch(76% 0.17 50) !important;
+    color: oklch(76% 0.17 50) !important;
+  }
+
+  .resume.resume--lumen .section-body p,
+  .resume.resume--lumen .timeline-content p,
+  .resume.resume--lumen .timeline-content li,
+  .resume.resume--lumen .contact,
+  .resume.resume--lumen .contact a {
+    color: oklch(72% 0.008 262) !important;
+  }
+
+  .resume.resume--lumen .timeline-content h3,
+  .resume.resume--lumen .roles-grid h3 {
+    color: oklch(96% 0.006 262) !important;
+  }
+
+  .resume.resume--lumen .timeline-content h3 .dates,
+  .resume.resume--lumen .timeline-content .location,
+  .resume.resume--lumen .roles-grid .company {
+    color: oklch(76% 0.17 50) !important;
+  }
+
+  .resume.resume--lumen .timeline::before {
+    background: oklch(76% 0.17 50) !important;
+    opacity: 0.45;
+  }
+
+  .resume.resume--lumen .timeline-marker {
+    background: oklch(76% 0.17 50) !important;
+    border-color: oklch(15% 0.014 265) !important;
+    box-shadow: 0 0 0 1px oklch(76% 0.17 50) !important;
   }
 
   .resume {
@@ -986,19 +1523,41 @@ body {
   }
 
   .sidebar-section--skills ul {
-    display: block;
-    padding-left: calc(16px * var(--scale));
-    list-style: disc;
+    display: block !important;
+    flex-wrap: unset !important;
+    gap: 0 !important;
+    padding-left: calc(16px * var(--scale)) !important;
+    list-style: disc !important;
   }
 
   .sidebar-section--skills li {
-    margin-bottom: calc(4px * var(--scale));
-    padding: 0;
-    border-radius: 0;
-    background: transparent;
-    border: none;
+    display: list-item !important;
+    margin: 0 0 calc(4px * var(--scale)) !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    border: none !important;
     color: #fff !important;
-    font-size: calc(10.5px * var(--scale));
+    font-size: calc(10.5px * var(--scale)) !important;
+  }
+
+  .resume.resume--lumen .sidebar-section--skills ul {
+    display: block !important;
+    flex-wrap: unset !important;
+    gap: 0 !important;
+    padding-left: calc(16px * var(--scale)) !important;
+    list-style: disc !important;
+  }
+
+  .resume.resume--lumen .sidebar-section--skills li {
+    display: list-item !important;
+    margin: 0 0 calc(4px * var(--scale)) !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    color: oklch(72% 0.008 262) !important;
+    font-size: calc(10.5px * var(--scale)) !important;
   }
 
   .roles-grid {
