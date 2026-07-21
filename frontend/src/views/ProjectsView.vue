@@ -4,22 +4,12 @@ import { fetchProjects, type Project } from "@/lib/projects";
 const projects = ref<Project[]>([]);
 const loadError = ref("");
 
-const stackLabels: Record<string, string> = {
-  "faruk-resume": "VUE 3 · EXPRESS",
-  financeiro: "FASTIFY · POSTGRESQL",
-  "job-hunter": "VUE 3 · TYPESCRIPT",
-};
-
 function projectHost(url: string): string {
   try {
     return new URL(url).hostname.replace(/^www\./, "");
   } catch {
     return url;
   }
-}
-
-function stackLabel(project: Project): string {
-  return stackLabels[project.id] ?? "LIVE · DEPLOYED";
 }
 
 onMounted(async () => {
@@ -40,7 +30,7 @@ onMounted(async () => {
 
       <ul v-else class="projects-lumen-grid">
         <li v-for="project in projects" :key="project.id" class="projects-lumen-card">
-          <p class="projects-lumen-card__eyebrow">{{ stackLabel(project) }}</p>
+          <p class="projects-lumen-card__eyebrow">{{ project.stack }}</p>
           <h2 class="projects-lumen-card__title">{{ project.name }}</h2>
           <p class="projects-lumen-card__description">{{ project.description }}</p>
           <a

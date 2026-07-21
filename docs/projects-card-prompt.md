@@ -14,13 +14,15 @@ Responda SOMENTE com um bloco JSON válido (sem markdown, sem texto antes ou dep
 {
   "id": "slug-curto-unico",
   "name": "Nome do projeto",
-  "description": "1–3 frases em inglês para visitantes do currículo — o que é, stack principal e valor entregue.",
+  "stack": "Framework · Backend · DB · … (stack completa, separada por ·)",
+  "description": "1–3 frases em inglês para visitantes do currículo — o que é e valor entregue (sem repetir a stack).",
   "url": "https://url-principal-do-projeto"
 }
 
 Regras:
 - id: kebab-case, único entre todos os projetos (ex.: nfe-bot, job-hunter, financeiro)
 - name: título curto, ≤40 caracteres
+- stack: tecnologias principais, inglês, separadas por · (ex.: Next.js · React · PostgreSQL · Prisma)
 - description: inglês, tom profissional, ≤280 caracteres
 - url: URL pública de produção; se não existir ainda, responda com a URL planeada ou diga explicitamente que não há URL pública
 
@@ -47,7 +49,8 @@ Exemplo de entrada em `docs/projects.json`:
     {
       "id": "nfe-bot",
       "name": "NF-e Bot",
-      "description": "SaaS for Brazilian electronic invoice management with Vue frontend, FastAPI backend, and LLM-assisted chat.",
+      "stack": "Vue 3 · FastAPI · PostgreSQL",
+      "description": "SaaS for Brazilian electronic invoice management with LLM-assisted chat for NF-e workflows.",
       "url": "https://nfe.example.com"
     }
   ]

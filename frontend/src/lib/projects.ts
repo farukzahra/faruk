@@ -3,6 +3,7 @@ import { api } from "@/lib/api";
 export interface Project {
   id: string;
   name: string;
+  stack: string;
   description: string;
   url: string;
 }

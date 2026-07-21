@@ -1,23 +1,33 @@
 {
-  "updatedAt": "2026-07-20T12:47:00.000Z",
+  "updatedAt": "2026-07-21T18:44:00.000Z",
   "projects": [
     {
       "id": "faruk-resume",
       "name": "Faruk Resume Site",
-      "description": "Personal resume site built with Vue 3, Vuetify, and Express. PDF export, Gmail API resume delivery, and semantic versioning.",
+      "stack": "Vue 3 · Vuetify · Express",
+      "description": "Personal resume site with PDF export, Gmail API resume delivery, and semantic versioning.",
       "url": "https://www.faruk.dev.br"
     },
     {
       "id": "financeiro",
       "name": "Financeiro",
-      "description": "Personal finance web app to import Nubank CSV statements, auto-categorize transactions with custom rules, review entries, and track monthly budgets. Built with Fastify, Vue 3, and PostgreSQL.",
+      "stack": "Fastify · Vue 3 · PostgreSQL",
+      "description": "Personal finance web app to import Nubank CSV statements, auto-categorize transactions with custom rules, review entries, and track monthly budgets.",
       "url": "https://financeiro.faruk.dev.br"
     },
     {
       "id": "job-hunter",
       "name": "Job Hunter",
-      "description": "Searches MyGreenhouse for remote full-time jobs and filters geo-restricted listings so Brazil-based candidates see only eligible roles. Vue 3 frontend, Fastify/Node.js backend, TypeScript throughout.",
+      "stack": "Vue 3 · Fastify · TypeScript",
+      "description": "Searches MyGreenhouse for remote full-time jobs and filters geo-restricted listings so Brazil-based candidates see only eligible roles.",
       "url": "https://job.faruk.dev.br"
+    },
+    {
+      "id": "maco",
+      "name": "Maco",
+      "stack": "Next.js · React · PostgreSQL · Prisma · Auth.js",
+      "description": "Full-stack cannabis grow manager: plant registry, 15-week ScheduleEngine for auto-generated phase tasks, dashboard, per-plant checklists, and fertilization calendar with per-user data isolation.",
+      "url": "https://maco.faruk.dev.br"
     }
   ]
 }
