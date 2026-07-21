@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-21T18:44:00.000Z",
+  "updatedAt": "2026-07-21T19:05:00.000Z",
   "projects": [
     {
       "id": "faruk-resume",
@@ -28,6 +28,13 @@
       "stack": "Next.js · React · PostgreSQL · Prisma · Auth.js",
       "description": "Full-stack cannabis grow manager: plant registry, 15-week ScheduleEngine for auto-generated phase tasks, dashboard, per-plant checklists, and fertilization calendar with per-user data isolation.",
       "url": "https://maco.faruk.dev.br"
+    },
+    {
+      "id": "farmando-aura",
+      "name": "Farmando Aura",
+      "stack": "HTML · CSS · JavaScript · Node.js · Markdown · GitHub Actions · Caddy · VPS",
+      "description": "Sci-fi novel with a static web reader and automated publishing pipeline. Markdown chapters sync to a dark-mode site with chapter navigation and downloadable PDF, EPUB, and DOCX, deployed to production on every push.",
+      "url": "https://livros.faruk.dev.br"
     }
   ]
 }

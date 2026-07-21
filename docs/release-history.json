@@ -1,7 +1,14 @@
 {
-  "currentVersion": "1.8.1",
-  "updatedAt": "2026-07-21T18:44:00.000Z",
+  "currentVersion": "1.8.2",
+  "updatedAt": "2026-07-21T19:05:00.000Z",
   "entries": [
+    {
+      "version": "1.8.2",
+      "date": "2026-07-21",
+      "title": "Farmando Aura em My Projects",
+      "summary": "Card do Farmando Aura na página My Projects com stack completa e link para livros.faruk.dev.br.",
+      "type": "feat"
+    },
     {
       "version": "1.8.1",
       "date": "2026-07-21",
