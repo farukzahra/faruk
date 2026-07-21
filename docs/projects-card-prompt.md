@@ -22,7 +22,12 @@ Responda SOMENTE com um bloco JSON válido (sem markdown, sem texto antes ou dep
 Regras:
 - id: kebab-case, único entre todos os projetos (ex.: nfe-bot, job-hunter, financeiro)
 - name: título curto, ≤40 caracteres
-- stack: tecnologias principais, inglês, separadas por · (ex.: Next.js · React · PostgreSQL · Prisma)
+- stack: até 5 tecnologias principais, inglês, separadas por ·. Sem infra genérica (VPS, Caddy, GitHub Actions). Ordem fixa por família:
+  - Vue + Vuetify: Vue 3 · Vuetify · {Express|Fastify} · {PostgreSQL|Node.js} · {Drizzle|Prisma|TypeScript}
+  - Vue sem Vuetify: Vue 3 · Fastify · PostgreSQL · Prisma · TypeScript
+  - Next.js: Next.js · React · PostgreSQL · Prisma · Auth.js
+  - Static site: HTML · CSS · JavaScript · Node.js · Markdown
+  - Banco sempre antes do ORM; TypeScript no último slot quando couber.
 - description: inglês, tom profissional, ≤280 caracteres
 - url: URL pública de produção; se não existir ainda, responda com a URL planeada ou diga explicitamente que não há URL pública
 
@@ -49,7 +54,7 @@ Exemplo de entrada em `docs/projects.json`:
     {
       "id": "nfe-bot",
       "name": "NF-e Bot",
-      "stack": "Vue 3 · FastAPI · PostgreSQL",
+      "stack": "Vue 3 · Fastify · PostgreSQL · Prisma · TypeScript",
       "description": "SaaS for Brazilian electronic invoice management with LLM-assisted chat for NF-e workflows.",
       "url": "https://nfe.example.com"
     }

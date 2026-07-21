@@ -3,6 +3,7 @@ import { onMounted, ref } from "vue";
 import { fetchProjects, type Project } from "@/lib/projects";
 const projects = ref<Project[]>([]);
 const loadError = ref("");
+const loading = ref(true);
 
 function projectHost(url: string): string {
   try {
@@ -13,18 +14,28 @@ function projectHost(url: string): string {
 }
 
 onMounted(async () => {
+  loading.value = true;
+  loadError.value = "";
   try {
     const catalog = await fetchProjects();
+    if (!Array.isArray(catalog?.projects)) {
+      loadError.value = "Could not load projects.";
+      return;
+    }
     projects.value = catalog.projects;
   } catch {
     loadError.value = "Could not load projects.";
+  } finally {
+    loading.value = false;
   }
 });
 </script>
 <template>
   <main class="projects-page projects-page--lumen">
     <section class="projects-lumen-list" aria-label="Project list">
-      <p v-if="loadError" class="projects-lumen-error">{{ loadError }}</p>
+      <p v-if="loading" class="projects-lumen-empty">Loading projects…</p>
+
+      <p v-else-if="loadError" class="projects-lumen-error">{{ loadError }}</p>
 
       <p v-else-if="projects.length === 0" class="projects-lumen-empty">No projects listed yet.</p>
 

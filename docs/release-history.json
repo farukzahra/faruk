@@ -1,7 +1,14 @@
 {
-  "currentVersion": "1.8.2",
-  "updatedAt": "2026-07-21T19:05:00.000Z",
+  "currentVersion": "1.8.3",
+  "updatedAt": "2026-07-21T19:15:00.000Z",
   "entries": [
+    {
+      "version": "1.8.3",
+      "date": "2026-07-21",
+      "title": "Stacks padronizados e dev local",
+      "summary": "Stacks dos cards My Projects padronizadas (até 5 itens, ordem fixa, banco/ORM); npm run dev escolhe porta livre quando :3000 está ocupada; loading na página de projetos.",
+      "type": "fix"
+    },
     {
       "version": "1.8.2",
       "date": "2026-07-21",

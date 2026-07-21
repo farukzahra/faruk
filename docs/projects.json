@@ -1,24 +1,24 @@
 {
-  "updatedAt": "2026-07-21T19:05:00.000Z",
+  "updatedAt": "2026-07-21T19:11:00.000Z",
   "projects": [
     {
       "id": "faruk-resume",
       "name": "Faruk Resume Site",
-      "stack": "Vue 3 · Vuetify · Express",
+      "stack": "Vue 3 · Vuetify · Express · Node.js · TypeScript",
       "description": "Personal resume site with PDF export, Gmail API resume delivery, and semantic versioning.",
       "url": "https://www.faruk.dev.br"
     },
     {
       "id": "financeiro",
       "name": "Financeiro",
-      "stack": "Fastify · Vue 3 · PostgreSQL",
+      "stack": "Vue 3 · Vuetify · Fastify · PostgreSQL · Drizzle",
       "description": "Personal finance web app to import Nubank CSV statements, auto-categorize transactions with custom rules, review entries, and track monthly budgets.",
       "url": "https://financeiro.faruk.dev.br"
     },
     {
       "id": "job-hunter",
       "name": "Job Hunter",
-      "stack": "Vue 3 · Fastify · TypeScript",
+      "stack": "Vue 3 · Fastify · PostgreSQL · Prisma · TypeScript",
       "description": "Searches MyGreenhouse for remote full-time jobs and filters geo-restricted listings so Brazil-based candidates see only eligible roles.",
       "url": "https://job.faruk.dev.br"
     },
@@ -32,7 +32,7 @@
     {
       "id": "farmando-aura",
       "name": "Farmando Aura",
-      "stack": "HTML · CSS · JavaScript · Node.js · Markdown · GitHub Actions · Caddy · VPS",
+      "stack": "HTML · CSS · JavaScript · Node.js · Markdown",
       "description": "Sci-fi novel with a static web reader and automated publishing pipeline. Markdown chapters sync to a dark-mode site with chapter navigation and downloadable PDF, EPUB, and DOCX, deployed to production on every push.",
       "url": "https://livros.faruk.dev.br"
     }
