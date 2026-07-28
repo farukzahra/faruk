@@ -55,8 +55,9 @@ Lock externo: `skills-lock.json`. Restaurar após clone: `npx skills experimenta
 | **GitHub PAT** | Já temos. Usar `GITHUB_TOKEN` do `.env` local (não commitar). Cópia canônica: `../financeiro/planos/vps-secrets/github-pat.txt`. Serve para `npm run github:secrets` / `npm run sync:gmail`. |
 | **Skills / Faruk Base** | Manter skills alinhadas a `../faruk_base` quando fizer sentido (Vue/Express/superpowers). Novas features: seguir workflow brainstorming → writing-plans antes de implementar. |
 | **Currículo Phase A** | Conteúdo ATS em `ResumeView.vue`. **Visual:** Lumen Night Foundry em `/`, `/projects`, `/about`; menu global `AppTopNav.vue` (Resume · My Projects · About). |
-| **PDF do currículo** | Gerar com `npm run pdf` (Playwright/Chromium + `@media print`, tema Lumen). Saída: `frontend/public/assets/Faruk Zahra - CV - Resume.pdf` (+ cópia em `frontend/dist/assets/`). **Download e Enviar Currículo usam este arquivo** — rodar `npm run pdf` após mudar conteúdo ou visual do CV. |
-| **LinkedIn** | Sem API pessoal para editar About/Experience. Texto para colar: `docs/linkedin-paste.md`. |
+| **Alterar currículo** | **Fonte de verdade:** `ResumeView.vue`. Sempre que mudar conteúdo ou posicionamento do CV, atualizar **todos** os artefatos derivados **na mesma task** (não deixar para depois): (1) `npm run pdf` → `frontend/public/assets/Faruk Zahra - CV - Resume.pdf` + cópia em `frontend/dist/assets/` (download e anexo do e-mail); (2) `docs/linkedin-paste.md` (headline, about, experience, skills); (3) `lib/email-content.js` se cargo/posicionamento mudou; (4) `frontend/src/lib/send-resume.ts` se assuntos default mudaram. |
+| **PDF do currículo** | Gerar com `npm run pdf` (Playwright/Chromium + `@media print`, tema Lumen). Saída: `frontend/public/assets/Faruk Zahra - CV - Resume.pdf` (+ cópia em `frontend/dist/assets/`). **Download e Enviar Currículo usam este arquivo.** Ver checklist em **Alterar currículo**. |
+| **LinkedIn** | Sem API pessoal para editar About/Experience. Texto para colar: `docs/linkedin-paste.md` (manter sincronizado com `ResumeView.vue` — ver **Alterar currículo**). |
 
 ---
 
@@ -64,7 +65,10 @@ Lock externo: `skills-lock.json`. Restaurar após clone: `npx skills experimenta
 
 | Arquivo | Função |
 |---|---|
-| `frontend/src/views/ResumeView.vue` | Estrutura do currículo (ordem do DOM = ordem mobile) |
+| `frontend/src/views/ResumeView.vue` | Estrutura do currículo (ordem do DOM = ordem mobile) — **fonte de verdade do conteúdo** |
+| `docs/linkedin-paste.md` | Texto para colar no LinkedIn (sincronizar ao alterar CV) |
+| `lib/email-content.js` | Corpo e assunto default do e-mail Enviar Currículo |
+| `scripts/generate-resume-pdf.mjs` | Gera PDF via Playwright (`npm run pdf`) |
 | `frontend/src/styles.css` | Único stylesheet — todo padrão visual está aqui |
 | `frontend/src/components/SendResumeDialog.vue` | Dialog Vuetify + POST `/api/send-resume` |
 | `frontend/src/components/AppFooter.vue` | Rodapé do site (link Sobre; oculto no print/PDF) |

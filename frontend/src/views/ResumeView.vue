@@ -164,8 +164,64 @@ const previousRoles = [
           <div class="timeline-marker" />
           <div class="timeline-content">
             <h3>
+              AI Engineering Projects &amp; Generative AI Development | FMZ
+              <span class="dates">(Jul 2026 – Present)</span>
+            </h3>
+            <p class="location">Remote · Full-time</p>
+            <p>
+              Designing and developing production-oriented Generative AI solutions,
+              combining more than 20 years of backend engineering experience with modern
+              AI engineering patterns.
+            </p>
+            <p>
+              Building AI-powered applications using Large Language Models (LLMs),
+              Retrieval Augmented Generation (RAG), AI agents, and cloud-native
+              architectures, focusing on reliable, scalable, and enterprise-ready systems.
+            </p>
+            <ul>
+              <li>
+                Designed RAG-based architectures using embeddings, vector databases,
+                semantic search, document processing pipelines, and context retrieval
+                strategies.
+              </li>
+              <li>
+                Developed AI agent workflows using tool calling, structured outputs,
+                planning patterns, and multi-step task orchestration.
+              </li>
+              <li>
+                Built backend integrations between AI systems and enterprise applications
+                through APIs, event-driven architectures, and cloud services.
+              </li>
+              <li>
+                Applied AI reliability practices including prompt engineering, evaluation
+                pipelines, hallucination reduction strategies, guardrails, observability,
+                and cost optimization.
+              </li>
+              <li>
+                Explored LLMOps practices for deploying, monitoring, and improving AI
+                applications in production environments.
+              </li>
+              <li>
+                Applied software engineering principles such as clean architecture,
+                scalability, security, automated testing, and distributed systems design
+                to Generative AI solutions.
+              </li>
+            </ul>
+            <p>
+              <strong>Technologies:</strong> LLMs, Generative AI, RAG, AI Agents,
+              Embeddings, Vector Databases, LangChain, LangGraph, OpenAI APIs, Claude
+              APIs, Python, Java, Spring Boot, REST APIs, Cloud Platforms, Docker,
+              Kubernetes, Observability, Event-Driven Architecture.
+            </p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-marker" />
+          <div class="timeline-content">
+            <h3>
               Full Stack Engineer | BairesDev
-              <span class="dates">(May 2021 – Present)</span>
+              <span class="dates">(May 2021 – Jul 2026)</span>
             </h3>
             <p class="location">Remote</p>
             <ul>

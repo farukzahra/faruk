@@ -8,7 +8,7 @@ LinkedIn **does not** expose a personal API to update About / Experience / Skill
 ## Headline
 
 ```
-Senior Fullstack Engineer | Java | Spring | Vue.js | TypeScript | AI Agents
+Senior Fullstack Engineer | Generative AI | Java | Spring | RAG | AI Agents
 ```
 
 ## About
@@ -23,7 +23,24 @@ Strong background in software architecture, API design, system integration, perf
 Experienced using AI coding agents to accelerate implementation, refactoring, and day-to-day software delivery.
 ```
 
-## Experience — BairesDev (Full Stack Engineer · May 2021 – Present · Remote)
+## Experience — FMZ (AI Engineering Projects & Generative AI Development · Jul 2026 – Present · Remote · Full-time)
+
+```
+Designing and developing production-oriented Generative AI solutions, combining more than 20 years of backend engineering experience with modern AI engineering patterns.
+
+Building AI-powered applications using Large Language Models (LLMs), Retrieval Augmented Generation (RAG), AI agents, and cloud-native architectures, focusing on reliable, scalable, and enterprise-ready systems.
+
+• Designed RAG-based architectures using embeddings, vector databases, semantic search, document processing pipelines, and context retrieval strategies.
+• Developed AI agent workflows using tool calling, structured outputs, planning patterns, and multi-step task orchestration.
+• Built backend integrations between AI systems and enterprise applications through APIs, event-driven architectures, and cloud services.
+• Applied AI reliability practices including prompt engineering, evaluation pipelines, hallucination reduction strategies, guardrails, observability, and cost optimization.
+• Explored LLMOps practices for deploying, monitoring, and improving AI applications in production environments.
+• Applied software engineering principles such as clean architecture, scalability, security, automated testing, and distributed systems design to Generative AI solutions.
+
+Technologies: LLMs, Generative AI, RAG, AI Agents, Embeddings, Vector Databases, LangChain, LangGraph, OpenAI APIs, Claude APIs, Python, Java, Spring Boot, REST APIs, Cloud Platforms, Docker, Kubernetes, Observability, Event-Driven Architecture.
+```
+
+## Experience — BairesDev (Full Stack Engineer · May 2021 – Jul 2026 · Remote)
 
 ```
 • Built and maintained a multi-tenant Orders microservice (Java 17, Spring Boot) for a retail e-commerce platform — order lifecycle, payments, fulfillment, and store operations.
@@ -52,5 +69,5 @@ Experienced using AI coding agents to accelerate implementation, refactoring, an
 ## Skills (paste as LinkedIn skills / Featured)
 
 ```
-Java, Spring Boot, Spring Cloud, REST APIs, Microservices, Google Cloud Platform, AWS, Azure, Vue.js, TypeScript, Node.js, PostgreSQL, Docker, Git, JUnit, Mockito, Liquibase, Elasticsearch, CI/CD, Cursor, Claude, Codex, GitHub Copilot, Software Architecture, System Design, OpenAPI, Pub/Sub, GKE, Pinia, Vue Router, Vite, Playwright
+Java, Spring Boot, Spring Cloud, REST APIs, Microservices, Generative AI, RAG, AI Agents, LangChain, LangGraph, Python, OpenAI APIs, Claude APIs, Vector Databases, Google Cloud Platform, AWS, Azure, Vue.js, TypeScript, Node.js, PostgreSQL, Docker, Kubernetes, Git, JUnit, Mockito, Liquibase, Elasticsearch, CI/CD, Cursor, Codex, GitHub Copilot, Software Architecture, System Design, OpenAPI, Pub/Sub, GKE, Observability, Event-Driven Architecture
 ```
