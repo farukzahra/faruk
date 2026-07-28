@@ -3,7 +3,12 @@ require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
-const { getEmailConfigError, isEmailConfigured, sendResumeEmail } = require("./lib/gmail");
+const {
+  getEmailConfigError,
+  isEmailConfigured,
+  sendResumeEmail,
+  verifyEmailCredentials,
+} = require("./lib/gmail");
 const {
   buildEmailBody,
   getDefaultSubject,
@@ -84,6 +89,21 @@ app.get("/api/projects", (req, res) => {
   readJsonFile(PROJECTS_PATH, "Projects catalog", res);
 });
 
+app.get("/api/email-health", async (req, res) => {
+  const status = await verifyEmailCredentials();
+  if (status.ok) {
+    return res.json({ ok: true, configured: true, user: status.user });
+  }
+
+  const httpStatus = status.configured ? 503 : 503;
+  return res.status(httpStatus).json({
+    ok: false,
+    configured: status.configured,
+    error: status.error,
+    hint: status.hint,
+  });
+});
+
 app.post("/api/send-resume", async (req, res) => {
   const validated = validateSendPayload(req.body);
   if (validated.error) {
@@ -122,6 +142,13 @@ app.post("/api/send-resume", async (req, res) => {
     }
 
     console.error("Send error:", err.message);
+
+    if (err.message?.includes("invalid_grant")) {
+      return res.status(503).json({
+        error: "Gmail authorization expired. Run npm run google:auth && npm run sync:gmail.",
+      });
+    }
+
     res.status(500).json({ error: "Failed to send email. Check server logs." });
   }
 });

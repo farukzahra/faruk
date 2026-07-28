@@ -1,9 +1,14 @@
 {
-  "currentVersion": "1.8.3",
-  "updatedAt": "2026-07-21T19:15:00.000Z",
+  "currentVersion": "1.8.4",
+  "updatedAt": "2026-07-28T23:57:00.000Z",
   "entries": [
     {
-      "version": "1.8.3",
+      "version": "1.8.4",
+      "date": "2026-07-28",
+      "title": "E-mail em produção e monitoramento",
+      "summary": "Renovação do token Gmail OAuth; endpoint /api/email-health; verificação no deploy; testes E2E do Enviar Currículo; mensagem clara quando a autorização expira.",
+      "type": "fix"
+    },
       "date": "2026-07-21",
       "title": "Stacks padronizados e dev local",
       "summary": "Stacks dos cards My Projects padronizadas (até 5 itens, ordem fixa, banco/ORM); npm run dev escolhe porta livre quando :3000 está ocupada; loading na página de projetos.",

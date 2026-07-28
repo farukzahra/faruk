@@ -93,6 +93,9 @@ function axiosMessage(err: unknown): string | undefined {
   if (apiError?.includes("Email not configured")) {
     return "E-mail não configurado no servidor (Gmail API).";
   }
+  if (apiError?.includes("Gmail authorization expired")) {
+    return "Autorização Gmail expirada no servidor. Renove o token OAuth.";
+  }
   if (apiError?.includes("Resume PDF not found")) {
     return "PDF do currículo não encontrado no servidor. Rode npm run pdf e faça deploy.";
   }

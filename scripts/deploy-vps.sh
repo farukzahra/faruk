@@ -50,11 +50,33 @@ if command -v pm2 >/dev/null 2>&1; then
   pm2 restart faruk --update-env 2>/dev/null || pm2 start server.js --name faruk
   pm2 save 2>/dev/null || true
 else
+  if command -v fuser >/dev/null 2>&1; then
+    fuser -k "${PORT}/tcp" 2>/dev/null || true
+  fi
   pkill -f "node $APP_DIR/server.js" 2>/dev/null || true
   pkill -f "node server.js" 2>/dev/null || true
-  sleep 1
+  sleep 2
   nohup node server.js >> /var/log/faruk.log 2>&1 &
+  sleep 2
 fi
+
+node -e "
+require('dotenv').config();
+const { verifyEmailCredentials } = require('./lib/gmail');
+verifyEmailCredentials()
+  .then((status) => {
+    if (!status.ok) {
+      console.error('EMAIL_HEALTH_FAIL:', status.error);
+      if (status.hint) console.error('HINT:', status.hint);
+      process.exit(1);
+    }
+    console.log('EMAIL_HEALTH_OK:', status.user);
+  })
+  .catch((err) => {
+    console.error('EMAIL_HEALTH_FAIL:', err.message);
+    process.exit(1);
+  });
+"
 
 if [ -f /etc/caddy/Caddyfile ]; then
   python3 - "$PORT" <<'PY'
