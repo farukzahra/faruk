@@ -164,7 +164,7 @@ const previousRoles = [
           <div class="timeline-marker" />
           <div class="timeline-content">
             <h3>
-              AI Engineering Projects &amp; Generative AI Development | FMZ
+              AI Engineering Projects &amp; Generative AI Development | Freelance | Self-Employed
               <span class="dates">(Jul 2026 – Present)</span>
             </h3>
             <p class="location">Remote · Full-time</p>

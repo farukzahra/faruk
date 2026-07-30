@@ -23,7 +23,7 @@ Strong background in software architecture, API design, system integration, perf
 Experienced using AI coding agents to accelerate implementation, refactoring, and day-to-day software delivery.
 ```
 
-## Experience — FMZ (AI Engineering Projects & Generative AI Development · Jul 2026 – Present · Remote · Full-time)
+## Experience — Freelance | Self-Employed (AI Engineering Projects & Generative AI Development · Jul 2026 – Present · Remote · Full-time)
 
 ```
 Designing and developing production-oriented Generative AI solutions, combining more than 20 years of backend engineering experience with modern AI engineering patterns.
