@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-21T19:11:00.000Z",
+  "updatedAt": "2026-07-30T20:42:00.000Z",
   "projects": [
     {
       "id": "faruk-resume",
@@ -35,6 +35,13 @@
       "stack": "HTML · CSS · JavaScript · Node.js · Markdown",
       "description": "Sci-fi novel with a static web reader and automated publishing pipeline. Markdown chapters sync to a dark-mode site with chapter navigation and downloadable PDF, EPUB, and DOCX, deployed to production on every push.",
       "url": "https://livros.faruk.dev.br"
+    },
+    {
+      "id": "ms-poc",
+      "name": "Enterprise AI Sales Intelligence",
+      "stack": "Vue 3 · FastAPI · Semantic Kernel · Azure OpenAI · TypeScript",
+      "description": "Microsoft Azure AI Solution Engineering POC: an agent that blends CRM, sales, and ticket data (MCP) with document knowledge (RAG) to deliver cited executive briefings for sales meetings, with FACT vs AI recommendation labels.",
+      "url": "https://mspoc.faruk.dev.br"
     }
   ]
 }
