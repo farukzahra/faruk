@@ -8,7 +8,7 @@ LinkedIn **does not** expose a personal API to update About / Experience / Skill
 ## Headline
 
 ```
-Senior Fullstack Engineer | Generative AI | Java | Spring | RAG | AI Agents
+Senior Fullstack Engineer | Java | Spring | JavaScript | TypeScript | AI Agents
 ```
 
 ## About
@@ -21,23 +21,6 @@ Experienced across backend and full-stack development with Vue.js, TypeScript, N
 Strong background in software architecture, API design, system integration, performance optimization, and delivering scalable solutions throughout the entire software development lifecycle.
 
 Experienced using AI coding agents to accelerate implementation, refactoring, and day-to-day software delivery.
-```
-
-## Experience — Freelance | Self-Employed (AI Engineering Projects & Generative AI Development · Jul 2026 – Present · Remote · Full-time)
-
-```
-Designing and developing production-oriented Generative AI solutions, combining more than 20 years of backend engineering experience with modern AI engineering patterns.
-
-Building AI-powered applications using Large Language Models (LLMs), Retrieval Augmented Generation (RAG), AI agents, and cloud-native architectures, focusing on reliable, scalable, and enterprise-ready systems.
-
-• Designed RAG-based architectures using embeddings, vector databases, semantic search, document processing pipelines, and context retrieval strategies.
-• Developed AI agent workflows using tool calling, structured outputs, planning patterns, and multi-step task orchestration.
-• Built backend integrations between AI systems and enterprise applications through APIs, event-driven architectures, and cloud services.
-• Applied AI reliability practices including prompt engineering, evaluation pipelines, hallucination reduction strategies, guardrails, observability, and cost optimization.
-• Explored LLMOps practices for deploying, monitoring, and improving AI applications in production environments.
-• Applied software engineering principles such as clean architecture, scalability, security, automated testing, and distributed systems design to Generative AI solutions.
-
-Technologies: LLMs, Generative AI, RAG, AI Agents, Embeddings, Vector Databases, LangChain, LangGraph, OpenAI APIs, Claude APIs, Python, Java, Spring Boot, REST APIs, Cloud Platforms, Docker, Kubernetes, Observability, Event-Driven Architecture.
 ```
 
 ## Experience — BairesDev (Full Stack Engineer · May 2021 – Jul 2026 · Remote)
@@ -69,5 +52,5 @@ Technologies: LLMs, Generative AI, RAG, AI Agents, Embeddings, Vector Databases,
 ## Skills (paste as LinkedIn skills / Featured)
 
 ```
-Java, Spring Boot, Spring Cloud, REST APIs, Microservices, Generative AI, RAG, AI Agents, LangChain, LangGraph, Python, OpenAI APIs, Claude APIs, Vector Databases, Google Cloud Platform, AWS, Azure, Vue.js, TypeScript, Node.js, PostgreSQL, Docker, Kubernetes, Git, JUnit, Mockito, Liquibase, Elasticsearch, CI/CD, Cursor, Codex, GitHub Copilot, Software Architecture, System Design, OpenAPI, Pub/Sub, GKE, Observability, Event-Driven Architecture
+Java, Spring Boot, Spring Cloud, REST APIs, Microservices, Google Cloud Platform, AWS, Azure, Vue.js, TypeScript, Node.js, PostgreSQL, Docker, Git, JUnit, Mockito, Liquibase, Elasticsearch, CI/CD, Cursor, Claude, Codex, GitHub Copilot, Software Architecture, System Design
 ```
