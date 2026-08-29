@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-30T20:42:00.000Z",
+  "updatedAt": "2026-08-29T22:45:00.000Z",
   "projects": [
     {
       "id": "faruk-resume",
@@ -42,6 +42,13 @@
       "stack": "Vue 3 · FastAPI · Semantic Kernel · Azure OpenAI · TypeScript",
       "description": "Microsoft Azure AI Solution Engineering POC: an agent that blends CRM, sales, and ticket data (MCP) with document knowledge (RAG) to deliver cited executive briefings for sales meetings, with FACT vs AI recommendation labels.",
       "url": "https://mspoc.faruk.dev.br"
+    },
+    {
+      "id": "fumei",
+      "name": "Fumei",
+      "stack": "Kotlin · Jetpack Compose · Material 3 · Room · Android",
+      "description": "Simple Android app to log each vaping session with one tap, view your daily count and timestamps, and keep all data offline on-device—no account or internet required.",
+      "url": "https://play.google.com/store/apps/details?id=fumei.faruk.dev.br"
     }
   ]
 }
