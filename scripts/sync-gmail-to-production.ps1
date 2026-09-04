@@ -12,7 +12,7 @@ python scripts/setup-google-secrets.py
 if ($LASTEXITCODE -ne 0) { exit 1 }
 
 Write-Host "=== 3. VPS .env + restart ==="
-$deployKey = if ($env:DEPLOY_KEY) { $env:DEPLOY_KEY } else { "C:\repo\financeiro\planos\vps-secrets\deploy_key" }
+$deployKey = if ($env:DEPLOY_KEY) { $env:DEPLOY_KEY } else { "C:\repo\secrets\vps\ssh\github-actions-vps-shared" }
 $vpsHost = if ($env:VPS_HOST) { $env:VPS_HOST } else { "66.23.231.218" }
 $vpsUser = if ($env:VPS_USER) { $env:VPS_USER } else { "root" }
 

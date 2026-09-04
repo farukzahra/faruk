@@ -8,49 +8,60 @@ LinkedIn **does not** expose a personal API to update About / Experience / Skill
 ## Headline
 
 ```
-Senior Fullstack Engineer | Java | Spring | JavaScript | TypeScript | AI Agents
+Senior Fullstack Engineer | Java Architect | Solutions Architect
 ```
 
 ## About
 
 ```
-Senior Software Engineer with 20+ years of experience designing, building, and maintaining enterprise applications using Java, Spring Boot, REST APIs, and cloud-native architectures.
+Senior Software Engineer with 20+ years of experience designing, building, and maintaining enterprise applications using Java, Spring Boot, REST APIs, Microservices and cloud-native architectures on Google Cloud Platform, AWS and Azure.
 
-Experienced across backend and full-stack development with Vue.js, TypeScript, Node.js, relational databases, and distributed systems.
+Experienced across backend and full-stack development with Vue.js 3, TypeScript, Node.js, relational databases and distributed systems.
 
-Strong background in software architecture, API design, system integration, performance optimization, and delivering scalable solutions throughout the entire software development lifecycle.
+Strong background in software architecture, API design, system integration, performance optimization and delivering scalable solutions throughout the entire SDLC.
 
-Experienced using AI coding agents to accelerate implementation, refactoring, and day-to-day software delivery.
+Experienced using AI coding agents (GitHub Copilot, Claude Code, Cursor, Codex) to accelerate implementation, refactoring and day-to-day delivery.
 ```
 
 ## Experience — BairesDev (Full Stack Engineer · May 2021 – Jul 2026 · Remote)
 
 ```
-• Built and maintained a multi-tenant Orders microservice (Java 17, Spring Boot) for a retail e-commerce platform — order lifecycle, payments, fulfillment, and store operations.
+• Built and maintained multi-tenant Orders microservice (Java 17, Spring Boot) for retail e-commerce platform — order lifecycle, payments, fulfillment and store operations.
 • Designed contract-first REST APIs with OpenAPI 3, generating Spring interfaces and TypeScript clients for consuming services.
 • Implemented event-driven integrations with Google Cloud Pub/Sub (order ingestion, payment updates, POS export results, supplier fulfillment, outbound email).
 • Modeled multi-tenant PostgreSQL schemas and Liquibase migrations (orders, transactions, shipments, soft deletes).
-• Delivered Elasticsearch-backed order search with indexing, search templates, filters, and aggregations.
-• Ran and integrated services on Google Cloud Platform — GKE, Pub/Sub, Cloud SQL, Cloud Storage, and IAM — with OpenFeign between microservices and OAuth2 via the shared security base.
-• Built Vue 3 frontend features with TypeScript, Pinia, Vue Router, Axios, and Vite (Composition API with script setup).
-• Wrote automated tests across the stack — JUnit 5, Mockito, and MockMvc on the backend; Vitest and Playwright on the Vue frontend.
-• Participated in Agile ceremonies, code reviews, and production support.
+• Delivered Elasticsearch-backed order search with indexing, search templates, filters and aggregations.
+• Deployed and integrated services on Google Cloud Platform — GKE, Pub/Sub, Cloud SQL, Cloud Storage, IAM — with OpenFeign between microservices and OAuth2 via shared security base.
+• Built Vue 3 frontend features with TypeScript, Pinia, Vue Router, Axios and Vite (Composition API with script setup).
+• Wrote automated tests across the stack — JUnit 5, Mockito, MockMvc on backend; Vitest and Playwright on Vue frontend.
+• Participated in Agile ceremonies, code reviews and production support.
 ```
 
-## Experience — Lume Tecnologia (Solutions Architect · Feb 2008 – Apr 2021 · Pinhais, PR)
+## Experience — Lume Tecnologia (Solutions Architect · Feb 2008 – Apr 2021 · Pinhais, PR – Brazil)
 
 ```
-• Led software architecture decisions for enterprise applications.
-• Gathered customer requirements and translated them into technical solutions.
-• Designed backend systems using Java and Spring Boot.
-• Modernized legacy Java EE applications.
+• Led software architecture decisions for enterprise applications and translated customer requirements into technical solutions.
+• Designed backend systems using Java and Spring Boot and modernized legacy Java EE applications.
 • Delivered cloud-hosted solutions on AWS (EC2, S3, RDS, Lambda, IAM) and Azure (App Service, Blob Storage, Azure SQL, Functions, Entra ID).
-• Mentored developers and reviewed code quality.
-• Delivered solutions using Vue.js, Flutter, PostgreSQL, and Git.
+• Mentored developers, reviewed code quality and delivered solutions using Vue.js, Flutter, PostgreSQL and Git.
+```
+
+## Experience — Faculdades ESEEI (Java Teacher · Feb 2011 – Dec 2011)
+
+```
+Instructor for PC60 – Java/Web Programming and PC50 – Java Programming.
 ```
 
 ## Skills (paste as LinkedIn skills / Featured)
 
-```
-Java, Spring Boot, Spring Cloud, REST APIs, Microservices, Google Cloud Platform, AWS, Azure, Vue.js, TypeScript, Node.js, PostgreSQL, Docker, Git, JUnit, Mockito, Liquibase, Elasticsearch, CI/CD, Cursor, Claude, Codex, GitHub Copilot, Software Architecture, System Design
-```
+**Backend:** Java 17, Java EE, Spring Boot, Spring Cloud, Spring Security, REST APIs, Microservices, OpenAPI 3, OpenFeign, OAuth2, JUnit 5, Mockito, MockMvc, Liquibase
+
+**Cloud & DevOps:** Google Cloud Platform, GKE, Pub/Sub, Cloud SQL, Cloud Storage, IAM, AWS, EC2, S3, RDS, Lambda, Azure, App Service, Blob Storage, Azure SQL, Functions, Entra ID, Docker, Kubernetes, CI/CD, Git, GitHub Actions
+
+**Frontend:** Vue.js 3, TypeScript, JavaScript, Node.js, Pinia, Vue Router, Axios, Vite, HTML5, CSS3, jQuery, Vuetify, Flutter, Electron.js
+
+**Data & Search:** PostgreSQL, MySQL, Oracle, DB2 9, SQLite, Elasticsearch, Relational Databases, Multi-tenant Data Modeling
+
+**AI & Productivity:** GitHub Copilot, Claude Code, Cursor, Codex, AI Agents, Generative AI, LLM Integration
+
+**Practices:** Software Architecture, System Design, Agile, Scrum, Code Review, Performance Optimization, System Integration

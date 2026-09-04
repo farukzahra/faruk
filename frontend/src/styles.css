@@ -371,6 +371,20 @@ body {
   .sidebar .sidebar-section li {
     color: #fff;
   }
+
+  .sidebar-section--skills .skill-group h3 {
+    margin: 0 0 calc(4px * var(--scale));
+    font-size: calc(11px * var(--scale));
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .sidebar-section--skills .skill-group p {
+    margin: 0 0 calc(10px * var(--scale));
+    font-size: calc(10.5px * var(--scale));
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.88);
+  }
 }
 
 .profile-photo {
@@ -421,6 +435,26 @@ body {
 }
 
 @media (max-width: 820px) {
+  .sidebar-section--skills .skill-groups {
+    display: flex;
+    flex-direction: column;
+    gap: calc(12px * var(--scale));
+  }
+
+  .sidebar-section--skills .skill-group h3 {
+    margin: 0 0 4px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--navy-dark);
+  }
+
+  .sidebar-section--skills .skill-group p {
+    margin: 0;
+    font-size: 11px;
+    line-height: 1.45;
+    color: var(--text-muted);
+  }
+
   .sidebar-section--skills ul {
     display: flex;
     flex-wrap: wrap;
@@ -1539,6 +1573,20 @@ body.lumen-theme-active .v-application {
     border: none !important;
     color: #fff !important;
     font-size: calc(10.5px * var(--scale)) !important;
+  }
+
+  .resume.resume--lumen .sidebar-section--skills .skill-group h3 {
+    margin: 0 0 calc(4px * var(--scale));
+    font-size: calc(11px * var(--scale));
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .resume.resume--lumen .sidebar-section--skills .skill-group p {
+    margin: 0 0 calc(10px * var(--scale));
+    font-size: calc(10.5px * var(--scale));
+    line-height: 1.45;
+    color: oklch(72% 0.008 262);
   }
 
   .resume.resume--lumen .sidebar-section--skills ul {

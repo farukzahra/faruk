@@ -5,37 +5,42 @@ import SendResumeDialog from "@/components/SendResumeDialog.vue";
 const pdfUrl = "/assets/Faruk Zahra - CV - Resume.pdf";
 const sendOpen = ref(false);
 
-const skills = [
-  "Java",
-  "Spring Boot",
-  "Spring Cloud",
-  "REST APIs",
-  "Microservices",
-  "Google Cloud Platform",
-  "AWS",
-  "Azure",
-  "Vue.js",
-  "TypeScript",
-  "Node.js",
-  "PostgreSQL",
-  "Docker",
-  "Git",
-  "JUnit",
-  "Mockito",
-  "Liquibase",
-  "Elasticsearch",
-  "CI/CD",
-  "Cursor",
-  "Claude",
-  "Codex",
-  "GitHub Copilot",
-  "Software Architecture",
-  "System Design",
+const skillGroups = [
+  {
+    name: "Backend",
+    items:
+      "Java 17, Java EE, Spring Boot, Spring Cloud, Spring Security, REST APIs, Microservices, OpenAPI 3, OpenFeign, OAuth2, JUnit 5, Mockito, MockMvc, Liquibase",
+  },
+  {
+    name: "Cloud & DevOps",
+    items:
+      "Google Cloud Platform (GKE, Pub/Sub, Cloud SQL, Cloud Storage, IAM), AWS (EC2, S3, RDS, Lambda, IAM), Azure (App Service, Blob Storage, Azure SQL, Functions, Entra ID), Docker, Kubernetes, CI/CD, Git, GitHub Actions",
+  },
+  {
+    name: "Frontend",
+    items:
+      "Vue.js 3, TypeScript, JavaScript, Node.js, Pinia, Vue Router, Axios, Vite, HTML5, CSS3, jQuery, Vuetify, Flutter, Electron.js",
+  },
+  {
+    name: "Data & Search",
+    items:
+      "PostgreSQL, MySQL, Oracle, DB2 9, SQLite, Elasticsearch, Relational Databases, Multi-tenant Data Modeling",
+  },
+  {
+    name: "AI & Productivity",
+    items:
+      "GitHub Copilot, Claude Code, Cursor, Codex, AI Agents, Generative AI, LLM Integration",
+  },
+  {
+    name: "Practices",
+    items:
+      "Software Architecture, System Design, Agile, Scrum, Code Review, Performance Optimization, System Integration",
+  },
 ];
 
 const languages = [
   "Portuguese – Native",
-  "English – Professional Working",
+  "English – Professional Working Proficiency",
   "Arabic – Elementary",
 ];
 
@@ -44,7 +49,7 @@ const certifications = [
   "Oracle Certified Professional, Java SE 6 Programmer",
   "IBM Certified Associate Developer – Lotus Notes and Domino 7",
   "IBM Certified Database Associate – DB2 9 Fundamentals",
-  "SUN CERTIFIED MOBILE APPLICATION DEVELOPER",
+  "SUN Certified Mobile Application Developer",
 ];
 
 const previousRoles = [
@@ -60,14 +65,20 @@ const previousRoles = [
     <header class="header resume-header">
       <h1>Faruk Zahra</h1>
       <p class="title">Senior Fullstack Engineer</p>
-      <p class="keywords">Java | Spring | JavaScript | TypeScript | AI Agents</p>
+      <p class="keywords">Java Architect | Solutions Architect</p>
       <div class="contact">
+        <span><i class="fa-solid fa-location-dot" /> Curitiba, PR, Brazil</span>
         <a href="mailto:farukz@gmail.com">
           <i class="fa-solid fa-envelope" /> farukz@gmail.com
         </a>
-        <span><i class="fa-solid fa-location-dot" /> Curitiba, PR, Brazil</span>
         <a href="https://linkedin.com/in/farukz" target="_blank" rel="noreferrer">
           <i class="fa-brands fa-linkedin" /> linkedin.com/in/farukz
+        </a>
+        <a href="https://github.com/farukzahra" target="_blank" rel="noreferrer">
+          <i class="fa-brands fa-github" /> github.com/farukzahra
+        </a>
+        <a href="https://www.faruk.dev.br" target="_blank" rel="noreferrer">
+          <i class="fa-solid fa-globe" /> www.faruk.dev.br
         </a>
         <router-link to="/projects">
           <i class="fa-solid fa-diagram-project" /> My Projects
@@ -82,28 +93,27 @@ const previousRoles = [
       <div class="section-body">
         <p>
           Senior Software Engineer with 20+ years of experience designing, building, and
-          maintaining enterprise applications using Java, Spring Boot, REST APIs, and
-          cloud-native architectures.
+          maintaining enterprise applications using Java, Spring Boot, REST APIs, Microservices
+          and cloud-native architectures on Google Cloud Platform, AWS and Azure.
         </p>
         <p>
-          Experienced across backend and full-stack development with Vue.js, TypeScript,
-          Node.js, relational databases, and distributed systems.
+          Experienced across backend and full-stack development with Vue.js 3, TypeScript,
+          Node.js, relational databases and distributed systems.
         </p>
         <p>
           Strong background in software architecture, API design, system integration,
-          performance optimization, and delivering scalable solutions throughout the entire
-          software development lifecycle.
+          performance optimization and delivering scalable solutions throughout the entire SDLC.
         </p>
         <p>
-          Experienced using AI coding agents to accelerate implementation, refactoring, and
-          day-to-day software delivery.
+          Experienced using AI coding agents (GitHub Copilot, Claude Code, Cursor, Codex) to
+          accelerate implementation, refactoring and day-to-day delivery.
         </p>
       </div>
     </section>
 
     <aside class="sidebar resume-sidebar">
       <div class="profile-photo">
-        <img src="/assets/profile.jpg" alt="Faruk Zahra" />
+        <img src="/assets/profile.png" alt="Faruk Zahra" />
       </div>
 
       <div class="resume-actions">
@@ -131,9 +141,12 @@ const previousRoles = [
         <h2>
           <span class="section-icon"><i class="fa-solid fa-code" /></span> Core Skills
         </h2>
-        <ul>
-          <li v-for="skill in skills" :key="skill">{{ skill }}</li>
-        </ul>
+        <div class="skill-groups">
+          <div v-for="group in skillGroups" :key="group.name" class="skill-group">
+            <h3>{{ group.name }}</h3>
+            <p>{{ group.items }}</p>
+          </div>
+        </div>
       </section>
 
       <section class="sidebar-section">
@@ -192,9 +205,9 @@ const previousRoles = [
                 filters, and aggregations.
               </li>
               <li>
-                Ran and integrated services on Google Cloud Platform — GKE, Pub/Sub, Cloud SQL,
-                Cloud Storage, and IAM — with OpenFeign between microservices and OAuth2 via the
-                shared security base.
+                Deployed and integrated services on Google Cloud Platform — GKE, Pub/Sub, Cloud SQL,
+                Cloud Storage, IAM — with OpenFeign between microservices and OAuth2 via shared
+                security base.
               </li>
               <li>
                 Built Vue 3 frontend features with TypeScript, Pinia, Vue Router, Axios, and
@@ -218,20 +231,24 @@ const previousRoles = [
               Solutions Architect | Lume Tecnologia
               <span class="dates">(Feb 2008 – Apr 2021)</span>
             </h3>
-            <p class="location">Pinhais, PR</p>
+            <p class="location">Pinhais, PR – Brazil</p>
             <ul>
-              <li>Led software architecture decisions for enterprise applications.</li>
               <li>
-                Gathered customer requirements and translated them into technical solutions.
+                Led software architecture decisions for enterprise applications and translated
+                customer requirements into technical solutions.
               </li>
-              <li>Designed backend systems using Java and Spring Boot.</li>
-              <li>Modernized legacy Java EE applications.</li>
+              <li>
+                Designed backend systems using Java and Spring Boot and modernized legacy Java EE
+                applications.
+              </li>
               <li>
                 Delivered cloud-hosted solutions on AWS (EC2, S3, RDS, Lambda, IAM) and Azure
                 (App Service, Blob Storage, Azure SQL, Functions, Entra ID).
               </li>
-              <li>Mentored developers and reviewed code quality.</li>
-              <li>Delivered solutions using Vue.js, Flutter, PostgreSQL, and Git.</li>
+              <li>
+                Mentored developers, reviewed code quality and delivered solutions using Vue.js,
+                Flutter, PostgreSQL and Git.
+              </li>
             </ul>
           </div>
         </article>
@@ -243,7 +260,7 @@ const previousRoles = [
               Java Teacher | Faculdades ESEEI
               <span class="dates">(Feb 2011 – Dec 2011)</span>
             </h3>
-            <p>PC60 – Java/Web Programming and PC50 – Java Programming.</p>
+            <p>Instructor for PC60 – Java/Web Programming and PC50 – Java Programming.</p>
           </div>
         </article>
       </div>

@@ -19,7 +19,7 @@ echo "=== 2. GitHub Secrets ==="
 python scripts/setup-google-secrets.py
 
 echo "=== 3. VPS .env + restart ==="
-DEPLOY_KEY="${DEPLOY_KEY:-../financeiro/planos/vps-secrets/deploy_key}"
+DEPLOY_KEY="${DEPLOY_KEY:-C:/repo/secrets/vps/ssh/github-actions-vps-shared}"
 VPS_HOST="${VPS_HOST:-66.23.231.218}"
 VPS_USER="${VPS_USER:-root}"
 

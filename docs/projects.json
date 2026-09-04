@@ -44,6 +44,13 @@
       "url": "https://mspoc.faruk.dev.br"
     },
     {
+      "id": "sessao-gravador",
+      "name": "Sessão Gravador",
+      "stack": "Next.js · Prisma · PostgreSQL · browser-whisper",
+      "description": "SaaS for mental health professionals: scheduling, tab recording, local Whisper transcription, BYOK AI analysis, and Google Calendar/Meet sync per professional.",
+      "url": "https://saude.faruk.dev.br"
+    },
+    {
       "id": "fumei",
       "name": "Fumei",
       "stack": "Kotlin · Jetpack Compose · Material 3 · Room · Android",

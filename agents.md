@@ -52,12 +52,13 @@ Lock externo: `skills-lock.json`. Restaurar após clone: `npx skills experimenta
 | **"Commita" / pedido de commit** | Commitar **tudo** que estiver pendente + **push** para `origin/main` (dispara deploy). Mensagem em Conventional Commits, **em inglês**. Preferir `/commit-push`. **Após push:** verificar GitHub Actions (`Deploy VPS`); se falhar, ler logs, corrigir e push de novo até passar. |
 | **Migrar para Vue 3** | Seguir `docs/ARQUITETURA.md` — Vue 3 + Vuetify + Express; Caddy `reverse_proxy` :3000 |
 | **Logs / debug VPS** | SSH via chave compartilhada (ver seção **VPS — acesso e logs** abaixo). Log da app: `/var/log/faruk.log`. Erro Gmail comum: `Send error: invalid_grant` → renovar `GOOGLE_REFRESH_TOKEN`. |
-| **GitHub PAT** | Já temos. Usar `GITHUB_TOKEN` do `.env` local (não commitar). Cópia canônica: `../financeiro/planos/vps-secrets/github-pat.txt`. Serve para `npm run github:secrets` / `npm run sync:gmail`. |
+| **GitHub PAT** | Já temos. Usar `GITHUB_TOKEN` do `.env` local (não commitar). Cópia canônica: `C:/repo/secrets/github/pat.txt`. Serve para `npm run github:secrets` / `npm run sync:gmail`. |
 | **Skills / Faruk Base** | Manter skills alinhadas a `../faruk_base` quando fizer sentido (Vue/Express/superpowers). Novas features: seguir workflow brainstorming → writing-plans antes de implementar. |
 | **Currículo Phase A** | Conteúdo ATS em `ResumeView.vue`. **Visual:** Lumen Night Foundry em `/`, `/projects`, `/about`; menu global `AppTopNav.vue` (Resume · My Projects · About). |
 | **Alterar currículo** | **Fonte de verdade:** `ResumeView.vue`. Sempre que mudar conteúdo ou posicionamento do CV, atualizar **todos** os artefatos derivados **na mesma task** (não deixar para depois): (1) `npm run pdf` → `frontend/public/assets/Faruk Zahra - CV - Resume.pdf` + cópia em `frontend/dist/assets/` (download e anexo do e-mail); (2) `docs/linkedin-paste.md` (headline, about, experience, skills); (3) `lib/email-content.js` se cargo/posicionamento mudou; (4) `frontend/src/lib/send-resume.ts` se assuntos default mudaram. |
 | **PDF do currículo** | Gerar com `npm run pdf` (Playwright/Chromium + `@media print`, tema Lumen). Saída: `frontend/public/assets/Faruk Zahra - CV - Resume.pdf` (+ cópia em `frontend/dist/assets/`). **Download e Enviar Currículo usam este arquivo.** Ver checklist em **Alterar currículo**. |
 | **LinkedIn** | Sem API pessoal para editar About/Experience. Texto para colar: `docs/linkedin-paste.md` (manter sincronizado com `ResumeView.vue` — ver **Alterar currículo**). |
+| **Gmail sem renovar a cada 7 dias** | Causa raiz: OAuth consent screen em **Testing**. Prioridade: publicar app em **In production** no Google Cloud → `npm run google:auth` → `npm run sync:gmail`. Alternativas (se não quiser Gmail OAuth): SMTP App Password, ou provedor transacional (Resend/SendGrid/SES). Não aceitar renovação semanal como solução permanente. |
 
 ---
 
@@ -279,8 +280,8 @@ Apenas reset de fundo/sombra em `@media print`. **Sem** `page-break-before/after
 | Variável / recurso | Onde está |
 |---|---|
 | `GOOGLE_*` / `GMAIL_USER` | `.env` na raiz do faruk |
-| `GITHUB_TOKEN` (PAT, escopo `repo`) | `.env` do faruk **e** cópia canônica em `../financeiro/planos/vps-secrets/github-pat.txt` |
-| Chave SSH VPS | `../financeiro/planos/vps-secrets/deploy_key` |
+| `GITHUB_TOKEN` (PAT, escopo `repo`) | `.env` do faruk **e** cópia canônica em `C:/repo/secrets/github/pat.txt` |
+| Chave SSH VPS | `C:/repo/secrets/vps/ssh/github-actions-vps-shared` |
 
 Scripts que usam o PAT: `npm run github:secrets`, `npm run sync:gmail`.
 
@@ -292,14 +293,14 @@ Credenciais e guia completo ficam no repo **financeiro** (mesma VPS multisite):
 
 | Recurso | Caminho |
 |---|---|
-| Chave SSH (GitHub Actions / agentes) | `../financeiro/planos/vps-secrets/deploy_key` |
+| Chave SSH (GitHub Actions / agentes) | `C:/repo/secrets/vps/ssh/github-actions-vps-shared` |
 | Guia deploy multisite | `../financeiro/planos/guia-deploy-vps.local.md` |
 | Chave alternativa local | `~/.ssh/faruk-vps-deploy` (pode não estar autorizada na VPS) |
 
 ### SSH
 
 ```bash
-ssh -i ../financeiro/planos/vps-secrets/deploy_key root@66.23.231.218
+ssh -i C:/repo/secrets/vps/ssh/github-actions-vps-shared root@66.23.231.218
 ```
 
 | Campo | Valor |
