@@ -19,7 +19,7 @@ const skillGroups = [
   {
     name: "Frontend",
     items:
-      "Vue.js 3, TypeScript, JavaScript, Node.js, Pinia, Vue Router, Axios, Vite, HTML5, CSS3, jQuery, Vuetify, Flutter, Electron.js",
+      "React, React Native, Next.js, Expo, Redux, TanStack Query, Vue.js 3, TypeScript, JavaScript, Node.js, Pinia, Vue Router, Axios, Vite, HTML5, CSS3, jQuery, Vuetify, Flutter, Electron.js",
   },
   {
     name: "Data & Search",
@@ -97,8 +97,8 @@ const previousRoles = [
           and cloud-native architectures on Google Cloud Platform, AWS and Azure.
         </p>
         <p>
-          Experienced across backend and full-stack development with Vue.js 3, TypeScript,
-          Node.js, relational databases and distributed systems.
+          Experienced across backend and full-stack development with React, React Native,
+          Vue.js 3, TypeScript, Node.js, relational databases and distributed systems.
         </p>
         <p>
           Strong background in software architecture, API design, system integration,
@@ -210,12 +210,13 @@ const previousRoles = [
                 security base.
               </li>
               <li>
-                Built Vue 3 frontend features with TypeScript, Pinia, Vue Router, Axios, and
-                Vite (Composition API with script setup).
+                Built frontend features across React, React Native, and Vue 3 — TypeScript,
+                Redux, TanStack Query, Pinia, Vue Router, Axios, Vite, and Expo (Composition API
+                with script setup on Vue).
               </li>
               <li>
                 Wrote automated tests across the stack — JUnit 5, Mockito, and MockMvc on the
-                backend; Vitest and Playwright on the Vue frontend.
+                backend; Vitest, React Testing Library, and Playwright on the frontend.
               </li>
               <li>
                 Participated in Agile ceremonies, code reviews, and production support.
@@ -246,8 +247,8 @@ const previousRoles = [
                 (App Service, Blob Storage, Azure SQL, Functions, Entra ID).
               </li>
               <li>
-                Mentored developers, reviewed code quality and delivered solutions using Vue.js,
-                Flutter, PostgreSQL and Git.
+                Mentored developers, reviewed code quality and delivered solutions using React,
+                React Native, Vue.js, Flutter, PostgreSQL and Git.
               </li>
             </ul>
           </div>
