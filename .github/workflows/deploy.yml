@@ -25,7 +25,7 @@ jobs:
         run: |
           npm ci
           npm ci --prefix frontend
-          npm run build --prefix frontend
+          npm run build:check --prefix frontend
 
   deploy:
     runs-on: ubuntu-latest

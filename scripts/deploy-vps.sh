@@ -36,7 +36,11 @@ ensure_node
 rm -rf node_modules frontend/node_modules
 
 npm ci --omit=dev
-npm ci --prefix frontend
+# Frontend build needs devDependencies (vite, vue-tsc). Retry once if tar extraction flakes.
+if ! npm ci --prefix frontend --include=dev; then
+  rm -rf frontend/node_modules
+  npm ci --prefix frontend --include=dev
+fi
 npm run build --prefix frontend
 
 PDF_PUBLIC="frontend/public/assets/Faruk Zahra - CV - Resume.pdf"
