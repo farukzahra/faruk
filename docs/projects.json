@@ -46,8 +46,8 @@
     {
       "id": "terapia",
       "name": "TerapIA",
-      "stack": "Next.js · React · PostgreSQL · Prisma · browser-whisper",
-      "description": "Multi-tenant SaaS for mental health professionals: scheduling, tab recording with local Whisper transcription, session notes, Gemini AI analysis, and Google Calendar sync.",
+      "stack": "Next.js · React · PostgreSQL · Prisma · TypeScript",
+      "description": "Multi-tenant SaaS for mental health professionals: scheduling, video session tab recording, browser-local Whisper transcription, Gemini AI session analysis, and patient records per professional.",
       "url": "https://terapia.faruk.dev.br"
     },
     {
