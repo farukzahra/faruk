@@ -1,7 +1,14 @@
 {
-  "currentVersion": "1.8.4",
-  "updatedAt": "2026-07-28T23:57:00.000Z",
+  "currentVersion": "1.8.5",
+  "updatedAt": "2026-09-06T22:20:00.000Z",
   "entries": [
+    {
+      "version": "1.8.5",
+      "date": "2026-09-06",
+      "title": "Workflow Superpowers e /commit-push",
+      "summary": "Bootstrap do fluxo design → plano → implementação com /init, skills core e comando /commit-push padronizado.",
+      "type": "chore"
+    },
     {
       "version": "1.8.4",
       "date": "2026-07-28",
@@ -9,6 +16,8 @@
       "summary": "Renovação do token Gmail OAuth; endpoint /api/email-health; verificação no deploy; testes E2E do Enviar Currículo; mensagem clara quando a autorização expira.",
       "type": "fix"
     },
+    {
+      "version": "1.8.3",
       "date": "2026-07-21",
       "title": "Stacks padronizados e dev local",
       "summary": "Stacks dos cards My Projects padronizadas (até 5 itens, ordem fixa, banco/ORM); npm run dev escolhe porta livre quando :3000 está ocupada; loading na página de projetos.",

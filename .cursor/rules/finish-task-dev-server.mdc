@@ -1,0 +1,28 @@
+---
+description: Ao concluir tarefas, subir servidor dev e informar URL de teste
+alwaysApply: true
+---
+
+# Servidor dev ao concluir tarefa
+
+Sempre que terminar uma task de implementação, correção ou validação de UI/API:
+
+1. **Detectar a stack** — `AGENTS.md`, `README.md`, `package.json`, `docs/stack.md`.
+2. **Verificar se o servidor já está no ar** — checar terminais e portas documentadas.
+3. **Subir o que faltar sem pedir permissão** — backend, frontend ou app full-stack, conforme o projeto.
+4. **Validar** — health check, título da página ou endpoint equivalente documentado no projeto.
+5. **Informar ao usuário** — URLs efetivas (incluindo porta de fallback se a padrão estiver ocupada).
+
+## Faruk Base / example
+
+Stack Next.js full-stack (front + API no mesmo processo):
+
+```bash
+cd example && pnpm dev
+```
+
+- URL padrão: http://localhost:3000
+- Fallback se 3000 ocupada: http://localhost:3001
+- Validar: `GET /api/health` ou página de login
+
+Não encerrar a resposta sem as URLs de teste quando a task alterou código executável.

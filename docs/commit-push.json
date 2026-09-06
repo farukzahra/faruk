@@ -1,0 +1,9 @@
+﻿{
+    "github":  {
+                   "owner":  "farukzahra",
+                   "repo":  "faruk"
+               },
+    "productionUrl":  "https://www.faruk.dev.br",
+    "verifyUrl":  "https://www.faruk.dev.br/",
+    "expectInBody":  "Faruk"
+}

@@ -1,0 +1,17 @@
+---
+description: Tentar automatizar com PAT/SSH/API/Azure CLI antes de pedir passo manual ao usuário
+alwaysApply: true
+---
+
+# Automatizar antes de pedir passo manual
+
+Antes de instruir o usuário a fazer algo manualmente no browser, painel externo ou terminal dele:
+
+1. **Executar primeiro** — verificar se PAT, chave SSH, API, script ou credencial documentada permite resolver.
+2. **Fontes comuns (Faruk)** — `C:\repo\secrets\` (`github-pat.txt`, `deploy_key`), guias em `docs/database-setup.md`, `docs/deploy-vps.md`, `secrets.local.md` no projeto.
+3. **Azure** — instalar/usar Azure CLI, tentar `az login` (ou service principal em `C:\repo\secrets\github\azure-service-principal.json`). No ms-poc: `scripts/azure-discover.ps1`, `scripts/azure-fill-env.ps1`, `docs/azure-access.md`.
+4. **Privilégios antes de pedir** — antes de pedir token, chave ou login, dizer qual **perfil/scope** libera automação pelo agente (ex.: Contributor + Cognitive Services OpenAI User). Só escalar quando nem com isso for possível (primeiro `az login`, OAuth/2FA, quota/billing, consent Entra).
+5. **Não pedir permissão** para o que já pode ser feito com as chaves existentes ou sessão `az` ativa.
+6. **Só escalar ao usuário** quando a automação for impossível — e nesse caso dizer **exatamente** o que criar (token, scope, secret name, um login no browser).
+
+Nunca enviar checklist manual sem antes tentar via API/SSH/PAT/Azure CLI.
