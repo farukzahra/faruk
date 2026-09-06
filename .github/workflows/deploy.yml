@@ -1,5 +1,9 @@
 name: Deploy VPS
 
+concurrency:
+  group: deploy-vps
+  cancel-in-progress: false
+
 on:
   push:
     branches:

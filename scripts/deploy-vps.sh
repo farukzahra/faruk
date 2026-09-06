@@ -7,6 +7,13 @@ PORT="${PORT:-3000}"
 
 cd "$APP_DIR"
 
+LOCK_DIR="${APP_DIR}/.deploy.lock.d"
+if ! mkdir "$LOCK_DIR" 2>/dev/null; then
+  echo "Another deploy is already running; exiting." >&2
+  exit 1
+fi
+trap 'rmdir "$LOCK_DIR" 2>/dev/null || true' EXIT INT TERM
+
 ensure_node() {
   if command -v npm >/dev/null 2>&1; then
     return 0
