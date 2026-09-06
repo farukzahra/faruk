@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-29T22:45:00.000Z",
+  "updatedAt": "2026-09-06T13:30:00.000Z",
   "projects": [
     {
       "id": "faruk-resume",
@@ -44,11 +44,11 @@
       "url": "https://mspoc.faruk.dev.br"
     },
     {
-      "id": "sessao-gravador",
-      "name": "Sessão Gravador",
-      "stack": "Next.js · Prisma · PostgreSQL · browser-whisper",
-      "description": "SaaS for mental health professionals: scheduling, tab recording, local Whisper transcription, BYOK AI analysis, and Google Calendar/Meet sync per professional.",
-      "url": "https://saude.faruk.dev.br"
+      "id": "terapia",
+      "name": "TerapIA",
+      "stack": "Next.js · React · PostgreSQL · Prisma · browser-whisper",
+      "description": "Multi-tenant SaaS for mental health professionals: scheduling, tab recording with local Whisper transcription, session notes, Gemini AI analysis, and Google Calendar sync.",
+      "url": "https://terapia.faruk.dev.br"
     },
     {
       "id": "fumei",
