@@ -7,7 +7,8 @@
       "date": "2026-09-09",
       "title": "Deploy resiliente e monitoramento Gmail",
       "summary": "Site sobe automaticamente após reboot da VPS via systemd; health check agendado do OAuth Gmail; reautorização bloqueada enquanto o token ainda vale.",
-      "type": "fix"
+      "type": "fix",
+      "commit": "a4d0be7"
     },
     {
       "version": "1.8.5",
