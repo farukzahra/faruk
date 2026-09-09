@@ -1,0 +1,17 @@
+[Unit]
+Description=Faruk resume site (Node/Express)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/faruk
+EnvironmentFile=/opt/faruk/.env
+ExecStart=/usr/bin/node server.js
+Restart=on-failure
+RestartSec=5
+StandardOutput=append:/var/log/faruk.log
+StandardError=append:/var/log/faruk.log
+
+[Install]
+WantedBy=multi-user.target

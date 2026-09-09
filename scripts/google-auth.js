@@ -22,6 +22,8 @@ if (!clientId || !clientSecret) {
   process.exit(1);
 }
 
+const forceReauth = process.argv.includes("--force");
+
 const oauth2Client = new google.auth.OAuth2(clientId, clientSecret, OAUTH_REDIRECT_URI);
 
 const authUrl = oauth2Client.generateAuthUrl({
@@ -29,6 +31,24 @@ const authUrl = oauth2Client.generateAuthUrl({
   prompt: "consent",
   scope: GMAIL_SCOPES,
 });
+
+async function ensureReauthNeeded() {
+  if (forceReauth || !process.env.GOOGLE_REFRESH_TOKEN) {
+    return;
+  }
+
+  const { verifyEmailCredentials } = require("../lib/gmail");
+  const status = await verifyEmailCredentials();
+  if (status.ok) {
+    console.error("\nCurrent GOOGLE_REFRESH_TOKEN is still valid.");
+    console.error("Re-auth mints a NEW token and can invalidate older ones (50-token cap).");
+    console.error("Only re-auth when email-health fails or after publishing the OAuth app.");
+    console.error("To force: npm run google:auth -- --force\n");
+    process.exit(0);
+  }
+
+  console.error(`\nExisting token invalid (${status.error}). Starting re-auth...\n`);
+}
 
 function saveRefreshToken(refreshToken) {
   if (!refreshToken) return;
@@ -105,12 +125,24 @@ server.on("error", (err) => {
   process.exit(1);
 });
 
-server.listen(PORT, () => {
-  console.log("\nGoogle Gmail API authorization\n");
-  console.log("Add as Test user in OAuth consent screen: farukz@gmail.com");
-  console.log("Redirect URI in Google Cloud:\n");
-  console.log(`  ${OAUTH_REDIRECT_URI}\n`);
-  console.log("Open this URL:\n");
-  console.log(authUrl);
-  console.log(`\nWaiting for callback on ${OAUTH_REDIRECT_URI} ...\n`);
+async function start() {
+  await ensureReauthNeeded();
+
+  server.listen(PORT, () => {
+    console.log("\nGoogle Gmail API authorization\n");
+    console.log("IMPORTANT: VPS deploy != Google OAuth 'In production'.");
+    console.log("Publish app: https://console.cloud.google.com/auth/audience?project=110995015738");
+    console.log("After auth, ALWAYS run: npm run sync:gmail\n");
+    console.log("Add as Test user in OAuth consent screen: farukz@gmail.com");
+    console.log("Redirect URI in Google Cloud:\n");
+    console.log(`  ${OAUTH_REDIRECT_URI}\n`);
+    console.log("Open this URL:\n");
+    console.log(authUrl);
+    console.log(`\nWaiting for callback on ${OAUTH_REDIRECT_URI} ...\n`);
+  });
+}
+
+start().catch((err) => {
+  console.error("\nFailed to start auth:", err.message);
+  process.exit(1);
 });

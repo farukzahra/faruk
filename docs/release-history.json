@@ -1,7 +1,14 @@
 {
-  "currentVersion": "1.8.5",
-  "updatedAt": "2026-09-06T22:20:00.000Z",
+  "currentVersion": "1.8.6",
+  "updatedAt": "2026-09-09T18:30:00.000Z",
   "entries": [
+    {
+      "version": "1.8.6",
+      "date": "2026-09-09",
+      "title": "Deploy resiliente e monitoramento Gmail",
+      "summary": "Site sobe automaticamente após reboot da VPS via systemd; health check agendado do OAuth Gmail; reautorização bloqueada enquanto o token ainda vale.",
+      "type": "fix"
+    },
     {
       "version": "1.8.5",
       "date": "2026-09-06",

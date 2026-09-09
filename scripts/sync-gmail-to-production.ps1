@@ -24,11 +24,15 @@ $tmpSh = Join-Path $PSScriptRoot "tmp-vps-restart.sh"
 $sh = @"
 cd /opt/faruk
 node -e "require('dotenv').config(); const {createOAuth2Client}=require('./lib/gmail'); createOAuth2Client().getAccessToken().then(()=>console.log('VPS_TOKEN_OK')).catch(e=>{console.log('VPS_TOKEN_FAIL', e.message); process.exit(1)})"
-pkill -f 'node server.js' 2>/dev/null || true
-sleep 1
-nohup node server.js >> /var/log/faruk.log 2>&1 &
+if systemctl is-active --quiet faruk 2>/dev/null; then
+  systemctl restart faruk
+else
+  pkill -f 'node server.js' 2>/dev/null || true
+  sleep 1
+  nohup node server.js >> /var/log/faruk.log 2>&1 &
+fi
 sleep 2
-ps aux | grep 'node server.js' | grep -v grep
+systemctl is-active faruk 2>/dev/null || ps aux | grep 'node server.js' | grep -v grep
 tail -3 /var/log/faruk.log
 "@
 [System.IO.File]::WriteAllText($tmpSh, $sh.Replace("`r`n", "`n"))

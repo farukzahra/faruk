@@ -57,7 +57,23 @@ if [ -f "$PDF_PUBLIC" ]; then
   cp -f "$PDF_PUBLIC" "$PDF_DIST"
 fi
 
-if command -v pm2 >/dev/null 2>&1; then
+install_systemd_service() {
+  SERVICE_SRC="${APP_DIR}/deploy/faruk.service"
+  SERVICE_DST="/etc/systemd/system/faruk.service"
+  if [ ! -f "$SERVICE_SRC" ]; then
+    return 1
+  fi
+  sed "s|/opt/faruk|${APP_DIR}|g" "$SERVICE_SRC" > "$SERVICE_DST"
+  systemctl daemon-reload
+  systemctl enable faruk
+  systemctl restart faruk
+  sleep 2
+  systemctl is-active --quiet faruk
+}
+
+if install_systemd_service; then
+  echo "faruk systemd service active"
+elif command -v pm2 >/dev/null 2>&1; then
   pm2 restart faruk --update-env 2>/dev/null || pm2 start server.js --name faruk
   pm2 save 2>/dev/null || true
 else

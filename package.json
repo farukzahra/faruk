@@ -1,6 +1,6 @@
 {
   "name": "faruk-resume",
-  "version": "1.8.4",
+  "version": "1.8.6",
   "private": true,
   "scripts": {
     "dev": "node scripts/dev.js",
@@ -9,6 +9,8 @@
     "build": "npm run build --prefix frontend",
     "start": "node server.js",
     "google:auth": "node scripts/google-auth.js",
+    "gmail:status": "node scripts/gmail-oauth-status.mjs",
+    "gmail:status:prod": "node scripts/gmail-oauth-status.mjs --production",
     "github:secrets": "python scripts/setup-google-secrets.py",
     "sync:gmail": "powershell -ExecutionPolicy Bypass -File scripts/sync-gmail-to-production.ps1",
     "pdf": "node scripts/generate-resume-pdf.mjs",

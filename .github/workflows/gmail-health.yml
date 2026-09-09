@@ -1,0 +1,21 @@
+name: Gmail health check
+
+on:
+  schedule:
+    # Mon/Thu 09:00 UTC — catch invalid_grant before users notice
+    - cron: "0 9 * * 1,4"
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Production email-health
+        run: |
+          set -eu
+          body="$(curl -sf https://www.faruk.dev.br/api/email-health)"
+          echo "$body"
+          echo "$body" | grep -q '"ok":true' || {
+            echo "::error::Gmail OAuth unhealthy on production. Run: npm run google:auth && npm run sync:gmail"
+            exit 1
+          }

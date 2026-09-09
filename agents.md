@@ -58,7 +58,7 @@ Lock externo: `skills-lock.json`. Restaurar após clone: `npx skills experimenta
 | **Alterar currículo** | **Fonte de verdade:** `ResumeView.vue` (HTML do CV). Sempre que mudar conteúdo ou posicionamento do CV, atualizar **todos** os artefatos derivados **na mesma task** (não deixar para depois): (1) `docs/linkedin-paste.md` (headline, about, experience, skills); (2) `lib/email-content.js` se cargo/posicionamento mudou; (3) `frontend/src/lib/send-resume.ts` se assuntos default mudaram; (4) `npm run pdf` → `frontend/public/assets/Faruk Zahra - CV - Resume.pdf` + cópia em `frontend/dist/assets/`; (5) **validar** antes de encerrar (ver **PDF do currículo**). **Nunca** declarar currículo atualizado sem HTML + PDF sincronizados e verificados. |
 | **PDF do currículo** | Gerar com `npm run pdf` (Playwright/Chromium + `@media print`, tema Lumen). Saída: `frontend/public/assets/Faruk Zahra - CV - Resume.pdf` (+ cópia em `frontend/dist/assets/`). **Download e Enviar Currículo usam este arquivo.** **Checklist obrigatório após qualquer alteração em `ResumeView.vue`:** (1) `npm run dev` no ar → abrir `http://localhost:5173/` e confirmar texto novo no HTML; (2) `npm run pdf` sem erro; (3) confirmar que o PDF existe e reflete o conteúdo (grep no texto extraído ou inspeção visual); (4) se `frontend/dist` existir, copiar PDF para `frontend/dist/assets/`. Ver também **Alterar currículo**. |
 | **LinkedIn** | Sem API pessoal para editar About/Experience. Texto para colar: `docs/linkedin-paste.md` (manter sincronizado com `ResumeView.vue` — ver **Alterar currículo**). |
-| **Gmail sem renovar a cada 7 dias** | Causa raiz: OAuth consent screen em **Testing**. Prioridade: publicar app em **In production** no Google Cloud → `npm run google:auth` → `npm run sync:gmail`. Alternativas (se não quiser Gmail OAuth): SMTP App Password, ou provedor transacional (Resend/SendGrid/SES). Não aceitar renovação semanal como solução permanente. |
+| **Gmail sem renovar toda hora** | **VPS em produção ≠ Google OAuth “In production”.** Deploy no servidor não muda o consent screen. Diagnóstico: `npm run gmail:status:prod`. **Não** rodar `google:auth` “por precaução” — cada `prompt=consent` cria token novo e pode invalidar o de produção (limite 50/user/client). Só reautorizar quando `/api/email-health` falhar ou após **Publish app** no [Google Cloud](https://console.cloud.google.com/auth/audience?project=110995015738). Depois: `npm run google:auth -- --force` → `npm run sync:gmail`. Monitoramento: workflow `Gmail health check` (seg/qui). |
 
 ---
 
@@ -131,20 +131,22 @@ Deploy escreve `.env`, roda `npm run build`, reinicia PM2 e configura Caddy `rev
 
 | Status do app (OAuth consent screen) | Comportamento |
 |---|---|
-| **Testing** (modo atual típico) | Refresh token **expira em 7 dias** → `invalid_grant` no log |
-| **In production** | Token **não expira por calendário**; vale até revogação, troca de senha (escopos Gmail), 6 meses sem uso, ou limite de 50 tokens por usuário/cliente |
+| **Testing** | Refresh token **expira em 7 dias** → `invalid_grant` |
+| **In production** | Sem expiração por calendário; vale até revogação, 6 meses sem uso, ou **limite de 50 tokens** por usuário/cliente |
 
-O código já renova o **access token** automaticamente (via `googleapis` + refresh token). O que quebra é o **refresh token** em si — não há como estender isso por código.
+O código renova o **access token** automaticamente. O que quebra é o **refresh token** em si.
 
-**Para parar de renovar a cada semana:**
+**Evidência deste projeto (set/2026):** deploys com `EMAIL_HEALTH_OK` de **28/jul a 06/set** (~40 dias). Isso **não** é ciclo de 7 dias (Testing). Causa provável do `invalid_grant` de set/2026: várias execuções de `npm run google:auth` (cada uma com `prompt=consent`) sem `sync:gmail`, acumulando tokens até revogar o mais antigo (o que estava no GitHub/VPS).
 
-1. [Google Cloud Console](https://console.cloud.google.com/) → APIs & Services → **OAuth consent screen**
-2. **Publishing status** → **In production** (não “Testing”)
-3. Escopo `gmail.send` é sensível/restrito: pode aparecer tela “unverified app” ou exigir verificação Google para uso amplo; para uso **só seu** (`farukz@gmail.com` enviando currículo), publicar em Production costuma bastar
-4. Rodar de novo `npm run google:auth` **depois** de publicar (token gerado em Testing continua com limite de 7 dias)
-5. Atualizar secret `GOOGLE_REFRESH_TOKEN` no GitHub + redeploy
+**Tática correta:**
 
-**Manutenção eventual (modo Production):** reautorizar só se `invalid_grant` voltar (revogação em https://myaccount.google.com/permissions, 6+ meses parado, etc.).
+1. [OAuth consent screen](https://console.cloud.google.com/auth/audience?project=110995015738) → **In production** (ainda recomendado; separado de “deploy na VPS”)
+2. Limpar acessos antigos em https://myaccount.google.com/permissions
+3. `npm run google:auth -- --force` **somente** quando `npm run gmail:status:prod` falhar
+4. **Sempre** `npm run sync:gmail` na mesma sessão
+5. Workflow agendado `.github/workflows/gmail-health.yml` alerta antes do usuário perceber
+
+**Manutenção eventual:** reautorizar só se `invalid_grant` voltar (revogação manual, 6+ meses parado, etc.).
 
 ---
 
