@@ -7,7 +7,8 @@
       "date": "2026-09-17",
       "title": "Gmail OAuth no projeto faruk-home",
       "summary": "Enviar Currículo migrou do OAuth Testing (nfe-bot) para faruk-home (Em produção); docs e scripts de sync apontam para o projeto e VPS corretos.",
-      "type": "fix"
+      "type": "fix",
+      "commit": "6d39b3d"
     },
     {
       "version": "1.8.6",
