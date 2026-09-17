@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <title>Recap — Faruk + TerapIA — 9 set 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Literata:opsz,wght@7..72,500;7..72,600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-page: #102223;
+      --bg-card: #16302f;
+      --primary: #2d6a6b;
+      --secondary: #7fb5b0;
+      --ink: #f2f5f4;
+      --muted: #9bb0ae;
+      --border: rgba(127, 181, 176, 0.18);
+      --border-strong: rgba(127, 181, 176, 0.35);
+      --radius-sm: 8px;
+      --shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { color-scheme: dark; }
+    body {
+      margin: 0;
+      font-family: "IBM Plex Sans", ui-sans-serif, sans-serif;
+      background: var(--bg-page);
+      color: var(--ink);
+      line-height: 1.55;
+      min-height: 100vh;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 50% at 20% -10%, rgba(45, 106, 107, 0.25), transparent 55%),
+        radial-gradient(ellipse 60% 40% at 90% 100%, rgba(127, 181, 176, 0.12), transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 3rem;
+    }
+    .eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      margin: 0 0 0.5rem;
+    }
+    header h1 {
+      font-family: Literata, Georgia, serif;
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin: 0 0 0.75rem;
+      line-height: 1.25;
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.75rem;
+    }
+    .chip {
+      font-size: 0.75rem;
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: rgba(0, 0, 0, 0.2);
+    }
+    .chip--progress { border-color: var(--border-strong); color: var(--ink); }
+    .local-env {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.15rem;
+      margin-bottom: 1.75rem;
+      box-shadow: var(--shadow);
+    }
+    .local-env h2 {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      margin: 0 0 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .pill-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8125rem;
+      padding: 0.4rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--border);
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .pill:hover { border-color: var(--secondary); }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: #dc2626; }
+    .dot--ok { background: #16a34a; }
+    .topics h2 {
+      font-family: Literata, Georgia, serif;
+      font-size: 1.125rem;
+      margin: 0 0 0.5rem;
+    }
+    .topics { margin-bottom: 1.5rem; }
+    .topics-hint {
+      margin: 0 0 0.75rem;
+      font-size: 0.8125rem;
+      color: var(--muted);
+    }
+    .topic {
+      position: relative;
+      cursor: pointer;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1.15rem 1.25rem 1.15rem 1.35rem;
+      border-left: 3px solid var(--primary);
+      margin-bottom: 0.75rem;
+      box-shadow: var(--shadow);
+      transition: opacity 0.2s ease, filter 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+    }
+    .topic:hover:not(.topic--seen) {
+      border-color: var(--border-strong);
+      transform: translateY(-1px);
+    }
+    .topic:focus-visible {
+      outline: 2px solid var(--secondary);
+      outline-offset: 2px;
+    }
+    .topic--seen {
+      opacity: 0.52;
+      filter: saturate(0.65);
+      border-left-color: var(--muted);
+    }
+    .topic--seen::after {
+      content: "Visto";
+      position: absolute;
+      top: 0.85rem;
+      right: 1rem;
+      font-size: 0.625rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 0.2rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(0, 0, 0, 0.15);
+      pointer-events: none;
+    }
+    .topic h2 {
+      font-family: Literata, Georgia, serif;
+      font-size: 1.05rem;
+      margin: 0 0 0.65rem;
+      padding-right: 3.5rem;
+    }
+    .topic .tag {
+      display: inline-block;
+      font-size: 0.625rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+    }
+    .block-label {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 0.25rem;
+    }
+    .block-label + p { margin: 0 0 0.75rem; font-size: 0.9rem; }
+    .pending {
+      background: rgba(217, 119, 6, 0.08);
+      border: 1px solid rgba(217, 119, 6, 0.35);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.15rem;
+      margin-bottom: 1.5rem;
+    }
+    .pending h2 {
+      font-size: 0.875rem;
+      margin: 0 0 0.5rem;
+      color: #fbbf24;
+    }
+    .pending ul { margin: 0; padding-left: 1.2rem; font-size: 0.875rem; color: var(--muted); }
+    .pending li { margin-bottom: 0.35rem; }
+    footer {
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .topic { transition: none; }
+      .topic:hover:not(.topic--seen) { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="eyebrow">Faruk · TerapIA · sessão agente</p>
+    <header>
+      <h1>Recap de entrega — 9 set 2026</h1>
+      <div class="meta">
+        <span class="chip">6 tópicos</span>
+        <span class="chip chip--progress" data-recap-progress hidden>0/0 vistos</span>
+      </div>
+    </header>
+
+    <section class="local-env" aria-label="Ambiente local">
+      <h2>Testar localmente</h2>
+      <div class="pill-grid">
+        <span class="pill"><span class="dot" aria-hidden="true"></span> Faruk — servidor parado</span>
+        <span class="pill"><span class="dot" aria-hidden="true"></span> TerapIA — Docker/DB parado</span>
+        <a class="pill" href="https://www.faruk.dev.br/" target="_blank" rel="noreferrer">faruk.dev.br (prod)</a>
+        <a class="pill" href="https://terapia.faruk.dev.br/" target="_blank" rel="noreferrer">terapia.faruk.dev.br</a>
+      </div>
+      <p style="margin:0.75rem 0 0;font-size:0.8125rem;color:var(--muted);">
+        Faruk: <code>npm run dev</code> → :5173. TerapIA: <code>npm run db:up</code> + <code>npm run dev</code> → :3000. E2E TerapIA: <code>e2e@test.local</code> (seed).
+      </p>
+    </section>
+
+    <section class="topics">
+      <h2>Tópicos</h2>
+      <p class="topics-hint">Clique em um card para marcar como visto.</p>
+
+      <article class="topic" data-topic-id="faruk-site-down">
+        <span class="tag">faruk</span>
+        <h2>Site fora do ar (502)</h2>
+        <p class="block-label">Pedido</p>
+        <p>Investigar por que faruk.dev.br estava fora e como evitar de novo.</p>
+        <p class="block-label">Entregue</p>
+        <p>Reboot da VPS (7/set) derrubou o Node sem auto-start. Site restaurado; <code>faruk.service</code> (systemd) criado na VPS. Alterações em <code>deploy/faruk.service</code> e <code>scripts/deploy-vps.sh</code> ainda não commitadas.</p>
+      </article>
+
+      <article class="topic" data-topic-id="gmail-oauth-renew">
+        <span class="tag">faruk</span>
+        <h2>Renovar token Gmail OAuth</h2>
+        <p class="block-label">Pedido</p>
+        <p>Corrigir <code>invalid_grant</code> no Enviar Currículo em produção.</p>
+        <p class="block-label">Entregue</p>
+        <p>Novo refresh token via <code>google:auth</code> + <code>sync:gmail</code>. Produção OK: <code>/api/email-health</code> → <code>ok: true</code>.</p>
+      </article>
+
+      <article class="topic" data-topic-id="gmail-oauth-strategy">
+        <span class="tag">faruk</span>
+        <h2>Estratégia OAuth (não é 7 dias)</h2>
+        <p class="block-label">Pedido</p>
+        <p>Entender por que expirou se “já estava em produção” e evitar renovação recorrente.</p>
+        <p class="block-label">Entregue</p>
+        <p>Deploys com token válido por 40+ dias (não modo Testing 7d). Causa provável: vários <code>google:auth</code> sem <code>sync:gmail</code> (limite 50 tokens). Adicionados <code>gmail:status:prod</code>, bloqueio de re-auth, workflow <code>gmail-health.yml</code>, docs em <code>agents.md</code> — pendente commit.</p>
+      </article>
+
+      <article class="topic" data-topic-id="retranscribe-ui">
+        <span class="tag">terapia</span>
+        <h2>Transcrever novamente — progresso e aviso</h2>
+        <p class="block-label">Pedido</p>
+        <p>Contador de %, tempo restante e aviso de que perde o que já foi feito ao retranscrever.</p>
+        <p class="block-label">Entregue</p>
+        <p>Diálogo de confirmação; <code>ConsultationSessionProgress</code> com %, ETA e aviso durante retranscrição. Arquivos: <code>ConsultationRecorder.tsx</code>, <code>ConsultationSessionProgress.tsx</code>, E2E em <code>e2e/app.spec.ts</code>.</p>
+      </article>
+
+      <article class="topic" data-topic-id="password-email-template">
+        <span class="tag">terapia</span>
+        <h2>Template e-mail esqueci senha</h2>
+        <p class="block-label">Pedido</p>
+        <p>HTML puro no layout TerapIA para o e-mail de redefinição de senha.</p>
+        <p class="block-label">Entregue</p>
+        <p><code>src/lib/mail/email-layout.ts</code> (layout tabelas + inline CSS) e <code>password-reset-email.ts</code> atualizado. Testes em <code>password-reset-email.test.ts</code>.</p>
+      </article>
+
+      <article class="topic" data-topic-id="local-player-return">
+        <span class="tag">terapia</span>
+        <h2>Player local ao voltar na sessão</h2>
+        <p class="block-label">Pedido</p>
+        <p>Se o vídeo ainda está no IndexedDB, mostrar player local + “Transcrever novamente”, não só o do Drive.</p>
+        <p class="block-label">Entregue</p>
+        <p><strong>Não implementado nesta sessão.</strong> Causa identificada: <code>reviewMode</code> oculta <code>ConsultationRecordingSection</code> quando já há transcrição; cache local não carrega se já existe <code>driveFileId</code>.</p>
+      </article>
+    </section>
+
+    <section class="pending">
+      <h2>Pendências</h2>
+      <ul>
+        <li><strong>TerapIA:</strong> corrigir retorno à sessão — carregar IndexedDB mesmo com Drive; exibir player + retranscrever em <code>reviewMode</code>.</li>
+        <li><strong>Faruk:</strong> commit/push systemd, proteções Gmail e alterações TerapIA acima.</li>
+        <li><strong>Faruk:</strong> confirmar OAuth “In production” no Google Cloud (1× no browser).</li>
+        <li><strong>TerapIA:</strong> subir Docker + <code>npm run test:e2e</code> para validar retranscrição.</li>
+      </ul>
+    </section>
+
+    <footer>Generated by /recap · 9 set 2026</footer>
+  </div>
+  <script>
+(function initRecapTopicSeen() {
+  const storageKey = (id) => `recap-seen:${location.pathname}:${id}`
+  const cards = Array.from(document.querySelectorAll('.topic[data-topic-id]'))
+  const counter = document.querySelector('[data-recap-progress]')
+  function updateCounter() {
+    if (!counter) return
+    const seen = cards.filter((c) => c.classList.contains('topic--seen')).length
+    counter.textContent = `${seen}/${cards.length} vistos`
+    counter.hidden = cards.length === 0
+  }
+  function setSeen(card, seen) {
+    const id = card.dataset.topicId
+    if (!id) return
+    card.classList.toggle('topic--seen', seen)
+    card.setAttribute('aria-pressed', seen ? 'true' : 'false')
+    if (seen) localStorage.setItem(storageKey(id), '1')
+    else localStorage.removeItem(storageKey(id))
+    updateCounter()
+  }
+  cards.forEach((card) => {
+    const id = card.dataset.topicId
+    if (localStorage.getItem(storageKey(id)) === '1') card.classList.add('topic--seen')
+    card.setAttribute('role', 'button')
+    card.setAttribute('tabindex', '0')
+    card.setAttribute('aria-pressed', card.classList.contains('topic--seen') ? 'true' : 'false')
+    card.setAttribute('aria-label', `${card.querySelector('h2')?.textContent ?? 'Tópico'} — marcar como visto`)
+    function toggle() { setSeen(card, !card.classList.contains('topic--seen')) }
+    card.addEventListener('click', toggle)
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggle() }
+    })
+  })
+  updateCounter()
+})()
+  </script>
+</body>
+</html>

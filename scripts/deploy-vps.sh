@@ -112,8 +112,15 @@ port = sys.argv[1]
 path = "/etc/caddy/Caddyfile"
 content = open(path, encoding="utf-8").read()
 block = f"""faruk.dev.br, www.faruk.dev.br {{
-\tencode gzip zstd
-\treverse_proxy 127.0.0.1:{port}
+\thandle /fumei/* {{
+\t\turi strip_prefix /fumei
+\t\troot * /opt/fumei-site
+\t\tfile_server
+\t}}
+\thandle {{
+\t\tencode gzip zstd
+\t\treverse_proxy 127.0.0.1:{port}
+\t}}
 }}"""
 new = re.sub(
     r"faruk\.dev\.br, www\.faruk\.dev\.br \{.*?\n\}",

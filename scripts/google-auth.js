@@ -131,7 +131,7 @@ async function start() {
   server.listen(PORT, () => {
     console.log("\nGoogle Gmail API authorization\n");
     console.log("IMPORTANT: VPS deploy != Google OAuth 'In production'.");
-    console.log("Publish app: https://console.cloud.google.com/auth/audience?project=110995015738");
+    console.log("Publish app: https://console.cloud.google.com/auth/audience?project=faruk-home");
     console.log("After auth, ALWAYS run: npm run sync:gmail\n");
     console.log("Add as Test user in OAuth consent screen: farukz@gmail.com");
     console.log("Redirect URI in Google Cloud:\n");

@@ -58,7 +58,7 @@ Lock externo: `skills-lock.json`. Restaurar após clone: `npx skills experimenta
 | **Alterar currículo** | **Fonte de verdade:** `ResumeView.vue` (HTML do CV). Sempre que mudar conteúdo ou posicionamento do CV, atualizar **todos** os artefatos derivados **na mesma task** (não deixar para depois): (1) `docs/linkedin-paste.md` (headline, about, experience, skills); (2) `lib/email-content.js` se cargo/posicionamento mudou; (3) `frontend/src/lib/send-resume.ts` se assuntos default mudaram; (4) `npm run pdf` → `frontend/public/assets/Faruk Zahra - CV - Resume.pdf` + cópia em `frontend/dist/assets/`; (5) **validar** antes de encerrar (ver **PDF do currículo**). **Nunca** declarar currículo atualizado sem HTML + PDF sincronizados e verificados. |
 | **PDF do currículo** | Gerar com `npm run pdf` (Playwright/Chromium + `@media print`, tema Lumen). Saída: `frontend/public/assets/Faruk Zahra - CV - Resume.pdf` (+ cópia em `frontend/dist/assets/`). **Download e Enviar Currículo usam este arquivo.** **Checklist obrigatório após qualquer alteração em `ResumeView.vue`:** (1) `npm run dev` no ar → abrir `http://localhost:5173/` e confirmar texto novo no HTML; (2) `npm run pdf` sem erro; (3) confirmar que o PDF existe e reflete o conteúdo (grep no texto extraído ou inspeção visual); (4) se `frontend/dist` existir, copiar PDF para `frontend/dist/assets/`. Ver também **Alterar currículo**. |
 | **LinkedIn** | Sem API pessoal para editar About/Experience. Texto para colar: `docs/linkedin-paste.md` (manter sincronizado com `ResumeView.vue` — ver **Alterar currículo**). |
-| **Gmail sem renovar toda hora** | **VPS em produção ≠ Google OAuth “In production”.** Deploy no servidor não muda o consent screen. Diagnóstico: `npm run gmail:status:prod`. **Não** rodar `google:auth` “por precaução” — cada `prompt=consent` cria token novo e pode invalidar o de produção (limite 50/user/client). Só reautorizar quando `/api/email-health` falhar ou após **Publish app** no [Google Cloud](https://console.cloud.google.com/auth/audience?project=110995015738). Depois: `npm run google:auth -- --force` → `npm run sync:gmail`. Monitoramento: workflow `Gmail health check` (seg/qui). |
+| **Gmail sem renovar toda hora** | OAuth no projeto GCP **`faruk-home`** (não `nfe-bot`). Público-alvo deve estar **Em produção**. Diagnóstico: `npm run gmail:status:prod`. **Não** rodar `google:auth` “por precaução” — cada `prompt=consent` cria token novo e pode invalidar o de produção (limite 50/user/client). Só reautorizar quando `/api/email-health` falhar. Depois: `npm run google:auth -- --force` → `npm run sync:gmail`. Cofre: `../secrets/google-cloud/faruk-oauth.md`. Monitoramento: workflow `Gmail health check` (seg/qui). |
 
 ---
 
@@ -302,12 +302,12 @@ Credenciais e guia completo ficam no repo **financeiro** (mesma VPS multisite):
 ### SSH
 
 ```bash
-ssh -i C:/repo/secrets/vps/ssh/github-actions-vps-shared root@66.23.231.218
+ssh -i C:/repo/secrets/vps/ssh/github-actions-vps-shared root@92.112.177.249
 ```
 
 | Campo | Valor |
 |---|---|
-| Host | `66.23.231.218` |
+| Host | `92.112.177.249` |
 | User | `root` |
 | Port | `22` |
 | App path | `/opt/faruk` |
@@ -361,3 +361,8 @@ Send error: invalid_grant
 **Gates:** no feature code before approved spec; no "done" without verification; version bump only on `/commit-push`.
 
 Invoke `/init` to (re)bootstrap skills and folders.
+## Agent automation (mandatory)
+
+Before manual steps (login, browser click, "run this yourself"): read **`automate-before-manual`** (`.agents/skills/`). If the user refuses manual work, also **`dont-be-lazy`**. Secrets vault: `../secrets/` (see `AGENTS.md` or `secrets.local.md`). Cursor rule: `.cursor/rules/automate-before-manual.mdc`.
+
+Invoke `/init` to (re)install skills and this rule.

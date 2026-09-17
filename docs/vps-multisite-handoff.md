@@ -21,7 +21,7 @@
 
 | Recurso | Host | Path / nota |
 |---------|------|-------------|
-| SSH | `root@66.23.231.218` | Chave: `C:/repo/secrets/vps/ssh/github-actions-vps-shared` |
+| SSH | `root@92.112.177.249` | Chave: `C:/repo/secrets/vps/ssh/github-actions-vps-shared` |
 | Faruk app | `/opt/faruk` | `systemctl status faruk` — **enabled** (corrigido na sessão) |
 | Log faruk | `/var/log/faruk.log` | Erros Gmail: `Send error: invalid_grant` |
 | Caddy | systemd | `caddy.service` — enabled, reverse_proxy → :3000 |
@@ -54,7 +54,7 @@ blog, farmando-aura, faruk, financeiro, fumei-site, job-hunter, maco, ms-poc, nf
 Após push em `main` e GitHub Actions verde:
 
 ```bash
-ssh -i C:/repo/secrets/vps/ssh/github-actions-vps-shared root@66.23.231.218 \
+ssh -i C:/repo/secrets/vps/ssh/github-actions-vps-shared root@92.112.177.249 \
   'systemctl is-enabled faruk; systemctl is-active faruk; curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:3000/api/health'
 ```
 
@@ -102,7 +102,7 @@ Criar em `C:/repo/secrets/vps/` ou no guia do financeiro:
 
 ```bash
 # SSH
-ssh -i C:/repo/secrets/vps/ssh/github-actions-vps-shared root@66.23.231.218
+ssh -i C:/repo/secrets/vps/ssh/github-actions-vps-shared root@92.112.177.249
 
 # Logs faruk
 tail -100 /var/log/faruk.log

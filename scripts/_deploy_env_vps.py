@@ -41,7 +41,7 @@ result = subprocess.run(
         str(deploy_key),
         "-o",
         "StrictHostKeyChecking=accept-new",
-        "root@66.23.231.218",
+        "root@92.112.177.249",
         remote,
     ],
     text=True,

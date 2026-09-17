@@ -20,7 +20,7 @@ python scripts/setup-google-secrets.py
 
 echo "=== 3. VPS .env + restart ==="
 DEPLOY_KEY="${DEPLOY_KEY:-C:/repo/secrets/vps/ssh/github-actions-vps-shared}"
-VPS_HOST="${VPS_HOST:-66.23.231.218}"
+VPS_HOST="${VPS_HOST:-92.112.177.249}"
 VPS_USER="${VPS_USER:-root}"
 
 # shellcheck source=/dev/null

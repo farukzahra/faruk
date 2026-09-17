@@ -1,7 +1,14 @@
 {
-  "currentVersion": "1.8.6",
-  "updatedAt": "2026-09-09T18:30:00.000Z",
+  "currentVersion": "1.8.7",
+  "updatedAt": "2026-09-17T15:42:00.000Z",
   "entries": [
+    {
+      "version": "1.8.7",
+      "date": "2026-09-17",
+      "title": "Gmail OAuth no projeto faruk-home",
+      "summary": "Enviar Currículo migrou do OAuth Testing (nfe-bot) para faruk-home (Em produção); docs e scripts de sync apontam para o projeto e VPS corretos.",
+      "type": "fix"
+    },
     {
       "version": "1.8.6",
       "date": "2026-09-09",

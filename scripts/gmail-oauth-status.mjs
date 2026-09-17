@@ -66,7 +66,7 @@ async function main() {
 
   console.log("\n=== Permanent fix checklist ===");
   console.log("  1. Google Cloud → OAuth consent screen → Publishing status = In production");
-  console.log("     https://console.cloud.google.com/auth/audience?project=110995015738");
+  console.log("     https://console.cloud.google.com/auth/audience?project=faruk-home");
   console.log("  2. Revogar acessos antigos: https://myaccount.google.com/permissions");
   console.log("  3. npm run google:auth  (só quando token quebrado ou após Publish app)");
   console.log("  4. npm run sync:gmail   (obrigatório após auth — GitHub + VPS)");
