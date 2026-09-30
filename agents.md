@@ -19,7 +19,7 @@ brainstorming
   → writing-plans
   → implement (vue-best-practices + frontend-design / nodejs-backend-patterns / tdd)
   → verification-before-completion
-  → /commit-push ou "Commita" (caveman-commit + push)
+  → /commit-push ou "Commita" (skill commit-push + caveman-commit + push)
 ```
 
 | Fase | Skill | Regra |
@@ -31,7 +31,7 @@ brainstorming
 | Testes | `tdd`, `playwright-best-practices` | Quando houver testes / E2E |
 | Debug | `systematic-debugging` | Causa raiz antes de patch |
 | Done | `verification-before-completion` | Evidência (build/test) antes de afirmar sucesso |
-| Commit | `caveman-commit` + `.cursor/commands/commit-push.md` | Só com pedido explícito / `/commit-push` / "Commita" |
+| Commit | `.agents/skills/commit-push/SKILL.md` (Agent Host), `.github/prompts/commit-push.prompt.md` (Copilot Local), `.cursor/commands/commit-push.md` (Cursor) + `caveman-commit` | Só com pedido explícito / `/commit-push` / "Commita" |
 
 Lock externo: `skills-lock.json`. Restaurar após clone: `npx skills experimental_install` (se disponível).
 
@@ -48,15 +48,16 @@ Lock externo: `skills-lock.json`. Restaurar após clone: `npx skills experimenta
 | **Enviar Currículo** | Ícone avião → dialog (destinatário, assunto editável, idioma EN/PT, pretensão salarial opcional) → API `/api/send-resume` via **Gmail API**. Corpo do e-mail montado no servidor conforme idioma. Remetente: `farukz@gmail.com`. **BCC** automático para o mesmo endereço (`GMAIL_USER`). Local: `.env` + `npm run google:auth`. Produção: secrets no GitHub. Renovar token: `npm run google:auth` → `npm run sync:gmail` (GitHub + VPS). Deploy copia PDF de `public/assets` para `dist/assets` após build. |
 | **Rodapé / Sobre** | Rodapé global (`AppFooter.vue`) fora do `.resume`; oculto em `@media print` (não entra no PDF). Link **Sobre** → `/about` com tabelas da skill `semantic-version` + histórico de `docs/release-history.json` via `GET /api/release-history`. Bump de versão só em `/commit-push`. |
 | **My Projects** | Link no header (após LinkedIn) e rodapé → `/projects`. Cards de `docs/projects.json` via `GET /api/projects`. Para cadastrar projeto de outro repo: colar prompt de `docs/projects-card-prompt.md` no agente daquele projeto e adicionar o JSON retornado em `docs/projects.json`. **Visual:** Hallmark **Lumen · Night Foundry** (estilo Cinder) — ilha escura isolada; spec em `docs/superpowers/specs/2026-07-20-projects-lumen-design.md`; skill em `.agents/skills/hallmark`. |
-| **Ao terminar task** | Subir ambiente local (`npm run dev`) se não estiver no ar e informar URL **http://localhost:5173/** (Vite + proxy `/api` → :3000). |
+| **Ao terminar task** | Subir ambiente local (`npm run dev`) se não estiver no ar; rodar `npm run dev:check` com sucesso antes de compartilhar a URL **http://localhost:5173/** (Vite + proxy `/api` → :3000). |
 | **"Commita" / pedido de commit** | Commitar **tudo** que estiver pendente + **push** para `origin/main` (dispara deploy). Mensagem em Conventional Commits, **em inglês**. Preferir `/commit-push`. **Após push:** verificar GitHub Actions (`Deploy VPS`); se falhar, ler logs, corrigir e push de novo até passar. |
 | **Migrar para Vue 3** | Seguir `docs/ARQUITETURA.md` — Vue 3 + Vuetify + Express; Caddy `reverse_proxy` :3000 |
 | **Logs / debug VPS** | SSH via chave compartilhada (ver seção **VPS — acesso e logs** abaixo). Log da app: `/var/log/faruk.log`. Erro Gmail comum: `Send error: invalid_grant` → renovar `GOOGLE_REFRESH_TOKEN`. |
 | **GitHub PAT** | Já temos. Usar `GITHUB_TOKEN` do `.env` local (não commitar). Cópia canônica: `C:/repo/secrets/github/pat.txt`. Serve para `npm run github:secrets` / `npm run sync:gmail`. |
 | **Skills / Faruk Base** | Manter skills alinhadas a `../faruk_base` quando fizer sentido (Vue/Express/superpowers). Novas features: seguir workflow brainstorming → writing-plans antes de implementar. |
 | **Currículo Phase A** | Conteúdo ATS em `ResumeView.vue`. **Visual:** Lumen Night Foundry em `/`, `/projects`, `/about`; menu global `AppTopNav.vue` (Resume · My Projects · About). |
-| **Alterar currículo** | **Fonte de verdade:** `ResumeView.vue` (HTML do CV). Sempre que mudar conteúdo ou posicionamento do CV, atualizar **todos** os artefatos derivados **na mesma task** (não deixar para depois): (1) `docs/linkedin-paste.md` (headline, about, experience, skills); (2) `lib/email-content.js` se cargo/posicionamento mudou; (3) `frontend/src/lib/send-resume.ts` se assuntos default mudaram; (4) `npm run pdf` → `frontend/public/assets/Faruk Zahra - CV - Resume.pdf` + cópia em `frontend/dist/assets/`; (5) **validar** antes de encerrar (ver **PDF do currículo**). **Nunca** declarar currículo atualizado sem HTML + PDF sincronizados e verificados. |
-| **PDF do currículo** | Gerar com `npm run pdf` (Playwright/Chromium + `@media print`, tema Lumen). Saída: `frontend/public/assets/Faruk Zahra - CV - Resume.pdf` (+ cópia em `frontend/dist/assets/`). **Download e Enviar Currículo usam este arquivo.** **Checklist obrigatório após qualquer alteração em `ResumeView.vue`:** (1) `npm run dev` no ar → abrir `http://localhost:5173/` e confirmar texto novo no HTML; (2) `npm run pdf` sem erro; (3) confirmar que o PDF existe e reflete o conteúdo (grep no texto extraído ou inspeção visual); (4) se `frontend/dist` existir, copiar PDF para `frontend/dist/assets/`. Ver também **Alterar currículo**. |
+| **Alterar currículo** | **Fonte de verdade:** `ResumeView.vue` (HTML do CV). Sempre que mudar conteúdo ou posicionamento do CV, atualizar **todos** os artefatos derivados **na mesma task** (não deixar para depois): (1) `docs/linkedin-paste.md` (headline, about, experience, skills); (2) `lib/email-content.js` se cargo/posicionamento mudou; (3) `frontend/src/lib/send-resume.ts` se assuntos default mudaram; (4) `npm run pdf` → `frontend/public/assets/Faruk Zahra - CV - Resume.pdf` + cópia em `frontend/dist/assets/`; (5) `npm run test:e2e -- e2e/resume-pdf.spec.js` para baixar e conferir o conteúdo. **Nunca** declarar currículo atualizado sem HTML + PDF sincronizados e verificados. |
+| **PDF do currículo** | Gerar com `npm run pdf` (Playwright/Chromium + `@media print`, tema Lumen). Saída: `frontend/public/assets/Faruk Zahra - CV - Resume.pdf` (+ cópia em `frontend/dist/assets/`). **Download e Enviar Currículo usam este arquivo.** **Checklist obrigatório após qualquer alteração em `ResumeView.vue`:** (1) `npm run dev` no ar → abrir `http://localhost:5173/` e confirmar texto novo no HTML; (2) `npm run pdf` sem erro; (3) rodar `npm run test:e2e -- e2e/resume-pdf.spec.js` para baixar o PDF e conferir blocos e contagem exata de palavras; (4) se `frontend/dist` existir, copiar PDF para `frontend/dist/assets/`. Ver também **Alterar currículo**. |
+| **Comando `/commit-push` no Agent Host** | Agent Host não carrega prompt files (`.github/prompts/*.prompt.md`); usar a skill `.agents/skills/commit-push/SKILL.md` como workflow descobrível. `.github/prompts/commit-push.prompt.md` e `.cursor/commands/commit-push.md` permanecem para Copilot Local e Cursor. Skills novas entram na descoberta do host ao iniciar/recarregar a sessão. |
 | **LinkedIn** | Sem API pessoal para editar About/Experience. Texto para colar: `docs/linkedin-paste.md` (manter sincronizado com `ResumeView.vue` — ver **Alterar currículo**). |
 | **Gmail sem renovar toda hora** | OAuth no projeto GCP **`faruk-home`** (não `nfe-bot`). Público-alvo deve estar **Em produção**. Diagnóstico: `npm run gmail:status:prod`. **Não** rodar `google:auth` “por precaução” — cada `prompt=consent` cria token novo e pode invalidar o de produção (limite 50/user/client). Só reautorizar quando `/api/email-health` falhar. Depois: `npm run google:auth -- --force` → `npm run sync:gmail`. Cofre: `../secrets/google-cloud/faruk-oauth.md`. Monitoramento: workflow `Gmail health check` (seg/qui). |
 
@@ -90,7 +91,10 @@ Lock externo: `skills-lock.json`. Restaurar após clone: `npx skills experimenta
 | `.env` | Credenciais locais (não commitar) |
 | `frontend/public/assets/` | Foto, PDF, imagens |
 | `.agents/skills/` | Skills do agente (brainstorming, Vue, etc.) |
-| `.cursor/commands/commit-push.md` | Comando `/commit-push` |
+| `.agents/skills/commit-push/SKILL.md` | Skill `/commit-push` para Agent Host |
+| `.github/prompts/commit-push.prompt.md` | Prompt `/commit-push` para Copilot Local |
+| `.cursor/commands/commit-push.md` | Comando `/commit-push` para Cursor |
+| `e2e/resume-pdf.spec.js` | Teste de download real e comparação do conteúdo do PDF |
 | `docs/superpowers/specs/` | Design specs aprovadas |
 | `docs/superpowers/plans/` | Planos de implementação |
 
