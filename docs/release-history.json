@@ -7,7 +7,8 @@
       "date": "2026-10-11",
       "title": "Comandos de agente nativos no OpenCode",
       "summary": "As triggerzinhas (/init, /recap, /commit-push, /handoff) passam a funcionar no OpenCode: comandos gerados em .opencode/commands por repositorio e em ~/.config/opencode/commands globalmente, pelo sync de convencoes.",
-      "type": "chore"
+      "type": "chore",
+      "commit": "e77d455"
     },
     {
       "version": "1.8.8",
