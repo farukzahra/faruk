@@ -174,3 +174,26 @@ Adding `prettier`/`oxfmt` to the projects with no formatter is **out of scope** 
 3. `skills-lock.json` in each touched repo lists the newly installed skills; `skills-sh-maintainer` is absent outside `agent-skills`.
 4. Each touched repo has a commit containing only rollout files.
 5. `npm run dev:check` in faruk still passes (no regression from tooling).
+
+## Results (2026-10-11)
+
+Measured after the rollout, on the running V2 service.
+
+| Criterion | Result |
+|---|---|
+| 1 | `✓ chrome-devtools connected` · `✓ context7 connected` · `⚠ github needs authentication` (OAuth sign-in still pending — expected) |
+| 2 | All 8 match the matrix exactly: faruk `chrome-devtools` · financeiro `chrome-devtools` · job-hunter `chrome-devtools,prisma` · maco `chrome-devtools,prisma` · farmar-aura `chrome-devtools` · ms-poc `chrome-devtools,azure` · terapia `chrome-devtools,prisma` · fumei `mobile` |
+| 3 | `skills-sh-maintainer` absent in all 7 project repos (verified `False` each) |
+| 4 | One rollout commit per repo — faruk `88959e7` · financeiro `fdb91c5` · job-hunter `b5d5b7d` · maco `b39b932` · farmar-aura `dd86336` · ms-poc `3855c43` · terapia `5d8266d` · fumei `586f516`. Nothing pushed (`ahead` ≥ 1 in every repo) |
+| 5 | see [Verification notes](#verification-notes) |
+
+Live side effect worth recording: `context7` and `chrome-devtools` became available as tools inside the very session that wrote the config, without a restart — the running service picked the new configuration up immediately.
+
+### Verification notes
+
+- The V2 service **does not** apply `lsp`/`formatter` to already-open sessions, so the LSP/formatter activation table is a prediction from each project's dependency list, not an observation. Confirm per project by opening it and checking that diagnostics appear.
+- Local MCP servers (`prisma`, `azure`, `mobile`) only start when OpenCode runs with that project as the working directory. They cannot be verified from the faruk session; the config matrix check in Task 12 Step 2 is the evidence available here.
+- The global config backup is at `~/.config/opencode/opencode.jsonc.bak`.
+- `sync-agent-conventions.ps1` in `agent-skills` was **untracked** before this work. The `-Repos` / `-SkipGlobalCommands` improvement was kept as a working-tree edit and deliberately **not committed**, because the rollout policy stages only files the rollout owns. It is the first thing to commit when someone next touches `agent-skills`.
+- `terapia` still carries 30 unrelated user-modified files. They were left unstaged. Its `AGENTS.md` was staged deliberately: the diff is exactly the automation snippet, which is the script's documented repair of a previously corrupted snippet.
+
