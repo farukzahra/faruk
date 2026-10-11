@@ -1,6 +1,6 @@
 {
   "name": "faruk-resume",
-  "version": "1.8.8",
+  "version": "1.8.9",
   "private": true,
   "scripts": {
     "dev": "node scripts/dev.js",
