@@ -32,7 +32,7 @@
 **Interfaces:**
 - Produces: global MCP servers `context7` and `github`; global `lsp`/`formatter` policy consumed by every project task.
 
-- [ ] **Step 1: Back up the current config**
+- [x] **Step 1: Back up the current config**
 
 ```powershell
 Copy-Item "$env:USERPROFILE\.config\opencode\opencode.jsonc" `
@@ -42,7 +42,7 @@ Get-Content "$env:USERPROFILE\.config\opencode\opencode.jsonc.bak"
 
 Expected: the backup prints `{ "$schema": "https://opencode.ai/config.json" }`.
 
-- [ ] **Step 2: Write the new global config**
+- [x] **Step 2: Write the new global config**
 
 ```powershell
 @'
@@ -66,7 +66,7 @@ Expected: the backup prints `{ "$schema": "https://opencode.ai/config.json" }`.
 '@ | Set-Content "$env:USERPROFILE\.config\opencode\opencode.jsonc" -Encoding UTF8
 ```
 
-- [ ] **Step 3: Validate the JSON parses**
+- [x] **Step 3: Validate the JSON parses**
 
 Run:
 
@@ -76,7 +76,7 @@ Get-Content "$env:USERPROFILE\.config\opencode\opencode.jsonc" -Raw | ConvertFro
 
 Expected: `True`. A parse error means the file is broken — fix before continuing.
 
-- [ ] **Step 4: Confirm OpenCode loads the servers**
+- [x] **Step 4: Confirm OpenCode loads the servers**
 
 Run (uses the CLI shim from Task 2; if Task 2 is not done yet, call the staged binary directly):
 
@@ -86,7 +86,7 @@ opencode mcp list
 
 Expected: `context7` present, `github` present. Remote servers connect automatically; `github` may report `needs authentication` — that is the documented state until `POST /mcps` sign-in. Do **not** try to authorise it from the shell.
 
-- [ ] **Step 5: No commit**
+- [x] **Step 5: No commit**
 
 The global config lives outside every repository. There is nothing to commit. Stop here.
 
@@ -101,7 +101,7 @@ The global config lives outside every repository. There is nothing to commit. St
 **Interfaces:**
 - Produces: `opencode` command usable from any directory, resolving the newest staged CLI. Consumed by Task 1 Step 4 and Task 10's verification.
 
-- [ ] **Step 1: Create the version-agnostic shim**
+- [x] **Step 1: Create the version-agnostic shim**
 
 ```powershell
 New-Item -ItemType Directory -Force "$env:USERPROFILE\bin" | Out-Null
@@ -121,7 +121,7 @@ if not defined LATEST (
 '@ | Set-Content "$env:USERPROFILE\bin\opencode.cmd" -Encoding ASCII
 ```
 
-- [ ] **Step 2: Add the shim directory to the user PATH**
+- [x] **Step 2: Add the shim directory to the user PATH**
 
 ```powershell
 $bin = "$env:USERPROFILE\bin"
@@ -134,7 +134,7 @@ if ($cur -notlike "*$bin*") {
 
 Expected: `PATH updated` (or `already present` on re-run — the step is idempotent).
 
-- [ ] **Step 3: Verify the shim resolves a version**
+- [x] **Step 3: Verify the shim resolves a version**
 
 ```powershell
 & "$env:USERPROFILE\bin\opencode.cmd" --version
@@ -142,7 +142,7 @@ Expected: `PATH updated` (or `already present` on re-run — the step is idempot
 
 Expected: `opencode v2.0.26`. A version starting with `1.` means the old `%LOCALAPPDATA%\opencode` install got picked up instead; check the shim body.
 
-- [ ] **Step 4: No commit**
+- [x] **Step 4: No commit**
 
 Shim and PATH live in the user profile, outside repositories.
 
@@ -158,7 +158,7 @@ Shim and PATH live in the user profile, outside repositories.
 - Produces: `-Repos <string[]>` and `-SkipSkills` parameters. Every project task calls:
   `& C:\repo\agent-skills\scripts\sync-agent-conventions.ps1 -SkipSkills -Repos <name>`
 
-- [ ] **Step 1: Add the parameter block**
+- [x] **Step 1: Add the parameter block**
 
 Replace the existing `param(...)` block:
 
@@ -180,7 +180,7 @@ param(
 )
 ```
 
-- [ ] **Step 2: Gate the global command mirror**
+- [x] **Step 2: Gate the global command mirror**
 
 Wrap the global-commands block. Replace:
 
@@ -199,7 +199,7 @@ Get-ChildItem $CanonicalCommands -Filter *.md |
 
 with the same block inside an `if (-not $SkipGlobalCommands) { ... }` guard.
 
-- [ ] **Step 3: Apply the repo filter**
+- [x] **Step 3: Apply the repo filter**
 
 Replace the repo enumeration:
 
@@ -219,7 +219,7 @@ Get-ChildItem $RepoParent -Directory |
       } |
 ```
 
-- [ ] **Step 4: Verify the filter is a no-op by default**
+- [x] **Step 4: Verify the filter is a no-op by default**
 
 ```powershell
 cd C:\repo\agent-skills
@@ -228,7 +228,7 @@ cd C:\repo\agent-skills
 
 Expected: output lines mentioning only `maco` (rule / AGENTS.md / OpenCode commands). No other repo name appears.
 
-- [ ] **Step 5: Verify a scoped run changes nothing in a clean repo**
+- [x] **Step 5: Verify a scoped run changes nothing in a clean repo**
 
 ```powershell
 git -C C:\repo\maco status --porcelain
@@ -236,7 +236,7 @@ git -C C:\repo\maco status --porcelain
 
 Expected: empty. The script writes only when content actually changes.
 
-- [ ] **Step 6: Commit only this file**
+- [x] **Step 6: Commit only this file**
 
 ```powershell
 cd C:\repo\agent-skills
@@ -259,7 +259,7 @@ Expected: one file changed, matching the commit message. Other dirty files in `a
 - Consumes: global config (Task 1), scoped sync (Task 3).
 - Produces: `opencode.jsonc` with a `chrome-devtools` MCP server.
 
-- [ ] **Step 1: Create the project config**
+- [x] **Step 1: Create the project config**
 
 ```jsonc
 {
@@ -275,7 +275,7 @@ Expected: one file changed, matching the commit message. Other dirty files in `a
 }
 ```
 
-- [ ] **Step 2: Install the published skill pack**
+- [x] **Step 2: Install the published skill pack**
 
 ```powershell
 cd C:\repo\faruk
@@ -285,7 +285,7 @@ npx --yes skills add mattpocock/skills@handoff -a cursor -y
 
 Expected: `farukzahra/agent-skills` lists ~17 skills all marked `(copied)` into `.\.agents\skills\`.
 
-- [ ] **Step 3: Drop `skills-sh-maintainer`**
+- [x] **Step 3: Drop `skills-sh-maintainer`**
 
 ```powershell
 cd C:\repo\faruk
@@ -295,7 +295,7 @@ Test-Path .agents\skills\skills-sh-maintainer
 
 Expected: `False`.
 
-- [ ] **Step 4: Sync conventions, scoped to this repo**
+- [x] **Step 4: Sync conventions, scoped to this repo**
 
 ```powershell
 & C:\repo\agent-skills\scripts\sync-agent-conventions.ps1 -SkipSkills -Repos faruk
@@ -303,7 +303,7 @@ Expected: `False`.
 
 Expected: lines mentioning `faruk` only.
 
-- [ ] **Step 5: Commit only rollout files**
+- [x] **Step 5: Commit only rollout files**
 
 ```powershell
 cd C:\repo\faruk
@@ -315,7 +315,7 @@ git show --stat --oneline HEAD
 
 Expected: the commit contains `opencode.jsonc`, skill directories, `skills-lock.json`, the spec and plan docs. Pre-existing faruk changes (if any) stay unstaged — check `git status --porcelain` output before committing.
 
-- [ ] **Step 6: Verify no regression**
+- [x] **Step 6: Verify no regression**
 
 ```powershell
 cd C:\repo\faruk
@@ -335,7 +335,7 @@ Expected: passes, as before this change.
 - Consumes: global config (Task 1), scoped sync (Task 3).
 - Produces: `opencode.jsonc` with `chrome-devtools`, `cwd` pinned to the web workspace.
 
-- [ ] **Step 1: Create the project config**
+- [x] **Step 1: Create the project config**
 
 ```jsonc
 {
@@ -352,7 +352,7 @@ Expected: passes, as before this change.
 }
 ```
 
-- [ ] **Step 2: Install skills**
+- [x] **Step 2: Install skills**
 
 ```powershell
 cd C:\repo\financeiro
@@ -360,7 +360,7 @@ npx --yes skills add farukzahra/agent-skills -a cursor -y
 npx --yes skills add mattpocock/skills@handoff -a cursor -y
 ```
 
-- [ ] **Step 3: Drop `skills-sh-maintainer`**
+- [x] **Step 3: Drop `skills-sh-maintainer`**
 
 ```powershell
 cd C:\repo\financeiro
@@ -370,13 +370,13 @@ Test-Path .agents\skills\skills-sh-maintainer
 
 Expected: `False`.
 
-- [ ] **Step 4: Sync conventions, scoped**
+- [x] **Step 4: Sync conventions, scoped**
 
 ```powershell
 & C:\repo\agent-skills\scripts\sync-agent-conventions.ps1 -SkipSkills -Repos financeiro
 ```
 
-- [ ] **Step 5: Commit only rollout files**
+- [x] **Step 5: Commit only rollout files**
 
 ```powershell
 cd C:\repo\financeiro
@@ -399,7 +399,7 @@ Expected: `financeiro` was dirty with 1 file before this task; that file must NO
 - Consumes: global config (Task 1), scoped sync (Task 3).
 - Produces: `opencode.jsonc` with `chrome-devtools` and `prisma` (`cwd: backend`).
 
-- [ ] **Step 1: Create the project config**
+- [x] **Step 1: Create the project config**
 
 ```jsonc
 {
@@ -420,7 +420,7 @@ Expected: `financeiro` was dirty with 1 file before this task; that file must NO
 }
 ```
 
-- [ ] **Step 2: Install skills**
+- [x] **Step 2: Install skills**
 
 ```powershell
 cd C:\repo\job-hunter
@@ -430,7 +430,7 @@ npx --yes skills add prisma/skills -a cursor -y
 npx --yes skills add currents-dev/playwright-best-practices-skill -a cursor -y
 ```
 
-- [ ] **Step 3: Drop `skills-sh-maintainer`**
+- [x] **Step 3: Drop `skills-sh-maintainer`**
 
 ```powershell
 cd C:\repo\job-hunter
@@ -440,13 +440,13 @@ Test-Path .agents\skills\skills-sh-maintainer
 
 Expected: `False`.
 
-- [ ] **Step 4: Sync conventions, scoped**
+- [x] **Step 4: Sync conventions, scoped**
 
 ```powershell
 & C:\repo\agent-skills\scripts\sync-agent-conventions.ps1 -SkipSkills -Repos job-hunter
 ```
 
-- [ ] **Step 5: Verify the Prisma MCP command exists before committing**
+- [x] **Step 5: Verify the Prisma MCP command exists before committing**
 
 ```powershell
 cd C:\repo\job-hunter\backend
@@ -455,7 +455,7 @@ npx --no-install prisma --help | Select-String mcp
 
 Expected: a line reading `mcp   Starts an MCP server to use with AI development tools`.
 
-- [ ] **Step 6: Commit only rollout files**
+- [x] **Step 6: Commit only rollout files**
 
 ```powershell
 cd C:\repo\job-hunter
@@ -478,7 +478,7 @@ Expected: `job-hunter` was dirty with 6 files; none of them appear in the commit
 - Consumes: global config (Task 1), scoped sync (Task 3).
 - Produces: `opencode.jsonc` with `chrome-devtools` and `prisma`.
 
-- [ ] **Step 1: Create the project config**
+- [x] **Step 1: Create the project config**
 
 ```jsonc
 {
@@ -498,7 +498,7 @@ Expected: `job-hunter` was dirty with 6 files; none of them appear in the commit
 }
 ```
 
-- [ ] **Step 2: Confirm skills are already complete**
+- [x] **Step 2: Confirm skills are already complete**
 
 ```powershell
 cd C:\repo\maco
@@ -507,13 +507,13 @@ cd C:\repo\maco
 
 Expected: `34` or more. If lower, run `npx --yes skills add farukzahra/agent-skills -a cursor -y`. Do **not** run `skills remove` here — `maco` legitimately keeps its full set.
 
-- [ ] **Step 3: Sync conventions, scoped**
+- [x] **Step 3: Sync conventions, scoped**
 
 ```powershell
 & C:\repo\agent-skills\scripts\sync-agent-conventions.ps1 -SkipSkills -Repos maco
 ```
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```powershell
 cd C:\repo\maco
@@ -536,7 +536,7 @@ Expected: `maco` was clean before this task, so `opencode.jsonc` is the only cha
 - Consumes: global config (Task 1), scoped sync (Task 3).
 - Produces: `opencode.jsonc` with `chrome-devtools`; story skills in `.agents/skills/`.
 
-- [ ] **Step 1: Create the project config**
+- [x] **Step 1: Create the project config**
 
 ```jsonc
 {
@@ -552,7 +552,7 @@ Expected: `maco` was clean before this task, so `opencode.jsonc` is the only cha
 }
 ```
 
-- [ ] **Step 2: Install skills**
+- [x] **Step 2: Install skills**
 
 ```powershell
 cd C:\repo\farmar-aura
@@ -563,7 +563,7 @@ npx --yes skills add danjdewhurst/story-skills -a cursor -y
 
 Expected: `story-skills` installs `chapter-writing`, `character-management`, `plot-structure`, `revision-continuity`, `story-init`, `story-maintenance`, `worldbuilding`.
 
-- [ ] **Step 3: Drop `skills-sh-maintainer`**
+- [x] **Step 3: Drop `skills-sh-maintainer`**
 
 ```powershell
 cd C:\repo\farmar-aura
@@ -573,13 +573,13 @@ Test-Path .agents\skills\skills-sh-maintainer
 
 Expected: `False`.
 
-- [ ] **Step 4: Sync conventions, scoped**
+- [x] **Step 4: Sync conventions, scoped**
 
 ```powershell
 & C:\repo\agent-skills\scripts\sync-agent-conventions.ps1 -SkipSkills -Repos farmar-aura
 ```
 
-- [ ] **Step 5: Commit only rollout files**
+- [x] **Step 5: Commit only rollout files**
 
 ```powershell
 cd C:\repo\farmar-aura
@@ -602,7 +602,7 @@ Expected: `farmar-aura` was dirty with 18 files; none of them appear in the comm
 - Consumes: global config (Task 1), scoped sync (Task 3).
 - Produces: `opencode.jsonc` with `chrome-devtools` and `azure`.
 
-- [ ] **Step 1: Create the project config**
+- [x] **Step 1: Create the project config**
 
 ```jsonc
 {
@@ -623,7 +623,7 @@ Expected: `farmar-aura` was dirty with 18 files; none of them appear in the comm
 }
 ```
 
-- [ ] **Step 2: Install skills**
+- [x] **Step 2: Install skills**
 
 ```powershell
 cd C:\repo\ms-poc
@@ -631,7 +631,7 @@ npx --yes skills add farukzahra/agent-skills -a cursor -y
 npx --yes skills add mattpocock/skills@handoff -a cursor -y
 ```
 
-- [ ] **Step 3: Drop `skills-sh-maintainer`**
+- [x] **Step 3: Drop `skills-sh-maintainer`**
 
 ```powershell
 cd C:\repo\ms-poc
@@ -641,13 +641,13 @@ Test-Path .agents\skills\skills-sh-maintainer
 
 Expected: `False`.
 
-- [ ] **Step 4: Sync conventions, scoped**
+- [x] **Step 4: Sync conventions, scoped**
 
 ```powershell
 & C:\repo\agent-skills\scripts\sync-agent-conventions.ps1 -SkipSkills -Repos ms-poc
 ```
 
-- [ ] **Step 5: Commit only rollout files**
+- [x] **Step 5: Commit only rollout files**
 
 ```powershell
 cd C:\repo\ms-poc
@@ -670,7 +670,7 @@ Expected: `ms-poc` was dirty with 5 files; none of them appear in the commit.
 - Consumes: global config (Task 1), scoped sync (Task 3).
 - Produces: `opencode.jsonc` with `chrome-devtools` and `prisma`; Prisma/Playwright/TDD/design skills installed.
 
-- [ ] **Step 1: Create the project config**
+- [x] **Step 1: Create the project config**
 
 ```jsonc
 {
@@ -690,7 +690,7 @@ Expected: `ms-poc` was dirty with 5 files; none of them appear in the commit.
 }
 ```
 
-- [ ] **Step 2: Install skills**
+- [x] **Step 2: Install skills**
 
 The `farukzahra/agent-skills` pack is already installed by the earlier verification run; re-running it is idempotent.
 
@@ -705,7 +705,7 @@ npx --yes skills add anthropics/skills -s frontend-design -a cursor -y
 npx --yes skills add wshobson/agents -s nodejs-backend-patterns -a cursor -y
 ```
 
-- [ ] **Step 3: Drop `skills-sh-maintainer`**
+- [x] **Step 3: Drop `skills-sh-maintainer`**
 
 ```powershell
 cd C:\repo\terapia
@@ -715,13 +715,13 @@ Test-Path .agents\skills\skills-sh-maintainer
 
 Expected: `False`.
 
-- [ ] **Step 4: Sync conventions, scoped**
+- [x] **Step 4: Sync conventions, scoped**
 
 ```powershell
 & C:\repo\agent-skills\scripts\sync-agent-conventions.ps1 -SkipSkills -Repos terapia
 ```
 
-- [ ] **Step 5: Commit only rollout files**
+- [x] **Step 5: Commit only rollout files**
 
 ```powershell
 cd C:\repo\terapia
@@ -744,7 +744,7 @@ Expected: `terapia` was dirty with 47 files. `AGENTS.md` was **already modified*
 - Consumes: global config (Task 1), scoped sync (Task 3).
 - Produces: `opencode.jsonc` with the `mobile` MCP server; Android skills installed.
 
-- [ ] **Step 1: Create the project config**
+- [x] **Step 1: Create the project config**
 
 ```jsonc
 {
@@ -760,7 +760,7 @@ Expected: `terapia` was dirty with 47 files. `AGENTS.md` was **already modified*
 }
 ```
 
-- [ ] **Step 2: Install skills**
+- [x] **Step 2: Install skills**
 
 ```powershell
 cd C:\repo\fumei
@@ -772,7 +772,7 @@ npx --yes skills add hitoshura25/claude-devtools -s android-playstore-setup -a c
 
 Expected: `.agents\skills\` gains `mobile-android-design` and `android-playstore-setup` alongside the existing three.
 
-- [ ] **Step 3: Drop `skills-sh-maintainer`**
+- [x] **Step 3: Drop `skills-sh-maintainer`**
 
 ```powershell
 cd C:\repo\fumei
@@ -782,13 +782,13 @@ Test-Path .agents\skills\skills-sh-maintainer
 
 Expected: `False`.
 
-- [ ] **Step 4: Sync conventions, scoped**
+- [x] **Step 4: Sync conventions, scoped**
 
 ```powershell
 & C:\repo\agent-skills\scripts\sync-agent-conventions.ps1 -SkipSkills -Repos fumei
 ```
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 `fumei` was clean before this task, so everything staged here is rollout output.
 
@@ -811,7 +811,7 @@ git show --stat --oneline HEAD
 - Consumes: every earlier task.
 - Produces: evidence that the rollout is real.
 
-- [ ] **Step 1: Confirm the global servers load**
+- [x] **Step 1: Confirm the global servers load**
 
 ```powershell
 opencode mcp list
@@ -819,7 +819,7 @@ opencode mcp list
 
 Expected: `context7` listed. Record whether `github` is `connected` or `needs authentication`.
 
-- [ ] **Step 2: Confirm every project has a config matching the matrix**
+- [x] **Step 2: Confirm every project has a config matching the matrix**
 
 ```powershell
 foreach ($p in "faruk","financeiro","job-hunter","maco","farmar-aura","ms-poc","terapia","fumei") {
@@ -845,7 +845,7 @@ terapia        chrome-devtools,prisma
 fumei          mobile
 ```
 
-- [ ] **Step 3: Confirm no project kept `skills-sh-maintainer`**
+- [x] **Step 3: Confirm no project kept `skills-sh-maintainer`**
 
 ```powershell
 foreach ($p in "faruk","financeiro","job-hunter","farmar-aura","ms-poc","terapia","fumei") {
@@ -855,7 +855,7 @@ foreach ($p in "faruk","financeiro","job-hunter","farmar-aura","ms-poc","terapia
 
 Expected: `False` on every line.
 
-- [ ] **Step 4: Confirm one commit per touched repo**
+- [x] **Step 4: Confirm one commit per touched repo**
 
 ```powershell
 foreach ($p in "agent-skills","faruk","financeiro","job-hunter","maco","farmar-aura","ms-poc","terapia","fumei") {
@@ -866,7 +866,7 @@ foreach ($p in "agent-skills","faruk","financeiro","job-hunter","maco","farmar-a
 
 Expected: each repo's HEAD is the rollout commit created in its task.
 
-- [ ] **Step 5: Confirm nothing was pushed**
+- [x] **Step 5: Confirm nothing was pushed**
 
 ```powershell
 foreach ($p in "faruk","terapia","fumei") {
@@ -877,7 +877,7 @@ foreach ($p in "faruk","terapia","fumei") {
 
 Expected: `ahead` > 0 — local commits exist and were not pushed. A `0` means the commit went nowhere; verify it exists in Step 4.
 
-- [ ] **Step 6: Record results and commit the spec update in faruk**
+- [x] **Step 6: Record results and commit the spec update in faruk**
 
 ```powershell
 cd C:\repo\faruk
