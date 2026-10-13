@@ -7,7 +7,8 @@
       "date": "2026-10-12",
       "title": "LE Turbo em My Projects",
       "summary": "Card do LE Turbo (Rust + Tauri) na página My Projects, com stack completa, descrição e link para os downloads da última release.",
-      "type": "feat"
+      "type": "feat",
+      "commit": "8a79a98"
     },
     {
       "version": "1.8.9",
