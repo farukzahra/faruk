@@ -7,7 +7,8 @@
       "date": "2026-10-13",
       "title": "PDF do currículo com o fundo do site em todas as páginas",
       "summary": "O PDF baixado mantém o fundo Lumen (grade + painel lateral) em todas as páginas e nenhuma seção é cortada entre páginas: a seção de certificações não aparece mais com o ícone quebrado.",
-      "type": "fix"
+      "type": "fix",
+      "commit": "5883d4f"
     },
     {
       "version": "1.9.0",
