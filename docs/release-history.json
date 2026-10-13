@@ -1,7 +1,14 @@
 {
-  "currentVersion": "1.8.9",
-  "updatedAt": "2026-10-11T12:00:00.000Z",
+  "currentVersion": "1.9.0",
+  "updatedAt": "2026-10-13T01:09:49.000Z",
   "entries": [
+    {
+      "version": "1.9.0",
+      "date": "2026-10-12",
+      "title": "LE Turbo em My Projects",
+      "summary": "Card do LE Turbo (Rust + Tauri) na página My Projects, com stack completa, descrição e link para os downloads da última release.",
+      "type": "feat"
+    },
     {
       "version": "1.8.9",
       "date": "2026-10-11",

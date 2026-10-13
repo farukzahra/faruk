@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-06T13:30:00.000Z",
+  "updatedAt": "2026-10-13T01:09:49.000Z",
   "projects": [
     {
       "id": "faruk-resume",
@@ -56,6 +56,13 @@
       "stack": "Kotlin · Jetpack Compose · Material 3 · Room · Android",
       "description": "Simple Android app to log each vaping session with one tap, view your daily count and timestamps, and keep all data offline on-device—no account or internet required.",
       "url": "https://play.google.com/store/apps/details?id=fumei.faruk.dev.br"
+    },
+    {
+      "id": "last-epoch",
+      "name": "LE Turbo",
+      "stack": "Rust · Tauri 2 · Windows API · JavaScript · NSIS",
+      "description": "Rust + Tauri desktop utility that repeats key and mouse presses inside Last Epoch: tap or hold rows with per-row intervals, a focus gate that injects only while the game owns the foreground, cursor containment, and guaranteed release on every exit path.",
+      "url": "https://github.com/farukzahra/last-epoch/releases/latest"
     }
   ]
 }
