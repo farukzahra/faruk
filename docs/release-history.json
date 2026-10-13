@@ -1,7 +1,14 @@
 {
-  "currentVersion": "1.9.0",
-  "updatedAt": "2026-10-13T01:09:49.000Z",
+  "currentVersion": "1.9.1",
+  "updatedAt": "2026-10-13T12:00:00.000Z",
   "entries": [
+    {
+      "version": "1.9.1",
+      "date": "2026-10-13",
+      "title": "PDF do currículo com o fundo do site em todas as páginas",
+      "summary": "O PDF baixado mantém o fundo Lumen (grade + painel lateral) em todas as páginas e nenhuma seção é cortada entre páginas: a seção de certificações não aparece mais com o ícone quebrado.",
+      "type": "fix"
+    },
     {
       "version": "1.9.0",
       "date": "2026-10-12",

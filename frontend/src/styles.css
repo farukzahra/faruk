@@ -1366,12 +1366,23 @@ body.lumen-theme-active .v-application {
     --page-pad-y: 24px;
   }
 
-  html,
+  /* The root canvas keeps the Lumen blueprint surface on every printed page,
+     so the PDF background matches the site instead of stopping at the content. */
+  html {
+    background:
+      linear-gradient(oklch(96% 0.006 262 / 0.04) 1px, transparent 1px) 0 0 / 48px 48px,
+      linear-gradient(90deg, oklch(96% 0.006 262 / 0.04) 1px, transparent 1px) 0 0 / 48px 48px,
+      radial-gradient(80% 40% at 100% 0%, oklch(76% 0.17 50 / 0.05) 0%, transparent 55%),
+      oklch(13% 0.014 265) !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
   body,
   body.lumen-theme-active,
   body.lumen-theme-active .v-application,
   body.lumen-theme-active .v-application__wrap {
-    background: oklch(13% 0.014 265) !important;
+    background: transparent !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -1383,20 +1394,11 @@ body.lumen-theme-active .v-application {
     display: none !important;
   }
 
-  body.lumen-theme-active {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
   .resume.resume--lumen {
     width: 100%;
     min-height: 100vh;
     margin: 0;
-    background:
-      linear-gradient(oklch(96% 0.006 262 / 0.04) 1px, transparent 1px) 0 0 / 48px 48px,
-      linear-gradient(90deg, oklch(96% 0.006 262 / 0.04) 1px, transparent 1px) 0 0 / 48px 48px,
-      radial-gradient(80% 40% at 100% 0%, oklch(76% 0.17 50 / 0.05) 0%, transparent 55%),
-      oklch(13% 0.014 265) !important;
+    background: transparent !important;
     box-shadow: none;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
@@ -1407,6 +1409,21 @@ body.lumen-theme-active .v-application {
       radial-gradient(120% 80% at 50% 0%, oklch(76% 0.17 50 / 0.08) 0%, transparent 55%),
       oklch(17% 0.016 265) !important;
     color: oklch(72% 0.008 262) !important;
+  }
+
+  /* Fixed layer repeats the sidebar panel on every printed page, so the panel
+     is not cut off where the sidebar content ends. */
+  .resume.resume--lumen .sidebar::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100%;
+    z-index: -1;
+    background: oklch(17% 0.016 265);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
   .resume.resume--lumen .sidebar .sidebar-section > h2,
@@ -1610,5 +1627,23 @@ body.lumen-theme-active .v-application {
 
   .roles-grid {
     grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Keep sections, headings and grid entries intact across page breaks so no
+     icon or heading is clipped at a page boundary. */
+  .resume.resume--lumen .sidebar-section,
+  .resume.resume--lumen .main-section > h2,
+  .resume.resume--lumen .sidebar-section > h2,
+  .resume.resume--lumen .roles-grid article {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .resume.resume--lumen .main-section > h2,
+  .resume.resume--lumen .sidebar-section > h2,
+  .resume.resume--lumen .timeline-content h3,
+  .resume.resume--lumen .timeline-content .location {
+    break-after: avoid;
+    page-break-after: avoid;
   }
 }
