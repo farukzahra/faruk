@@ -7,9 +7,24 @@ const sendOpen = ref(false);
 
 const skillGroups = [
   {
+    name: "AI Engineering",
+    items:
+      "RAG (document ingestion, chunking, embeddings, vector retrieval), LLM Integration, Prompt Engineering, Semantic Kernel, Azure OpenAI, Model Context Protocol (MCP), AI Agents, Generative AI",
+  },
+  {
     name: "Backend",
     items:
-      "Java 17, Java EE, Spring Boot, Spring Cloud, Spring Security, REST APIs, Microservices, OpenAPI 3, OpenFeign, OAuth2, JUnit 5, Mockito, MockMvc, Liquibase",
+      "Java 17, Java EE, Spring Boot, Spring Cloud, Spring Security, REST APIs, Microservices, Node.js, Python, FastAPI, PHP, OpenAPI 3, OpenFeign, OAuth2, JUnit 5, Mockito, MockMvc, Liquibase",
+  },
+  {
+    name: "Frontend",
+    items:
+      "React, Next.js (App Router), React Native, Expo, Redux, TanStack Query, Vue.js 3, TypeScript, JavaScript, Pinia, Vue Router, Axios, Vite, HTML5, CSS3, jQuery, Vuetify, Design Systems, Flutter, Electron.js",
+  },
+  {
+    name: "Data & Search",
+    items:
+      "PostgreSQL, Elasticsearch, MySQL, Oracle, DB2 9, SQLite, Relational Database Design, Multi-tenant Data Modeling, SQL Query Optimization",
   },
   {
     name: "Cloud & DevOps",
@@ -17,30 +32,15 @@ const skillGroups = [
       "Google Cloud Platform (GKE, Pub/Sub, Cloud SQL, Cloud Storage, IAM), AWS (EC2, S3, RDS, Lambda, IAM), Azure (App Service, Blob Storage, Azure SQL, Functions, Entra ID), Docker, Kubernetes, CI/CD, Git, GitHub Actions",
   },
   {
-    name: "Frontend",
-    items:
-      "React, React Native, Next.js, Expo, Redux, TanStack Query, Vue.js 3, TypeScript, JavaScript, Node.js, Pinia, Vue Router, Axios, Vite, HTML5, CSS3, jQuery, Vuetify, Flutter, Electron.js",
-  },
-  {
-    name: "Data & Search",
-    items:
-      "PostgreSQL, MySQL, Oracle, DB2 9, SQLite, Elasticsearch, Relational Databases, Multi-tenant Data Modeling",
-  },
-  {
-    name: "AI & Productivity",
-    items:
-      "GitHub Copilot, Claude Code, Cursor, Codex, AI Agents, Generative AI, LLM Integration",
-  },
-  {
     name: "Practices",
     items:
-      "Software Architecture, System Design, Agile, Scrum, Code Review, Performance Optimization, System Integration",
+      "Software Architecture, System Design, Event-Driven Architecture, Clean Architecture, Code Review, Mentoring, Agile, Scrum, Performance Optimization, Automated Testing (Vitest, React Testing Library, Playwright), AI-Assisted Development (GitHub Copilot, Claude Code, Cursor, Codex)",
   },
 ];
 
 const languages = [
   "Portuguese – Native",
-  "English – Professional Working Proficiency",
+  "English – C1 (Professional Working Proficiency)",
   "Arabic – Elementary",
 ];
 
@@ -65,7 +65,7 @@ const previousRoles = [
     <header class="header resume-header">
       <h1>Faruk Zahra</h1>
       <p class="title">Senior Fullstack Engineer</p>
-      <p class="keywords">Java Architect | Solutions Architect</p>
+      <p class="keywords">Java Architect | Solutions Architect | AI Engineering</p>
       <div class="contact">
         <span><i class="fa-solid fa-location-dot" /> Curitiba, PR, Brazil</span>
         <a href="mailto:farukz@gmail.com">
@@ -97,6 +97,11 @@ const previousRoles = [
           and cloud-native architectures on Google Cloud Platform, AWS and Azure.
         </p>
         <p>
+          Hands-on experience building end-to-end RAG systems in Python: document ingestion,
+          chunking, embedding generation, vector search, and context orchestration for grounded,
+          citation-backed LLM answers.
+        </p>
+        <p>
           Experienced across backend and full-stack development with React, React Native,
           Vue.js 3, TypeScript, Node.js, relational databases and distributed systems.
         </p>
@@ -105,8 +110,8 @@ const previousRoles = [
           performance optimization and delivering scalable solutions throughout the entire SDLC.
         </p>
         <p>
-          Experienced using AI coding agents (GitHub Copilot, Claude Code, Cursor, Codex) to
-          accelerate implementation, refactoring and day-to-day delivery.
+          Experienced in AI-assisted development (GitHub Copilot, Claude Code, Cursor, Codex)
+          and in designing LLM-powered features with retrieval and prompt design.
         </p>
       </div>
     </section>
@@ -203,6 +208,11 @@ const previousRoles = [
               <li>
                 Delivered Elasticsearch-backed order search with indexing, search templates,
                 filters, and aggregations.
+              </li>
+              <li>
+                Designed and implemented an end-to-end RAG architecture in Python: document
+                ingestion, chunking, embedding generation, vector search, and context assembly
+                for LLM-grounded answers.
               </li>
               <li>
                 Deployed and integrated services on Google Cloud Platform — GKE, Pub/Sub, Cloud SQL,

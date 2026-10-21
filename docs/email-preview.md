@@ -4,7 +4,7 @@ Gerado a partir de `lib/email-content.js`. O PDF do currículo é anexado automa
 
 ## English — sem salário
 
-**Assunto:** Application — Faruk Zahra (Senior Software Engineer)
+**Assunto:** Application — Faruk Zahra (Senior Fullstack Engineer)
 
 ---
 
@@ -16,7 +16,7 @@ I am a Senior Software Engineer with more than 20 years of professional experien
 
 For the last five years, I worked remotely for a U.S.-based company, collaborating daily with American engineers, product managers, and stakeholders. This experience strengthened both my technical expertise and my ability to communicate effectively in an international environment while delivering high-quality software in agile teams.
 
-My background includes designing and implementing microservices, building resilient APIs, optimizing SQL databases, and applying software engineering best practices such as automated testing, CI/CD, observability, and clean architecture. More recently, I have also been expanding my knowledge of AI engineering, LLM integrations, MCP, and intelligent agent systems.
+My background includes designing and implementing microservices, building resilient APIs, optimizing SQL databases, and applying software engineering best practices such as automated testing, CI/CD, observability, and clean architecture. More recently, I have designed and delivered end-to-end RAG systems in Python, working with LLM integrations, MCP, and intelligent agent systems.
 
 One of the aspects I value most is professionalism and teamwork. I am proud to have received public recommendations on my LinkedIn profile from my American colleagues and managers, reflecting the trust they placed in my technical skills, work ethic, collaboration, and ability to deliver results. I would be happy to share additional professional references upon request.
 
@@ -32,7 +32,7 @@ Faruk Zahra
 
 ## English — com salário
 
-**Assunto:** Application — Faruk Zahra (Senior Software Engineer)
+**Assunto:** Application — Faruk Zahra (Senior Fullstack Engineer)
 
 ---
 
@@ -44,7 +44,7 @@ I am a Senior Software Engineer with more than 20 years of professional experien
 
 For the last five years, I worked remotely for a U.S.-based company, collaborating daily with American engineers, product managers, and stakeholders. This experience strengthened both my technical expertise and my ability to communicate effectively in an international environment while delivering high-quality software in agile teams.
 
-My background includes designing and implementing microservices, building resilient APIs, optimizing SQL databases, and applying software engineering best practices such as automated testing, CI/CD, observability, and clean architecture. More recently, I have also been expanding my knowledge of AI engineering, LLM integrations, MCP, and intelligent agent systems.
+My background includes designing and implementing microservices, building resilient APIs, optimizing SQL databases, and applying software engineering best practices such as automated testing, CI/CD, observability, and clean architecture. More recently, I have designed and delivered end-to-end RAG systems in Python, working with LLM integrations, MCP, and intelligent agent systems.
 
 One of the aspects I value most is professionalism and teamwork. I am proud to have received public recommendations on my LinkedIn profile from my American colleagues and managers, reflecting the trust they placed in my technical skills, work ethic, collaboration, and ability to deliver results. I would be happy to share additional professional references upon request.
 
@@ -62,7 +62,7 @@ Faruk Zahra
 
 ## Português (BR) — sem salário
 
-**Assunto:** Candidatura — Faruk Zahra (Senior Software Engineer)
+**Assunto:** Candidatura — Faruk Zahra (Senior Fullstack Engineer)
 
 ---
 
@@ -74,7 +74,7 @@ Sou Engenheiro de Software Sênior com mais de 20 anos de experiência profissio
 
 Nos últimos cinco anos, trabalhei remotamente para uma empresa baseada nos Estados Unidos, colaborando diariamente com engenheiros, product managers e stakeholders americanos. Essa experiência fortaleceu tanto minha expertise técnica quanto minha capacidade de me comunicar de forma eficaz em um ambiente internacional, entregando software de alta qualidade em equipes ágeis.
 
-Minha trajetória inclui projetar e implementar microsserviços, construir APIs resilientes, otimizar bancos de dados SQL e aplicar boas práticas de engenharia de software, como testes automatizados, CI/CD, observabilidade e arquitetura limpa. Mais recentemente, também tenho ampliado meus conhecimentos em engenharia de IA, integrações com LLMs, MCP e sistemas de agentes inteligentes.
+Minha trajetória inclui projetar e implementar microsserviços, construir APIs resilientes, otimizar bancos de dados SQL e aplicar boas práticas de engenharia de software, como testes automatizados, CI/CD, observabilidade e arquitetura limpa. Mais recentemente, projetei e entreguei sistemas RAG de ponta a ponta em Python, trabalhando com integrações de LLMs, MCP e sistemas de agentes inteligentes.
 
 Um dos aspectos que mais valorizo é o profissionalismo e o trabalho em equipe. Tenho orgulho de ter recebido recomendações públicas no meu perfil do LinkedIn de colegas e gestores americanos, refletindo a confiança que depositaram em minhas habilidades técnicas, ética de trabalho, colaboração e capacidade de entregar resultados. Fico feliz em compartilhar referências profissionais adicionais, se necessário.
 
@@ -90,7 +90,7 @@ Faruk Zahra
 
 ## Português (BR) — com salário
 
-**Assunto:** Candidatura — Faruk Zahra (Senior Software Engineer)
+**Assunto:** Candidatura — Faruk Zahra (Senior Fullstack Engineer)
 
 ---
 
@@ -102,7 +102,7 @@ Sou Engenheiro de Software Sênior com mais de 20 anos de experiência profissio
 
 Nos últimos cinco anos, trabalhei remotamente para uma empresa baseada nos Estados Unidos, colaborando diariamente com engenheiros, product managers e stakeholders americanos. Essa experiência fortaleceu tanto minha expertise técnica quanto minha capacidade de me comunicar de forma eficaz em um ambiente internacional, entregando software de alta qualidade em equipes ágeis.
 
-Minha trajetória inclui projetar e implementar microsserviços, construir APIs resilientes, otimizar bancos de dados SQL e aplicar boas práticas de engenharia de software, como testes automatizados, CI/CD, observabilidade e arquitetura limpa. Mais recentemente, também tenho ampliado meus conhecimentos em engenharia de IA, integrações com LLMs, MCP e sistemas de agentes inteligentes.
+Minha trajetória inclui projetar e implementar microsserviços, construir APIs resilientes, otimizar bancos de dados SQL e aplicar boas práticas de engenharia de software, como testes automatizados, CI/CD, observabilidade e arquitetura limpa. Mais recentemente, projetei e entreguei sistemas RAG de ponta a ponta em Python, trabalhando com integrações de LLMs, MCP e sistemas de agentes inteligentes.
 
 Um dos aspectos que mais valorizo é o profissionalismo e o trabalho em equipe. Tenho orgulho de ter recebido recomendações públicas no meu perfil do LinkedIn de colegas e gestores americanos, refletindo a confiança que depositaram em minhas habilidades técnicas, ética de trabalho, colaboração e capacidade de entregar resultados. Fico feliz em compartilhar referências profissionais adicionais, se necessário.
 
@@ -117,4 +117,3 @@ Atenciosamente,
 Faruk Zahra
 
 ---
-

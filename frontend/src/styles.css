@@ -1634,6 +1634,8 @@ body.lumen-theme-active .v-application {
   .resume.resume--lumen .sidebar-section,
   .resume.resume--lumen .main-section > h2,
   .resume.resume--lumen .sidebar-section > h2,
+  .resume.resume--lumen .timeline-content h3,
+  .resume.resume--lumen .timeline-content .location,
   .resume.resume--lumen .roles-grid article {
     break-inside: avoid;
     page-break-inside: avoid;

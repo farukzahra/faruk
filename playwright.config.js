@@ -31,6 +31,7 @@ module.exports = defineConfig({
       env: {
         ...process.env,
         FARUK_API_PORT: apiPort,
+        FARUK_WEB_PORT: webPort,
       },
     },
   ],

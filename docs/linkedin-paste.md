@@ -8,7 +8,7 @@ LinkedIn **does not** expose a personal API to update About / Experience / Skill
 ## Headline
 
 ```
-Senior Fullstack Engineer | Java Architect | Solutions Architect
+Senior Fullstack Engineer | Java Architect | Solutions Architect | AI Engineering
 ```
 
 ## About
@@ -16,11 +16,13 @@ Senior Fullstack Engineer | Java Architect | Solutions Architect
 ```
 Senior Software Engineer with 20+ years of experience designing, building, and maintaining enterprise applications using Java, Spring Boot, REST APIs, Microservices and cloud-native architectures on Google Cloud Platform, AWS and Azure.
 
+Hands-on experience building end-to-end RAG systems in Python: document ingestion, chunking, embedding generation, vector search, and context orchestration for grounded, citation-backed LLM answers.
+
 Experienced across backend and full-stack development with React, React Native, Vue.js 3, TypeScript, Node.js, relational databases and distributed systems.
 
 Strong background in software architecture, API design, system integration, performance optimization and delivering scalable solutions throughout the entire SDLC.
 
-Experienced using AI coding agents (GitHub Copilot, Claude Code, Cursor, Codex) to accelerate implementation, refactoring and day-to-day delivery.
+Experienced in AI-assisted development (GitHub Copilot, Claude Code, Cursor, Codex) and in designing LLM-powered features with retrieval and prompt design.
 ```
 
 ## Experience — BairesDev (Full Stack Engineer · May 2021 – Jul 2026 · Remote)
@@ -31,6 +33,7 @@ Experienced using AI coding agents (GitHub Copilot, Claude Code, Cursor, Codex) 
 • Implemented event-driven integrations with Google Cloud Pub/Sub (order ingestion, payment updates, POS export results, supplier fulfillment, outbound email).
 • Modeled multi-tenant PostgreSQL schemas and Liquibase migrations (orders, transactions, shipments, soft deletes).
 • Delivered Elasticsearch-backed order search with indexing, search templates, filters and aggregations.
+• Designed and implemented an end-to-end RAG architecture in Python: document ingestion, chunking, embedding generation, vector search, and context assembly for LLM-grounded answers.
 • Deployed and integrated services on Google Cloud Platform — GKE, Pub/Sub, Cloud SQL, Cloud Storage, IAM — with OpenFeign between microservices and OAuth2 via shared security base.
 • Built frontend features across React, React Native, and Vue 3 — TypeScript, Redux, TanStack Query, Pinia, Vue Router, Axios, Vite, and Expo (Composition API with script setup on Vue).
 • Wrote automated tests across the stack — JUnit 5, Mockito, MockMvc on backend; Vitest, React Testing Library, and Playwright on the frontend.
@@ -54,14 +57,14 @@ Instructor for PC60 – Java/Web Programming and PC50 – Java Programming.
 
 ## Skills (paste as LinkedIn skills / Featured)
 
-**Backend:** Java 17, Java EE, Spring Boot, Spring Cloud, Spring Security, REST APIs, Microservices, OpenAPI 3, OpenFeign, OAuth2, JUnit 5, Mockito, MockMvc, Liquibase
+**AI Engineering:** RAG (document ingestion, chunking, embeddings, vector retrieval), LLM Integration, Prompt Engineering, Semantic Kernel, Azure OpenAI, Model Context Protocol (MCP), AI Agents, Generative AI
+
+**Backend:** Java 17, Java EE, Spring Boot, Spring Cloud, Spring Security, REST APIs, Microservices, Node.js, Python, FastAPI, PHP, OpenAPI 3, OpenFeign, OAuth2, JUnit 5, Mockito, MockMvc, Liquibase
+
+**Frontend:** React, Next.js (App Router), React Native, Expo, Redux, TanStack Query, Vue.js 3, TypeScript, JavaScript, Pinia, Vue Router, Axios, Vite, HTML5, CSS3, jQuery, Vuetify, Design Systems, Flutter, Electron.js
+
+**Data & Search:** PostgreSQL, Elasticsearch, MySQL, Oracle, DB2 9, SQLite, Relational Database Design, Multi-tenant Data Modeling, SQL Query Optimization
 
 **Cloud & DevOps:** Google Cloud Platform, GKE, Pub/Sub, Cloud SQL, Cloud Storage, IAM, AWS, EC2, S3, RDS, Lambda, Azure, App Service, Blob Storage, Azure SQL, Functions, Entra ID, Docker, Kubernetes, CI/CD, Git, GitHub Actions
 
-**Frontend:** React, React Native, Next.js, Expo, Redux, TanStack Query, Vue.js 3, TypeScript, JavaScript, Node.js, Pinia, Vue Router, Axios, Vite, HTML5, CSS3, jQuery, Vuetify, Flutter, Electron.js
-
-**Data & Search:** PostgreSQL, MySQL, Oracle, DB2 9, SQLite, Elasticsearch, Relational Databases, Multi-tenant Data Modeling
-
-**AI & Productivity:** GitHub Copilot, Claude Code, Cursor, Codex, AI Agents, Generative AI, LLM Integration
-
-**Practices:** Software Architecture, System Design, Agile, Scrum, Code Review, Performance Optimization, System Integration
+**Practices:** Software Architecture, System Design, Event-Driven Architecture, Clean Architecture, Code Review, Mentoring, Agile, Scrum, Performance Optimization, Automated Testing (Vitest, React Testing Library, Playwright), AI-Assisted Development (GitHub Copilot, Claude Code, Cursor, Codex)

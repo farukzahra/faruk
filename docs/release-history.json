@@ -1,7 +1,14 @@
 {
-  "currentVersion": "1.9.1",
-  "updatedAt": "2026-10-13T12:00:00.000Z",
+  "currentVersion": "1.10.0",
+  "updatedAt": "2026-10-21T11:03:59.000Z",
   "entries": [
+    {
+      "version": "1.10.0",
+      "date": "2026-10-21",
+      "title": "Currículo posicionado para Fullstack + IA",
+      "summary": "Nova seção AI Engineering com RAG, Python, FastAPI, MCP, Semantic Kernel e Azure OpenAI; Backend ganhou PHP e Node.js; bullet de arquitetura RAG em Python na BairesDev; inglês C1 e keywords de frontend como Next.js App Router e Design Systems.",
+      "type": "feat"
+    },
     {
       "version": "1.9.1",
       "date": "2026-10-13",
