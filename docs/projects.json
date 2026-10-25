@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-13T01:09:49.000Z",
+  "updatedAt": "2026-10-25T19:47:59.000Z",
   "projects": [
     {
       "id": "faruk-resume",
@@ -56,6 +56,13 @@
       "stack": "Kotlin · Jetpack Compose · Material 3 · Room · Android",
       "description": "Simple Android app to log each vaping session with one tap, view your daily count and timestamps, and keep all data offline on-device—no account or internet required.",
       "url": "https://play.google.com/store/apps/details?id=fumei.faruk.dev.br"
+    },
+    {
+      "id": "muslim-plus",
+      "name": "Muslim Plus",
+      "stack": "Kotlin · Jetpack Compose · Material 3 · DataStore · Media3",
+      "description": "Offline-first Islamic companion for Android with prayer times, per-prayer offsets, Qibla compass, adhan per prayer, Hijri date, and the full Quran with transliteration, English and Portuguese translations, search, bookmarks, and recitation audio. No accounts, ads, or analytics.",
+      "url": "https://play.google.com/store/apps/details?id=com.farukzahra.muslimplus"
     },
     {
       "id": "last-epoch",

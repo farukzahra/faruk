@@ -1,7 +1,14 @@
 {
-  "currentVersion": "1.10.0",
-  "updatedAt": "2026-10-21T11:03:59.000Z",
+  "currentVersion": "1.11.0",
+  "updatedAt": "2026-10-25T19:47:59.000Z",
   "entries": [
+    {
+      "version": "1.11.0",
+      "date": "2026-10-25",
+      "title": "Muslim Plus em My Projects",
+      "summary": "Card do Muslim Plus (Kotlin + Jetpack Compose) na página My Projects, com horários de oração, Qibla, Alcorão offline e áudio de recitação, e link para a ficha na Play Store.",
+      "type": "feat"
+    },
     {
       "version": "1.10.0",
       "date": "2026-10-21",
