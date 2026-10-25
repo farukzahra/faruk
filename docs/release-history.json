@@ -7,7 +7,8 @@
       "date": "2026-10-25",
       "title": "Nova foto de perfil no site e no PDF",
       "summary": "Retrato profissional atualizado no currículo: nova foto na página principal, no PDF gerado e nos avatares do projeto.",
-      "type": "fix"
+      "type": "fix",
+      "commit": "ed4ccef"
     },
     {
       "version": "1.11.1",
