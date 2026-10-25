@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-25T19:47:59.000Z",
+  "updatedAt": "2026-10-25T19:51:03.000Z",
   "projects": [
     {
       "id": "faruk-resume",
@@ -44,11 +44,11 @@
       "url": "https://mspoc.faruk.dev.br"
     },
     {
-      "id": "terapia",
-      "name": "TerapIA",
+      "id": "numinoso",
+      "name": "Numinoso",
       "stack": "Next.js · React · PostgreSQL · Prisma · TypeScript",
-      "description": "Multi-tenant SaaS for mental health professionals: scheduling, video session tab recording, browser-local Whisper transcription, Gemini AI session analysis, and patient records per professional.",
-      "url": "https://terapia.faruk.dev.br"
+      "description": "Practice management workspace for mental health professionals: scheduling with Google Meet, patient records, billing, and reports, plus session recording transcribed locally in the browser and reviewed with AI assistance. Only the text leaves the device.",
+      "url": "https://numinoso.com.br"
     },
     {
       "id": "fumei",

@@ -1,7 +1,14 @@
 {
-  "currentVersion": "1.11.0",
-  "updatedAt": "2026-10-25T19:52:00.000Z",
+  "currentVersion": "1.11.1",
+  "updatedAt": "2026-10-25T19:51:03.000Z",
   "entries": [
+    {
+      "version": "1.11.1",
+      "date": "2026-10-25",
+      "title": "TerapIA vira Numinoso em My Projects",
+      "summary": "Card do projeto renomeado para Numinoso, com a descrição atualizada para o consultório completo (agenda, pacientes, financeiro e relatórios) e o link para numinoso.com.br.",
+      "type": "fix"
+    },
     {
       "version": "1.11.0",
       "date": "2026-10-25",
