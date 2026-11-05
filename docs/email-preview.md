@@ -4,7 +4,7 @@ Gerado a partir de `lib/email-content.js`. O PDF do currículo é anexado automa
 
 ## English — sem salário
 
-**Assunto:** Application — Faruk Zahra (Senior Fullstack Engineer)
+**Assunto:** Application — Faruk Zahra (Senior Full Stack Engineer)
 
 ---
 
@@ -32,7 +32,7 @@ Faruk Zahra
 
 ## English — com salário
 
-**Assunto:** Application — Faruk Zahra (Senior Fullstack Engineer)
+**Assunto:** Application — Faruk Zahra (Senior Full Stack Engineer)
 
 ---
 
@@ -62,7 +62,7 @@ Faruk Zahra
 
 ## Português (BR) — sem salário
 
-**Assunto:** Candidatura — Faruk Zahra (Senior Fullstack Engineer)
+**Assunto:** Candidatura — Faruk Zahra (Senior Full Stack Engineer)
 
 ---
 
@@ -90,7 +90,7 @@ Faruk Zahra
 
 ## Português (BR) — com salário
 
-**Assunto:** Candidatura — Faruk Zahra (Senior Fullstack Engineer)
+**Assunto:** Candidatura — Faruk Zahra (Senior Full Stack Engineer)
 
 ---
 

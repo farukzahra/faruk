@@ -120,6 +120,16 @@ async function main() {
     // Layout / webfonts settle
     await page.waitForTimeout(800);
 
+    // Chromium resolves relative hrefs against the local preview server, which
+    // would bake http://127.0.0.1:<port> into the PDF. Point internal links at
+    // the production origin so "My Projects" and friends stay clickable.
+    await page.evaluate(() => {
+      const origin = "https://www.faruk.dev.br";
+      document.querySelectorAll('a[href^="/"]').forEach((anchor) => {
+        anchor.setAttribute("href", origin + anchor.getAttribute("href"));
+      });
+    });
+
     await page.pdf({
       path: OUT,
       printBackground: true,

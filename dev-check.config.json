@@ -5,7 +5,7 @@
     {
       "path": "/",
       "status": 200,
-      "bodyIncludes": ["Faruk Zahra | Senior Software Engineer", "/src/main.ts"],
+      "bodyIncludes": ["Faruk Zahra | Senior Full Stack Engineer", "/src/main.ts"],
       "bodyExcludes": ["Application error", "ENOENT", "app-build-manifest"]
     }
   ]

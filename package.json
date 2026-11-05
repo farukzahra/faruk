@@ -1,6 +1,6 @@
 {
   "name": "faruk-resume",
-  "version": "1.11.2",
+  "version": "1.12.0",
   "private": true,
   "scripts": {
     "dev": "node scripts/dev.js",
@@ -15,7 +15,8 @@
     "github:secrets": "python scripts/setup-google-secrets.py",
     "sync:gmail": "powershell -ExecutionPolicy Bypass -File scripts/sync-gmail-to-production.ps1",
     "pdf": "node scripts/generate-resume-pdf.mjs",
-    "test": "node --test tests/**/*.test.js",
+    "check:profile": "node scripts/check-profile-sync.mjs",
+    "test": "node scripts/check-profile-sync.mjs && node --test tests/**/*.test.js",
     "test:e2e": "playwright test"
   },
   "dependencies": {

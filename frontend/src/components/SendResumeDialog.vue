@@ -149,7 +149,7 @@ defineExpose({ reset });
           <v-text-field
             v-model="subject"
             label="Assunto do e-mail"
-            placeholder="Application — Faruk Zahra (Senior Fullstack Engineer)"
+            placeholder="Application — Faruk Zahra (Senior Full Stack Engineer)"
             :disabled="loading"
             hide-details
             density="compact"

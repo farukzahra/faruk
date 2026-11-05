@@ -28,7 +28,7 @@ Writes/updates `frontend/public/assets/Faruk Zahra - CV - Resume.pdf`.
    - `skillGroups`
    - `previousRoles`
    - summary paragraphs in template
-   - title line: "Senior Fullstack Engineer"
+   - title line: "Senior Full Stack Engineer"
 3. Do not commit resume content into agent-skills repo.
 
 ## Live preview (optional validation)

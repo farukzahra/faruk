@@ -64,8 +64,10 @@ const previousRoles = [
   <div class="resume resume--lumen">
     <header class="header resume-header">
       <h1>Faruk Zahra</h1>
-      <p class="title">Senior Fullstack Engineer</p>
-      <p class="keywords">Java Architect | Solutions Architect | AI Engineering</p>
+      <p class="title">Senior Full Stack Engineer</p>
+      <p class="keywords">
+        Staff / Principal Software Engineer | Java Architect | Solutions Architect | AI Engineering
+      </p>
       <div class="contact">
         <span><i class="fa-solid fa-location-dot" /> Curitiba, PR, Brazil</span>
         <a href="mailto:farukz@gmail.com">

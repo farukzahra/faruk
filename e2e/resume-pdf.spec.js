@@ -45,12 +45,21 @@ test("downloaded resume PDF contains the rendered resume content", async ({ page
   const document = await loadingTask.promise;
   expect(document.numPages).toBeGreaterThan(0);
   let actualText = "";
+  const linkUrls = [];
   for (let pageNumber = 1; pageNumber <= document.numPages; pageNumber += 1) {
     const pdfPage = await document.getPage(pageNumber);
     const content = await pdfPage.getTextContent();
     actualText += ` ${content.items.map((item) => item.str).join(" ")}`;
+    const annotations = await pdfPage.getAnnotations();
+    for (const annotation of annotations) {
+      if (annotation.subtype === "Link" && annotation.url) linkUrls.push(annotation.url);
+    }
   }
   await loadingTask.destroy();
+
+  const localLinks = linkUrls.filter((url) => /127\.0\.0\.1|localhost/.test(url));
+  expect(localLinks, "PDF must not link to the local preview server").toEqual([]);
+  expect(linkUrls).toContain("https://www.faruk.dev.br/projects");
 
   const normalizedPdfText = normalizeText(actualText);
   const missing = expectedBlocks

@@ -8,7 +8,7 @@ LinkedIn **does not** expose a personal API to update About / Experience / Skill
 ## Headline
 
 ```
-Senior Fullstack Engineer | Java Architect | Solutions Architect | AI Engineering
+Senior Full Stack Engineer | Staff / Principal Software Engineer | Java Architect | Solutions Architect | AI Engineering
 ```
 
 ## About
@@ -28,16 +28,16 @@ Experienced in AI-assisted development (GitHub Copilot, Claude Code, Cursor, Cod
 ## Experience — BairesDev (Full Stack Engineer · May 2021 – Jul 2026 · Remote)
 
 ```
-• Built and maintained multi-tenant Orders microservice (Java 17, Spring Boot) for retail e-commerce platform — order lifecycle, payments, fulfillment and store operations.
+• Built and maintained a multi-tenant Orders microservice (Java 17, Spring Boot) for a retail e-commerce platform — order lifecycle, payments, fulfillment, and store operations.
 • Designed contract-first REST APIs with OpenAPI 3, generating Spring interfaces and TypeScript clients for consuming services.
 • Implemented event-driven integrations with Google Cloud Pub/Sub (order ingestion, payment updates, POS export results, supplier fulfillment, outbound email).
 • Modeled multi-tenant PostgreSQL schemas and Liquibase migrations (orders, transactions, shipments, soft deletes).
-• Delivered Elasticsearch-backed order search with indexing, search templates, filters and aggregations.
+• Delivered Elasticsearch-backed order search with indexing, search templates, filters, and aggregations.
 • Designed and implemented an end-to-end RAG architecture in Python: document ingestion, chunking, embedding generation, vector search, and context assembly for LLM-grounded answers.
 • Deployed and integrated services on Google Cloud Platform — GKE, Pub/Sub, Cloud SQL, Cloud Storage, IAM — with OpenFeign between microservices and OAuth2 via shared security base.
 • Built frontend features across React, React Native, and Vue 3 — TypeScript, Redux, TanStack Query, Pinia, Vue Router, Axios, Vite, and Expo (Composition API with script setup on Vue).
-• Wrote automated tests across the stack — JUnit 5, Mockito, MockMvc on backend; Vitest, React Testing Library, and Playwright on the frontend.
-• Participated in Agile ceremonies, code reviews and production support.
+• Wrote automated tests across the stack — JUnit 5, Mockito, and MockMvc on the backend; Vitest, React Testing Library, and Playwright on the frontend.
+• Participated in Agile ceremonies, code reviews, and production support.
 ```
 
 ## Experience — Lume Tecnologia (Solutions Architect · Feb 2008 – Apr 2021 · Pinhais, PR – Brazil)
@@ -55,6 +55,49 @@ Experienced in AI-assisted development (GitHub Copilot, Claude Code, Cursor, Cod
 Instructor for PC60 – Java/Web Programming and PC50 – Java Programming.
 ```
 
+## Experience — Other roles (keep as separate LinkedIn entries)
+
+```
+Java Specialist · GVT · 2007 – 2008
+Java Specialist · Vivo · 2005 – 2007
+Java Specialist · Visionnaire · 2004 – 2005
+Java Developer · HSBC · 2003 – 2004
+```
+
+## Education
+
+```
+Master in Health Technology (PPGTS) · Pontifícia Universidade Católica do Paraná (PUCPR) · 2007 – 2009
+Ontology, Ontology Learning, Java.
+
+Bachelor of Information Systems · Pontifícia Universidade Católica do Paraná (PUCPR) · 2001 – 2004
+```
+
+## Certifications
+
+```
+Oracle Certified Professional, Java EE 5 Web Component Developer
+Oracle Certified Professional, Java SE 6 Programmer
+IBM Certified Associate Developer – Lotus Notes and Domino 7
+IBM Certified Database Associate – DB2 9 Fundamentals
+SUN Certified Mobile Application Developer
+```
+
+## Languages
+
+```
+Portuguese – Native
+English – C1 (Professional Working Proficiency)
+Arabic – Elementary
+```
+
+## Featured / Projects
+
+```
+My Projects — https://www.faruk.dev.br/projects
+Faruk Resume Site, Financeiro, Job Hunter, Maco, Farmando Aura, Enterprise AI Sales Intelligence, Numinoso, Fumei, Muslim Plus, LE Turbo
+```
+
 ## Skills (paste as LinkedIn skills / Featured)
 
 **AI Engineering:** RAG (document ingestion, chunking, embeddings, vector retrieval), LLM Integration, Prompt Engineering, Semantic Kernel, Azure OpenAI, Model Context Protocol (MCP), AI Agents, Generative AI
@@ -65,6 +108,6 @@ Instructor for PC60 – Java/Web Programming and PC50 – Java Programming.
 
 **Data & Search:** PostgreSQL, Elasticsearch, MySQL, Oracle, DB2 9, SQLite, Relational Database Design, Multi-tenant Data Modeling, SQL Query Optimization
 
-**Cloud & DevOps:** Google Cloud Platform, GKE, Pub/Sub, Cloud SQL, Cloud Storage, IAM, AWS, EC2, S3, RDS, Lambda, Azure, App Service, Blob Storage, Azure SQL, Functions, Entra ID, Docker, Kubernetes, CI/CD, Git, GitHub Actions
+**Cloud & DevOps:** Google Cloud Platform (GKE, Pub/Sub, Cloud SQL, Cloud Storage, IAM), AWS (EC2, S3, RDS, Lambda, IAM), Azure (App Service, Blob Storage, Azure SQL, Functions, Entra ID), Docker, Kubernetes, CI/CD, Git, GitHub Actions
 
 **Practices:** Software Architecture, System Design, Event-Driven Architecture, Clean Architecture, Code Review, Mentoring, Agile, Scrum, Performance Optimization, Automated Testing (Vitest, React Testing Library, Playwright), AI-Assisted Development (GitHub Copilot, Claude Code, Cursor, Codex)
