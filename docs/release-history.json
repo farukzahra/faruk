@@ -7,7 +7,8 @@
       "date": "2026-11-05",
       "title": "Posicionamento sênior full stack no site, PDF e e-mails",
       "summary": "A headline canônica de docs/profile.json passa a ser Senior Full Stack Engineer | Staff / Principal Software Engineer | Java Architect | Solutions Architect | AI Engineering, sincronizada no site, no PDF, no assunto dos e-mails e no pacote do LinkedIn. Os links internos do PDF agora apontam para www.faruk.dev.br.",
-      "type": "feat"
+      "type": "feat",
+      "commit": "9bc31aa"
     },
     {
       "version": "1.11.2",
