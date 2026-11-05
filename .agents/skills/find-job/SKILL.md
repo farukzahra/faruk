@@ -47,7 +47,7 @@ Read the file with `Read`. For PDF, extract text from readable content; if poor,
 
 Build a **resume profile** (keep in memory for this session):
 
-- Target titles (e.g. Senior Full Stack Engineer, Staff / Principal Software Engineer, Java Architect)
+- Target titles (e.g. Senior Full Stack Engineer, Staff / Principal Software Engineer, Solutions Architect)
 - Top skills / keywords (10–20)
 - Years of experience, seniority band
 - Languages (English level matters for US roles)

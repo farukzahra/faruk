@@ -8,7 +8,7 @@ LinkedIn **does not** expose a personal API to update About / Experience / Skill
 ## Headline
 
 ```
-Senior Full Stack Engineer | Staff / Principal Software Engineer | Java Architect | Solutions Architect | AI Engineering
+Senior Full Stack Engineer | Staff / Principal Software Engineer | Solutions Architect | AI Engineering
 ```
 
 ## About

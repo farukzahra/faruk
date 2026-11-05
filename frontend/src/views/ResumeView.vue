@@ -66,7 +66,7 @@ const previousRoles = [
       <h1>Faruk Zahra</h1>
       <p class="title">Senior Full Stack Engineer</p>
       <p class="keywords">
-        Staff / Principal Software Engineer | Java Architect | Solutions Architect | AI Engineering
+        Staff / Principal Software Engineer | Solutions Architect | AI Engineering
       </p>
       <div class="contact">
         <span><i class="fa-solid fa-location-dot" /> Curitiba, PR, Brazil</span>
